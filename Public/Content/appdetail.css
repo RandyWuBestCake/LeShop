@@ -1,0 +1,166 @@
+﻿@charset "utf-8";
+
+body{margin:0;padding:0;font:14px Arial,"Microsoft Yahei";background:#f7f7f7 url("../Images/bg-head.jpg") repeat-x;color:#333;}
+button{font:16px "Microsoft Yahei";background:#d70c18;color:#fff;cursor:pointer;outline:none;}
+button:hover{background:#ed1e2a;}
+button.disabled{background:#cdcdcd !important;color:#e8e8e8 !important;}
+img,button{border:none;}
+ul,dl,dd{margin:0;padding:0;list-style:none;}
+input,textarea{outline:none;}
+p,h1,h2,h3,h4{margin:0;padding:0;font-weight:normal;}
+a{text-decoration:none;}
+.textclip{display:block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.center{text-align:center;}
+.mask{display:none;width:100%;height:2000px;background:#000;opacity:0.3;filter:alpha(opacity=30);position:absolute;z-index:1000;top:0;}
+.dialog{display:none;position:absolute;z-index:2000;width:470px;height:290px;border:1px solid #c9c9c9;background:#fff;}
+.dialog .close{text-align:right;padding:12px;}
+.dialog .close .icon{display:inline-block;width:16px;height:15px;background:url("../Images/icon-round.png") 0 -160px no-repeat;cursor:pointer;}
+.dialog .false,.dialog .ok{display:none;}
+.dialog h3{font-size:22px;padding:20px 0 10px 0;}
+.dialog p{color:#838383;font-size:16px;}
+.dialog .ok .icon{display:inline-block;width:28px;height:28px;background:url("../Images/icon-round.png") 0 -210px no-repeat;vertical-align:middle;margin:0 10px 0 0;}
+/*.floatMenu{position:fixed;left:10%;top:50%;background:url("../Images/btn-floatmenu.png") no-repeat;width:60px;height:115px;font-size:14px;}
+.floatMenu .cur{background:url("../Images/btn-floatmenu.png") 0 -158px no-repeat;color:#fff;width:30px;height:31px;padding:12px 15px;}
+.floatMenu a{color:#838383;font-size:14px;display:block;width:60px;height:60px;line-height:60px;}*/
+#appPlayer{background: url("../Images/ico-y.png") 0 -450px;width: 60px;height: 59px;position:absolute;padding-top: 56px;}
+#appPlayer a{display: block;width: 60px;height: 59px;}
+a#goTop{background-image: url("../Images/ico-y.png");background-position: 0 -388px;width: 52px;height: 52px;cursor: pointer;position:fixed;display: none;bottom: 20px;}
+a#goTop:hover{background-position:-62px -388px;}
+
+#userMenu{position: absolute;left:105px;top:40px;width: 150px;border:solid #dadbdb 1px;background-color:#fff;font-family: Arial,"SimSun";font-size: 12px;z-index: 10000;}
+#userMenu dd{display:block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;text-align: center;line-height: 32px;color: #a0a0a0;padding: 0 10px;}
+#userMenu dd:hover{background-color: #f7f7f7;}
+#userMenu dd a{display:block;color: #a0a0a0;border-top: dashed #dadbdb 1px;}
+#userMenu dd a:hover{color: #d70c18;}
+
+.navBox{width: 1004px;height: 87px;margin: 0 auto;}
+.aline{background: url("../Images/line_yu.jpg") no-repeat 0 6px;padding:0 15px;}
+.navBox h1{width: 238px;height: 79px;float: left;}
+.navBox ul{width: 447px;float: left;margin-left: 105px;}
+.navBox ul li{width: 62px;float: left;text-align: center;font:16px "Microsoft YaHei";height: 79px;padding-bottom: 8px;line-height: 79px;}
+.navBox ul li a{color:#333;}
+.navBox ul li a:hover{color: #d70c18;}
+.navCurrent{background: url("../Images/icon-navfocus.png") center bottom no-repeat;}
+.navCurrent a{color:#d70c18;}
+.topSearch{background: url("../Images/ico-y.png") no-repeat;width: 181px;float: right;height: 28px;margin-top: 25px;position: relative;z-index: 900;padding-left: 13px;}
+.topSearch input{background:transparent;height: 28px;width: 113px;float: left;border:0;color: #9c9c9c;font-family: Arial;line-height: 28px;}
+.search_bt{background:url("../Images/ico-y.png") 168px 0;height: 28px;width: 30px;float: left;text-indent: -10000em; }
+.login_bt{background:url("../Images/ico-y.png") 0 -33px;height: 28px;width: 22px;float: left;margin-left: 10px;cursor: pointer;}
+
+.appHead{width:1004px;margin:0 auto;padding:32px 0 20px 0;}
+.appHead h2{font-size:20px;}
+.appIcon{width:82px;height:82px;float:left;padding-right:14px;}
+.appIcon img{width:82px;height:82px;}
+.appHead .control{word-spacing:10px;padding:10px 0;}
+.appHead .control span{display:inline-block;width:12px;height:24px;background:url("../Images/icon-controller.png") no-repeat;vertical-align:middle;*margin-right:12px;}
+/*九键遥控器/标配遥控器*/
+.appHead .control .nine-keys,.appHead .control .standard{width:12px;height:24px;background-position:-26px 0;}
+/*空鼠*/
+.appHead .control .mouse{width:12px;height:24px;}
+/*游戏手柄*/
+.appHead .control .hand-shank{width:27px;height:24px;background-position:-49px 0;}
+
+.appMain{width:975px;height:386px;padding:12px 15px;zoom:1;margin:0 auto;background:#fff url("../Images/bg-appmain.png") left bottom repeat-x;}
+.appMain .screenShots{width:738px;height:380px;background:#f7f7f7;overflow-x:auto;overflow-y:hidden;float:left;}
+.appMain .screenShots .box{width:2600px;}
+.appMain .screenShots img{height:360px;float:left;margin-left:10px;}
+.appMain .screenShots img:first-child{margin-left:0;}
+.appMain .appInfo{float:right;width:204px;overflow:hidden;}
+.appMain .addFavor{width:41px;height:41px;background:url("../Images/icon-addfavor.png") no-repeat;position:absolute;z-index:999;margin:-12px 0 0 950px;cursor:pointer;}
+.appMain .btnGroup{padding:23px 0 0 0;}
+.appMain .btnGroup button{width:190px;height:40px;display:block;margin-bottom:13px;}
+.appMain .btnGroup .download{width:190px;height:40px;margin-bottom:13px;display:inline-block;color:#fff;background:#3caedd;font-size:16px;line-height:40px;text-align:center;}
+.appMain .btnGroup .download:hover{background:#45bff1;}
+.appMain .count{height:43px;}
+.appMain .count li{float:left;width:67px;border-left:1px dashed #eee;text-align:center;font:13px "SimSun";color:#838383;}
+.appMain .count li:first-child{border:none;}
+.appMain .count li i{display:block;color:#d70c18;font:normal 16px/28px "Microsoft YaHei";}
+.appMain .checked{margin:32px 0 0 0;clear:both;}
+.appMain .screenShots .box{height:380px;}
+.appMain .checked li{margin-bottom:16px;font:12px Arial,"SimSun";color:#838383;}
+.appMain .checked span{display:inline-block;vertical-align:middle;width:61px;height:18px;background:url("../Images/icon-checked.png") no-repeat;margin-right:10px;}
+/*免费Free*/
+.appMain .checked .icon1{}
+/*官方*/
+.appMain .checked .icon2{background-position:0 -34px;}
+/*安全*/
+.appMain .checked .icon3{background-position:0 -68px;}
+/*无广告*/
+.appMain .checked .icon4{background-position:0 -102px;}
+
+.content{width:1004px;height:100%;margin:38px auto 0 auto;padding-bottom:46px;zoom:1;}
+.content:after{content:".";visibility:hidden;display:block;clear:both;}
+.content .cLeft{width:752px;float:left;overflow:hidden;}
+.content .cRight{width:250px;float:right;}
+.appDetail{}
+.appDetail h2{padding-bottom:18px;font-size:16px;}
+.appDetail h3{padding-top:10px;font-size:16px;clear:both;display:block;}
+.appDetail h3 span{font-size:14px;}
+.appDetail .info{word-spacing:10px;padding-bottom:23px;font:14px/22px Arial,"SimSun";}
+.appDetail .bdsharebuttonbox{padding-top:10px;}
+.appDetail .bdsharebuttonbox span{float: left;margin:6px 6px 6px 0;font:13px/16px "SimSun";}
+/*评分星星*/
+.star,.star em{display:inline-block;line-height:0;width:76px;height:12px;background:url("../Images/icon-star.png") repeat-x;}
+.star em{background-position:0 -12px;}
+.appDetail .info a{text-decoration:underline;color:#42aedb;}
+.appDetail .intro{font:12px/24px Arial,"SimSun";}
+.appDetail .intro a{color:#42aedb;text-decoration:underline;}
+.comment{padding:24px 0 0 0;}
+.commentBox{}
+.comment .avatar{width:64px;text-align:center;float:left;}
+.comment .avatar #userName{display:block;word-break:break-all;}
+.comment .avatar img{width:64px;height:64px;padding:0 0 8px 0;}
+.comment .text{float:left;width:672px;padding:0 0 0 16px;}
+.comment .text p{font:12px Arial,"SimSun";padding:0 0 6px 0;}
+.comment .markStar{display:inline-block;vertical-align:middle;width:80px;height:12px;background:url("../Images/icon-star.png") repeat-x;margin:0 0 0 10px;line-height:0}
+.comment .markStar span{display:block;float:left;width:16px;height:12px;}
+.comment .markStar span.on{background:url("../Images/icon-star.png") 0 -12px no-repeat;}
+.comment textarea{width:646px;height:66px;border:1px solid #cdcdcd;padding:8px 12px;color:#333;font:14px/20px Arial,"SimSun";display:block;}
+.comment .placeholder{padding:8px 12px;color:#cdcdcd;font:14px/20px Arial,'SimSun';position:absolute;margin-top:-82px;}
+.comment .confirm{font:12px Arial,"SimSun";text-align:right;padding:12px 0 25px 0;}
+.comment .confirm .icon{display:inline-block;vertical-align:middle;margin:0 4px 0 0;width:14px;height:15px;background:url("../Images/icon-round.png") 0 -185px no-repeat;}
+.comment .confirm button{width:72px;height:30px;margin:0 0 0 10px;}
+/*评论默认5条*/
+.record{border-top:1px dashed #ccc;clear:both;padding:20px 0 20px 0;height:100%;}
+.record .avatar{float:left;width:64px;height:64px;padding:0 18px 0 0;}
+.record .right{float:left;width:670px;height:100%;}
+.record .user{height:30px;font-size:14px;}
+.record .user .star{margin:8px 0 0 0;}
+.record .user .name{float:left;}
+.record .user .date{float:right;}
+.record .right p{padding:18px 0 0 0;line-height:24px;}
+.record .right:after{content:".";visibility:hidden;}
+.loadRecord{background:url("../Images/line.png") center center no-repeat;width:672px;height:26px;clear:left;margin:0 auto;text-align:center;display:none;}
+.loadRecord button{width:87px;height:26px;font-size:12px;border:1px solid #c6c6c6;color:#838383;margin:0 auto;background:#fcfcfc;}
+.loadRecord button:hover{background:#fff;color:#333;}
+.loadRecord button img{vertical-align:middle;margin-bottom:2px;}
+
+/*相关推荐*/
+.recommend{width:180px;padding:0 0 0 50px;}
+.recommend h3{display:block;font-size:16px;height:32px;background:url("../Images/rightline.png") left bottom no-repeat;padding:0 0 5px 0;}
+.recommend .app{zoom:1;height:80px;padding:12px 0 0 0;border-top:1px dashed #c6c6c6;}
+.recommend .app:after{content:".";display:block;visibility:hidden;clear:both;}
+.recommend .app .data{/*width:200px;*/float:right;}
+.recommend .app .name{display:block;width:106px;font-size:14px;line-height:28px;color:#333;}
+.recommend .app .name:hover{text-decoration:underline;}
+.recommend .app .num{display:block;font:12px Arial,"SimSun";color:#838383;padding:4px 0 0 0;}
+.recommend .app.first{border:none;}
+.recommend .app .icon{width:64px;height:64px;padding:0 10px 0 0;float:left;}
+.recommend .app .icon img{width:64px;height:64px;}
+.recommend .app .push{padding-top:5px;display:none;}
+.recommend .app .push button{font-size:14px;width:106px;height:30px;}
+/*最新上架*/
+.latest{margin:32px 0 0 0;}
+
+/*页脚*/
+.foot{clear:both;background:#f4f4f4 url("../Images/bg-foot.jpg") repeat-x;height:200px;text-align:center;font:12px Arial,"SimSun";}
+/*.footlink{width:678px;display:inline-block;margin-top:22px;}*/
+.footlink{display:inline-block;margin-top:22px;}
+.footlink li{display:block;padding:0 24px;float:left;border-left:1px solid #b0b3b3;}
+.footlink li:first-child{border:none;}
+.footlink a{color:#333;font-family: microsoft yahei;font-size: 14px;}
+.footlink a:hover{text-decoration:underline;}
+
+.foot .cert{margin:18px auto 0 auto;line-height:22px;color:#b0b3b3;word-spacing:30px;border-top:1px dashed #c6c6c6;padding:22px 0 0 0;width:966px;}
+.foot .cert a{color:#b0b3b3;}
+.foot .copyright{padding-top:10px;color:#b0b3b3;}

@@ -1,0 +1,164 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+/*quickpay*/
+   .pay_list{ display:block;}
+   .pay_list .pay-wrap{ border:1px solid #e8e8e8; width:484px; height:40px; line-height:40px; cursor:pointer;  padding:3px 8px; background-color:#fff;}
+   .pay_list .pay-wrap:hover,.pay_list .cur{ border:1px solid #d70c19;}
+   .pay_list .pay-wrap:hover a,.pay_list .cur a{ color:#d10000;}
+   .pay_list .arrow{ cursor:auto;}
+   .icon { background-repeat:no-repeat; display:block; height:40px; width:122px;}
+   span.icon { overflow:hidden;}
+   .CMB,.PSBC,.ABC,.BC,.ICBC,.CBC,.BOCM,.CIB{ background-image:url(../Images/9254e77968cf4a98b9a7aa6cc500dd6b.gif); text-indent:-9999px;}
+   .CMB { background-position:0 0px;}
+   .PSBC{ background-position:0 -40px;}
+   .ABC{ background-position:0 -80px;}
+   .BC{ background-position:0 -120px;}
+   .ICBC{ background-position:0 -160px;}
+   .CBC{ background-position:0 -200px;}
+   .BOCM{ background-position:0 -240px;}
+   .CIB{ background-position:0 -280px;}
+   
+   /*submitorder*/
+   .pl75{ padding-left:75px;}
+   .dline_t{ border-top:1px dashed #e8e8e8;}
+   .order{}
+   .order .title{}
+   .order .address_list li{ border:2px solid #ddd; width:266px; height:122px; position:relative; padding:10px; float:left; display:inline; margin:0 5px 10px;}
+   .order .address_list li.cur{ border:2px solid #cc0000; cursor:pointer;}
+   .order .address_list li.hover{ border:2px solid #cc0000; cursor:pointer;}
+   .order .address_list .list_foot{}
+   .order .address_list .list_foot img{ vertical-align:middle;}
+   .order .address_list li .default{ width:70px; height:24px; line-height:24px; text-align:center;  position:absolute; right:0; top:0;}
+   .order .address_list li .set-up{ width:70px; height:24px; line-height:24px; text-align:center; position:absolute; right:0; top:0;}
+   .order .address_list li .cur_right{ position:absolute; right:0; bottom:0; display:none;}
+   .order .address_list li.cur .cur_right{ background-image:url("../Images/8ed98f757e894486be2eb0bcb50c65ce.gif"); display:block; height:26px; width:26px;}
+   .order .address_btn .yellow_a{ width:90px; height:26px; line-height:26px; text-align:center; display:block; background-color:#ffcb68; color:#fff;}
+   .order select.select1{ width:90px; height:20px; border:1px solid #abadb3;}
+   .order .product_tab table tr th { font-weight:normal; background-color:#f8f8f8; height: 45px; text-align: center;}
+   .order .product_tab table td { padding:0; height: 50px;}
+   .order a.pack-up{ background:url(../Images/7d6ef2c2516649808e0ded10cb2df782.gif) no-repeat 0 center; width:150px; height:20px; line-height:20px; display:block; color:#191919; padding-left:25px;}
+   .order a.open-up{ background:url(../Images/7f29267d3eab4b1ba2ffd14e55ff5ff7.gif) no-repeat 0 center; width:150px; height:20px; line-height:20px; display:block; color:#191919; padding-left:25px;}
+   .order .submit{ height:40px; line-height:40px; padding:6px 20px;}
+   .order .coupon_tit{ width:255px;}
+   .order .coupon_tit a{ width:125px; height:30px; line-height:30px; text-align:center; border:1px solid #e4e4e4; border-bottom:none; color:#999; display:inline-block; background-color:#fdfdfd;}
+   .order .coupon_tit a.cur{ height:33px; line-height:33px; border:1px solid #bbb; border-top:1px solid #f00; border-bottom:none; color:#191919; background-color:#fff; margin-bottom:-1px;}
+   .order .coupon_box{ width:100%; border-top:1px solid #bbb; padding:15px 0;}
+   .order input.text1{ width:278px; height:20px; line-height:20px;}
+   .order input.button1{ cursor:pointer;border:none; }
+   .address_up { background-color:#fff;}
+   .address_up .tit{height:34px; line-height:34px; background-color:#cc0000;}
+   .address_up .tit .close{ width:16px; height:16px; display:block; padding:9px;}
+   .address_up td{ line-height:38px; font-size:14px;}
+   .address_up input.text2,.pay_body input.text2{ width:198px; height:20px; line-height:20px;}
+   .address_up select.select2{ width:138px; height:26px; line-height:26px; border:1px solid #abadb3; padding-top:2px;}
+   .address_up input.text3{ width:600px; height:20px; line-height:20px;}
+   
+   .addressee_info{ width:890px;}
+   .addressee_info dl{ width:890px; overflow:hidden; margin-bottom:5px; font-size:14px;}
+   .addressee_info dt{ float:left; text-align:right; width:160px; line-height:24px;}
+   .addressee_info dd{ float:left; text-align:left; width:730px;}
+   .addressee_info dd .message{ height:20px; width:730px; line-height:20px; font-size:12px;}
+   
+   /*unbound*/
+   .pay-status .tit{ padding:15px; line-height:24px;}
+   .unbound .title{}
+   .unbound .rbox{ margin-right: 95px; width: 818px;position:relative;}
+   .unbound .lbox{ width:158px; color:#888; line-height:23px;}
+   .unbound .lbox a:link{color:#366FB0!important;}  
+   .unbound li{ float:left; margin:5px 0 5px 10px; display:inline; width:186px; height:50px;position: relative;}
+   .unbound .pay-mode a{ border:1px solid #e8e8e8; width:166px; height:35px; line-height:35px; display:block; padding:5px 8px; background-color:#fff;}
+   .unbound .pay-mode a:hover,.unbound .pay-mode a.cur { border:1px solid #d70c19; position:relative;}
+   .icon { background-repeat:no-repeat; display:block; height:40px; width:122px;}
+   span.icon { overflow:hidden;}
+   .alipay,.lakala,.qpay{ background-image:url(../Images/6dad175f60b44fc385bf2b859385ecdd.gif); text-indent:-9999px;}
+   .alipay { background-position:0 0px;}
+   .lakala{ background-position:0 -40px;}
+   .qpay{ background-position:0 -80px;}
+   
+   .unbound .up_box{ z-index:999; position:absolute; top:48px; left:-2px; display:none;}
+   .unbound a.cur .up_box{ display:block;}
+   .unbound .up_box .arrow{ width:19px; height:11px; background:url(../Images/9913c8ccf3e4443a8f1ee109a6e926dd.gif) no-repeat; position:absolute; left:40px; top:0;}
+   .w355{ width:355px;}
+   .w405{ width:405px;}
+   .unbound .up_box .product_tab th{ font-weight:normal;}
+   .unbound .last_up_box{ top:48px; left:-246px;}
+   .unbound .last_up_box .arrow{ left:340px; top:0;}
+   
+   .unbound .coupon_tit{ width:255px;}
+   .unbound .coupon_tit a{ width:105px; height:31px; line-height:31px; text-align:center; border:1px solid #e4e4e4; border-bottom:none; color:#999; display:inline-block; background-color:#f8edde;}
+   .unbound .coupon_tit a.cur{ height:33px; line-height:33px; border:1px solid #bbb; border-top:1px solid #f00; border-bottom:none; color:#191919; background-color:#fffef8; margin-bottom:-1px;}
+   .unbound .coupon_box{ width:100%; border-top:1px solid #bbb; padding:15px 0px 10px;}
+   
+   .paying_up { width:463px; height:284px; line-height:26px; background-color:#fff;}
+   .paying_up .tit{ width:100%; height:31px; line-height:31px; background:#f9f9f9;}
+   .paying_up .tit .close{ width:14px; height:14px; display:block; padding:11px;}
+   
+	.order_succeed{ width:958px; margin:10px auto 0; padding-bottom:20px; border:1px solid #ccc; overflow:hidden;}
+	.succeed_logo{ padding:34px 56px 32px 60px;}
+	.succeed_detail{ text-align:left;}
+	.succeed_detail p a{ color:#3f73ae;}
+	.succeed_detail em{ color:#c53632; font-style:normal;}
+	.succeed_detail p{ line-height:24px; margin:0;}
+	.succeed_detail .title{ line-height:30px; margin:20px 0 10px;}
+	.succeed_address{ width:630px;}
+	   
+   /*bound*/
+   .bound .w434{ width:434px;}
+   
+   .bound li{ float:left; margin:5px 0 5px 10px; display:inline; width:166px; height:50px;}
+   .bound .pay-mode a{ border:1px solid #e8e8e8; width:146px; height:40px; line-height:40px; display:block; padding:3px 8px; background-color:#fff;}
+   .bound .pay-mode a:hover,.bound .cur a{ border:1px solid #d70c19;}
+   .other-mode a{ border:1px dashed #e8e8e8; width:146px; height:40px; line-height:40px; display:block; padding:3px 8px; background-color:#fafafa; text-align:center;}
+   .other-mode a:hover,.more_banks:hover{ border:1px dashed #d70c19;}
+   
+  /* 新版支付页新添样式 */ 
+.line_tsub{border-top:1px solid #f8dda2;}
+.light_bg{background:#fffef8;}
+.more_banks{display: inline;float: left;height: 40px;margin: 5px 0 5px 10px;width: 166px;color:#366fb0;font-size:14px;border: 1px dashed #e8e8e8;line-height: 40px;padding:5px 8px;}
+.d_submit{width:1200px;margin:auto;background:#f7fbf5	;height:auto;overflow:hidden;}
+.sub_h1,.sub_h2,.sub_h3,.sub_h4{float:left;width:90%;padding-left:45px;line-height:30px;}
+.sub_h1{color:#5dae40;background:url(../Images/6861059313bb4f76b807d204edf74021.gif) 45px center no-repeat;text-indent:25px;}	
+.sub_h2{color:#888888;}
+.write_jumpWrap{width:1200px;height:70px;border-top:1px solid #ccc;background:#f8f8f8;}
+.skyblue{color:#256bbb;}
+.l_h70{line-height:70px;}
+/*弹出窗*/
+.popup_left{width:202px;border-right: 1px solid #cccccc;height:142px;}
+.popup_right{ *width:39%;}
+.bg_red{background:url(../Images/7928b323f0714f39b7a6cc05fbb0c31b.gif) left center no-repeat;display:block;height:40px;line-height:40px;letter-spacing:1px;}
+.bg_green{background:url(../Images/3c1a2b773de04dff80d355bc15a1bf6e.gif) left center no-repeat;display:block;height:40px;line-height:40px;letter-spacing:1px;color:#5dae40;}
+table td span.cart_jjg{font-size:12px; color:#fff;display:inline-block;*display:inline;width:46px;padding:0px 5px;background:#d60a03;}
+
+/* 支付宝分期新增样式 */
+
+.instalment{
+	width:770px;
+	height:auto;
+	border:1px solid #d70c19;
+	background:#fff;
+	float: left;
+    margin: 0 0 5px 10px;
+}
+.instalment_period{
+	width:166px;
+	float:left;
+}
+.instalment_radio{
+	float:left;
+}
+.instalment_txt{
+	width:83%;
+}
+.instalment_span{ 
+	width:182px; 
+	height:15px; 
+	display:block; 
+	background:#fff; 
+	position:absolute;
+	left:0; 
+	top:41px;  
+	border-left:1px solid #d70c19;
+	border-right:1px solid #d70c19;
+	z-index:2;
+}

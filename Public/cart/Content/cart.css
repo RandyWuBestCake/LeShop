@@ -1,0 +1,208 @@
+﻿@charset "utf-8";
+/* CSS Document */
+#province{_width:100px;}
+.cart_title{ line-height:40px;  height:40px; font-weight:normal; letter-spacing: 1px;}
+.cart_tishi{  line-height:20px; height:20px; }
+table.cart_list{ width:99%; background:#FFF; font-size: 14px; float:left; border: 1px solid #dfdfdf; color:#333; border-collapse: collapse; margin-bottom:10px; margin-left:6px;}
+table.cart_list th{ height:40px; text-align:center;  background:#f8f8f8; line-height:40px; font-weight:normal; border:none;}
+table.cart_list td{ text-align:center; vertical-align:middle; height:130px;border-left: 1px solid #dfdfdf;border-top:none;}
+table.cart_list td img{ width:80px; height:80px; border:1px solid #ccc;}  
+table.cart_list tr.cart_tabSuit td{height:14px; padding-bottom:10px;}
+table.cart_list tr.cart_tabSuit td.no_bl a{ color: #888;}
+table.cart_list tr.cart_tabSuit td.no_bl a:hover{ color: #d80c18;}
+
+
+.cart_btb{background-image:url(../Images/993457a6061a432c896f1b1777685a15.gif);  background-repeat:no-repeat; background-position:0 0px ; width:201px; height:48px; text-align:center;}
+.cart_btb a{ display:block; width:200px; line-height:48px;}
+.cart_cleas{ line-height:20px;}
+.del_cart {background: url(../Images/682b445e13794440901719d9ecf65af2.gif) no-repeat; display: block;float: left;height: 14px;width: 14px; margin:28px 8px auto 15px;}
+.cart_cleasTxt{ width:150px; text-align:right; display:inline-block;*display:inline; *zoom:1;}
+
+/*购物车-推荐配件*/
+.fittings_slide{ width:960px; position: relative;}
+.fittings_slide ul{ width:1000px;}
+.fittings_slide ul li{ list-style:none; float:left; width:180px; height: 268px; margin-right:15px;}
+.fittings_slide ul li .pic{ border:1px solid #ccc; width: 178px; height: 178px;}
+.fittings_slide ul li .text{padding:10px 5px;}
+.fittings_slide .list{ width:960px;  overflow-x:hidden;}
+.fittings_slide .slide_bt{ cursor:pointer;  width:40px; height:87px; position:absolute; top:70px;}
+.fittings_slide .front{ left:-50px; background:url(../Images/fit_scor_bt.png) no-repeat left center;}
+.fittings_slide .ne_t{ left:970px; background:url(../Images/fit_scor_bt.png) no-repeat right center;}
+/**************************节能信息***************************/
+.jnbt_form{ padding:20px 50px;}
+.jnbt_form dl{ clear:both; padding-top:20px;}
+.jnbt_form dl dt{ float:left; width:100px; text-align:right;line-height:22px;}
+.jnbt_form dl dd{ float:left; width:750px; line-height:22px;}
+.jnbt_form dl dd p{ margin:0; padding:0;}
+.cart_bts{ height:28px; width:110px; line-height:28px; text-align:center; background:url(../Images/smallred_bt.png) no-repeat;}.jnbt_form .button a{ padding:0 15px;}
+
+/**************************配送方式***************************/
+.peishong{ padding:20px 50px;}
+.peishong table{ width:100%; border:none; }
+.peishong table th{ height:35px;  line-height:35px; margin:0; text-align:center;}
+.peishong table td{ height:35px; border-top:1px dotted #666666; line-height:35px; margin:0; text-align:center;}
+.peishong dl{ clear:both; padding-top:20px;}
+.peishong dl dt{ float:left; line-height:22px;}
+.peishong dl dd{ float:left; width:700px; line-height:22px; padding-left:10px;}
+.peishong dl dd p{ margin:0; padding:0 ;}
+.tishi_bg {  background:url(../Images/icons.png) no-repeat right -132px; width:67px; text-indent:0px; line-height:21px;}
+.tishi_bg span{ padding:0 15px;}
+
+
+
+/**************************商品清单***************************/
+.goods_list{ padding:10px 20px;}
+.goods_list table{ width:100%; border:none; }
+.goods_list table th{ height:35px; line-height:35px; margin:0; text-align:center;}
+.goods_list table td{ height:35px; border-top:1px dotted #666666; line-height:35px; margin:0; text-align:center;}
+.goods_list dl dd p{ margin:0; padding:0 ;}
+
+/**************************收货人信息***************************/
+.consignee{ padding:20px 50px;}
+.consignee .list dl{ clear:both; height:40px;  padding-top:20px;}
+.consignee .list dl dt{ float:left; width:50px; text-align:right; line-height:22px;}
+.consignee .list dl dd{ float:left; width:700px; line-height:22px; padding-left:10px;}
+.consignee .list dl dd p{ margin:0; padding:0 ;}
+
+.consignee .edit dl{ clear:both; height:45px;}
+.consignee .edit dl dt{ float:left; width:80px; text-align:right; line-height:22px;}
+.consignee .edit dl dd{ float:left; width:700px; line-height:22px; padding-left:10px;}
+.consignee .edit dl dd p{ margin:0; padding:0 ;}
+.consignee .edit dl dd input{border:1px solid #7f9db9;}
+.addr_content dl{ clear:both; height:30px;  padding-top:10px;}
+.addr_content dl dt{ float:left; width:80px; text-align:right; line-height:22px;}
+.addr_content dl dd{ float:left; width:700px; line-height:22px; padding-left:10px;}
+/**************************支付信息***************************/
+
+.payment{ padding:20px 50px;}
+.payment dl{ clear:both; padding-top:20px;}
+.payment dl dt{ float:left; line-height:22px;}
+.payment dl dd{ float:left; width:700px; line-height:22px; padding-left:10px;}
+.payment dl dd p{ margin:0; padding:0 ;}
+.payment_set .title{ line-height:30px; }
+.payment_set li{ height:30px;}
+/*支付修改*/
+.pay_edit{ margin:20px; padding:20px;}
+.pay_edit ul li{ height:60px; width:175px; float:left;}
+.payment_list{ margin:20px; padding:20px; border:1px solid #ccc; }
+.payment_list .title{ height:40px; line-height:40px;}
+.payment_list .title a{ display:block; margin-right:5px; float:left; width:80px; text-align:center; font-size:14px; }
+.payment_list .title a:hover{ background:#ccc;}
+.payment_list ul{ }
+.payment_list ul li{  float:left;   height: 60px;    margin: 8px 0 0;    width: 174px;}
+.payment_list ul li img { max-width:150px;}
+/**************************发票信息***************************/
+
+.invoice{ padding:20px 50px;}
+.invoice dl{ clear:both; padding-top:10px;}
+.invoice dl dt{ float:left; line-height:22px;}
+.invoice dl dd{ float:left; width:700px; line-height:22px; padding-left:10px;}
+.invoice dl dd p{ margin:0; padding:0 ;}
+
+/**************************结算信息***************************/
+
+.clearing{ padding:20px 14px;}
+.clearing dl{ clear:both; padding-top:20px;}
+.clearing dl dt{  height:35px; border-bottom:1px dotted #666666; line-height:35px; text-indent:20px;}
+.clearing dl dd{  line-height:22px; padding-left:10px;}
+.clearing dl dd p{ margin:0; padding:0 ;}
+
+/**************************下单成功信息***************************/
+
+.order_ok{ padding:20px 14px;}
+.order_ok dl{ clear:both; padding-top:20px;}
+.order_ok dl dt{ border-bottom:1px dotted #666666; line-height:35px; text-align:center; }
+.order_ok dl dd{line-height:22px; padding-left:10px;}
+.order_ok dl dd p{margin:0; padding:0 ;}
+.order_ok div .tishi_bg {background:url(../Images/icons.png) no-repeat right -132px;  padding: 2px 25px;  text-indent:5px; line-height:21px;}
+.order_bank{ border:1px solid #eed592; background:#fffdee; padding:20px; margin:0 15px;}
+.order_bank .bank_logo{  border:1px solid #ccc; }.order_bank .bank_logor{ padding-top:15px;}
+.order_bank table{ width:100%; border:1px solid #ccc; border-right:none; }
+.order_bank table th{ background:#eaeaea; }.order_bank table td{ background:#fff;  border-top:1px solid #ccc;  border-right:1px solid #ccc;}
+.order_bank table th,.order_bank table td{ height:30px; line-height:30px; font-weight:normal; text-align:center;}
+.order_bank1{ padding:20px 14px;}
+.order_bank1 .tishi_bg {background:url(../Images/icons.png) no-repeat right -132px;  padding: 2px 25px;  text-indent:5px; line-height:21px;}
+.order_bank1 .tishi_text { width:800px; padding-left:10px; line-height:22px;}
+
+.payList{margin-top:10px}.payDesc{margin-left:10px;color:#666}
+#onlinePay{width:700px;margin-left:25px}
+.onlinePayItem{*position:relative;display:inline-block;*display:inline;height:45px;margin-right:10px;margin-left:10px;overflow:hidden;line-height:45px;*zoom:1}
+.onlinePayItem img{width:120px;vertical-align:middle}
+.onlineTab{display:inline-block;*display:inline;height:28px;margin-right:-4px;font-size:14px;font-weight:bold;line-height:28px;cursor:pointer;background:url("../Images/paytab.png") repeat-x scroll left 0 transparent;*zoom:1}
+.onlineTab span{float:left;height:23px;padding:0 8px 5px 0;margin:0 0 0 8px;background:url("../Images/paytab.png") repeat-x scroll right 0 transparent}
+.onlineTabActive{position:relative;top:1px;background:url("../Images/paytab.png") no-repeat scroll left -28px transparent}
+.onlineTabActive span{float:left;padding:0 8px 5px 0;margin:0 0 0 8px;background:url("../Images/paytab.png") repeat-x scroll right -28px transparent}
+#onlineBankContent{width:90%;padding:10px;background-color:white;border:1px solid #dbdbdb}
+.onlinePayContentShow{display:block;padding-top:10px;background:none repeat scroll 0 0 white;border:1px solid #c6c6c6}
+.onlinePayContentHide{display:none}
+
+#offlinePay{width:700px;margin-left:25px}
+.offlinePayItem{*position:relative;display:inline-block;*display:inline;height:45px;margin-right:10px;margin-left:10px;overflow:hidden;line-height:45px;*zoom:1}
+.offlinePayItem img{width:120px;vertical-align:middle}
+.offlineTab{display:inline-block;*display:inline;height:28px;margin-right:-4px;font-size:14px;font-weight:bold;line-height:28px;cursor:pointer;background:url("../Images/paytab.png") repeat-x scroll left 0 transparent;*zoom:1}
+.offlineTab span{float:left;height:23px;padding:0 8px 5px 0;margin:0 0 0 8px;background:url("../Images/paytab.png") repeat-x scroll right 0 transparent}
+.offlineTabActive{position:relative;top:1px;background:url("../Images/paytab.png") no-repeat scroll left -28px transparent}
+.offlineTabActive span{float:left;padding:0 8px 5px 0;margin:0 0 0 8px;background:url("../Images/paytab.png") repeat-x scroll right -28px transparent}
+#offlineBankContent{width:90%;padding:10px;background-color:white;border:1px solid #dbdbdb}
+.offlinePayContentShow{display:block;padding-top:10px;background:none repeat scroll 0 0 white;border:1px solid #c6c6c6}
+.offlinePayContentHide{display:none}
+.offlineDesc{margin: 20px}
+
+.bankRotate{ -webkit-animation: rotate_eff 0.2s linear infinite; -moz-animation: rotate_eff 0.2s linear infinite; -o-animation: rotate_eff 0.2s linear infinite; -ms-animation: rotate_eff 0.2s linear infinite; animation: rotate_eff 0.2s linear infinite; }
+@-webkit-keyframes rotate_eff {0% {-webkit-transform:rotate(-1deg);} 100% {-webkit-transform:rotate(2deg);}}
+@-moz-keyframes rotate_eff {0% {-moz-transform:rotate(-1deg); } 100% {-moz-transform:rotate(2deg); }}
+@-o-keyframes rotate_eff {0% {-o-transform:rotate(-1deg); } 100% {-o-transform:rotate(2deg); }}
+@-ms-keyframes rotate_eff {0% {-ms-transform:rotate(-1deg); } 100% {-ms-transform:rotate(2deg); }}
+@keyframes rotate_eff {0% {transform:rotate(-1deg); } 100% {transform:rotate(2deg); }}
+
+.splash{ -webkit-animation-name: splash; -webkit-animation-duration: 500ms; -webkit-animation-iteration-count:3; -moz-animation-name: splash; -moz-animation-duration: 500ms; -moz-animation-iteration-count:3; -o-animation-name: splash; -o-animation-duration: 500ms; -o-animation-iteration-count:3; animation-name: splash; animation-duration: 500ms; animation-iteration-count:3; }
+@-webkit-keyframes splash {from { background-color: #eeee00;}to { background-color: rgba(255,255,255,1);}}
+@-moz-keyframes splash { from { background-color: #eeee00;} to { background-color: rgba(255,255,255,1);} }
+@-o-keyframes splash { from { background-color: #eeee00;} to { background-color: rgba(255,255,255,1);} }
+@keyframes splash { from { background-color: #eeee00;} to { background-color: rgba(255,255,255,1);} }
+/* 购物车后加 */
+.border_bg{ border:1px solid #dfdfdf; width:60px; height:22px; line-height:22px; background:#f8f8f8; padding:3px 13px; text-align:center; color:#000;}
+.write_jumpWrap{ width:1200px; height:70px; line-height:70px; border-top:1px solid #ccc; background:#f8f8f8;}
+
+/** 购物车为空样式 **/
+.cart_none{padding-top:88px;}
+.cart_noneWrap{width:510px;height:274px;margin:auto;}
+.cart_img{float:left;}
+.cart_txt{ display:block;margin-bottom:20px;}
+.cart_login{font-size:24px;line-height:45px;color:#333333;font-family:"微软雅黑";}
+.shop_now{background:#d80c18;padding:5px 12px;text-align:center;color:#fff;font-size:14px;border-radius:3px;}
+.cart_blue{color:#266abb;}
+
+/*套装包含*/
+table.cart_list .cart_suit td{height:28px; text-align:left;}
+/* 购物车加价购改版 */
+table.cart_list td.no_bl{border:0;}
+.cart_select{width:94px;height:34px;margin: 8px auto;color:#333333;font-size:14px;border:1px solid #dfdfdf;text-align:center;}
+.lower,.higher,.count-free{cursor:pointer;margin:auto 3px;}
+.count-free,.optional-free{height:26px;line-height:26px; border: 1px solid #dfdfdf;*margin-bottom:-4px;*height:16px;*padding:6px 0;*line-height:16px; }
+.cart_menu_wrap{width:860px; float:left;margin-top:15px;}
+.cart_menu{ width:360px; padding: 9px 0 9px 40px; display:block;}
+.cart_menu label {cursor:pointer;}
+.cart_menuCon{ width:418px; height:123px; display:block; background:url(../Images/399485d56bb24925b42f95a0303b6f8b.gif); left:401px; top:0;}
+.cart_menuCon dl dt{ float:left; width:72px; height:72px; margin: 25px auto auto 28px; display:inline;}
+.cart_menuCon dl dd{ float:left; width:265px; padding-left:28px;}
+.cart_menu_hover {background: none repeat scroll 0 0 #d80c18;color: #fff;}
+.cart_higher{ border: 1px solid #bbb;background:#fff; display: inline-block;font-size: 16px;height: 16px;line-height: 13px; margin: auto 6px auto auto;*margin-bottom:-4px;text-align: center; width: 16px; color:#bbb; cursor:pointer;}
+.cart_menu span.buy{cursor:pointer;} 
+.mt160{margin-top:160px;}
+#pay{height:70px;}
+.mt80{margin-top:80px;}
+table.cart_list td span.cart_jjg{font-size:12px; color:#fff;float:left;width:36px;padding:2px 5px;background:#d60a03;} 
+/* 推荐配件 */    
+.parts_list_wrap { width: 100%;}
+.parts_list {float:left;margin: 10px 7px 0;text-align: center;width: 222px;*display:inline;}
+.parts_list .part_pic {height: 220px;width: 220px;}
+.parts_list .part_pic img {height: 220px;width: 220px;}
+.part_name a{white-space:nowrap; text-overflow:ellipsis;overflow:hidden; line-height: 20px;width:220px;display:block;}    
+.part_price,.part_name{width:220px; text-align:center;}
+ /* 页面跳转弹出层 */
+.cart_overlay{ display: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: black;z-index:1001;-moz-opacity: 0.5;opacity:.50;filter: alpha(opacity=50);} 
+@media screen and (max-width: 1200px) { /*当屏幕尺寸小于1200px时，应用下面的CSS样式*/
+.cart_overlay {width: 1200px;}
+}
+.cart_div { display: none;   position: absolute;  top: 40%; left: 40%;  width: 20%;  height: 100px;  padding: 16px; border: 1px solid orange;  background-color: white;  z-index:1002;  text-align:center; line-height:100px; } 

@@ -1,0 +1,22 @@
+﻿	/**分页**/
+.FY{ height:53px; padding-top:10px;}
+.FY_w01{width:760px; overflow:hidden; margin-top:20px;}
+.FY_01{display:block; float:left; background:url(../Images/title01.png) -1px -780px no-repeat; width:68px; height:27px;}
+.FY_02{display:block; float:left; background:url(../Images/title01.png) -1px -807px no-repeat; width:68px; height:27px;}
+.FY_03{display:block; float:left; background:url(../Images/title01.png) -71px -780px no-repeat; width:28px; height:23px; text-align:center; padding-top:3px; font-size:14px;}
+.FY_04{display:block; float:left; background:url(../Images/title01.png) -110px -780px no-repeat; width:28px; height:23px; text-align:center; padding-top:3px; font-size:14px; color:#fff;}
+.FY_04:hover{color:#fff;}
+.FY_05{display:block; float:left; width:26px; text-align:center; letter-spacing:2px;}
+.FY_06{display:inline; float:left; padding:5px 5px 0 5px;}
+.FY_07{display:block; float:left; background:url(../Images/title01.png) -70px -806px no-repeat; width:68px; height:27px;}
+.FY_ip{width:20px; border:1px solid #999; text-align:center;}
+.pagination{text-align:right; margin-top:10px;}
+ a {text-decoration: none; color: #333;}
+.pagination a:hover{ border:1px solid #333; background-color:#fff;} 
+.pagination a,.pagination span{ width:30px; height:28px; border:1px solid #dfdfdf; background-color:#fff; font-size:14px; color:#333; line-height:28px; margin:0 5px; text-align:center; display:inline-block;*display:inline;*zoom:1; }
+.pagination .ellipse{background: none;}
+.pagination span.current { background:#e2e2e2; border:1px solid #e7e7e7; cursor:default; font-size:14px; color:#333; margin-top:0px;}
+.pagination .undo{color:#999;}
+.pagination .next{ cursor:pointer; font-size:14px;}
+.pagination .prev{ cursor:pointer; font-size:14px;}
+/**分页**/
