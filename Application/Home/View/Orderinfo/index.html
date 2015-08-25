@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+                      <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<!-- js引用文件添加 -->
+<!-- 页面底部统一引用jsInclude -->
+<!-- 引用静态页面标签 -->
+				<script>var _hrefPath = '',_imagePath = 'http://img0.hdletv.com',_basePath = 'http://web_dev_service_group:80/';</script>
+				<!--[if lt IE 7]>
+				        <script type="text/javascript" src="Scripts/unitpngfix.js"></script>
+				<![endif]-->
+  		  		<link  type='text/css' href='__PUBLIC__/cart/Content/global.css' rel='stylesheet' />
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/generatesession.js'></script>
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/zxlib.js'></script>
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/template.js'></script>
+
+  		  		<link  type='text/css' href='__PUBLIC__/cart/Content/cart.css' rel='stylesheet' />
+
+  		  		<link  type='text/css' href='__PUBLIC__/cart/Content/qp.css' rel='stylesheet' />
+                
+
+
+
+				<link rel="icon" href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 
+				<link rel="shortcut icon"  href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 	  <title>订单信息确认 - 乐视</title>
+	<style>
+	.note {
+		background: url("Images/cf723aa44c594e06a6785cbdec1160e6.gif") no-repeat scroll 20px -21px #fff7d1;
+		border: 1px solid #f8dea5;
+		height: 32px;
+		line-height: 32px;
+	}
+	</style>
+</head>
+<body>
+
+<div class="header">
+	<div class="top_link f8_bg">
+    <div class="center">
+        <ul class="left quick_links">
+            <li><a href="/LetvTV.html" webtrekkparam="{ct:'H_letv'}" target="_blank" ><span class="pr15">乐视网TV版</span></a>|</li>
+            <li><a href="http://ui.letv.com/index.html" webtrekkparam="{ct:'H_letvui'}" target="_blank" ><span class="pl15 pr15">LetvUI</span></a>|</li>
+            <li><a href="http://www.letvstore.com/" webtrekkparam="{ct:'H_letvstroe'}" target="_blank" ><span class="pl15 pr15">LetvStore </span></a>|</li>
+            <li class="hd_list show_hide_block abroad" object="#abroad" type="slide" speed="fast" buffer="300">
+                <a href="http://hk.shop.letv.com/" target="_blank"><span class="pl15 pr25">海外版</span></a>|
+                <dl id="abroad">
+                    <dt><a href="http://hk.shop.letv.com/" target="_blank">海外版</a></dt>
+                    <dd><a href="http://hk.shop.letv.com/" target="_blank">香港站</a></dd>
+
+                </dl>
+            </li>
+            <li class="mzhan show_hide_block" object="#mzhan" type="slide" speed="fast" buffer="300">
+                <a href="/app/download.html" target="_blank"><span class="pl15 pr15">手机版</span></a>|
+                <div id="mzhan">
+                    <div class="left"><img  alt=""  src="Picture/b45bcf8fd09b4df7ab4a758065cead18.gif" style="width:95px;"/></div>
+                    <div class="left pl5">
+                        <span class="dark">扫描下载客户端<br/>手机抢购更给力</span><br/>
+                        <span class="gray">iPhone | Android</span><br/>
+                        <a href="/app/download.html" class="block red_bt_s mt10" target="_blank"><span class="font12 white">免费下载</span></a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="http://bbs.letv.com" target="_blank"><span class="pl15 pr15">社区</span></a>|</li>
+            <li><a href="/dkh.html" target="_blank"><span class="pl15 pr15">大客户通道</span></a></li>
+        </ul>
+        <ul class="right log_order t_r">
+
+            <?php 
+                  session_start();
+                  if(!session('users')){
+             ?>
+              <li id="loginMess" class="loginNew"><a id="login" rel="nofollow" href="{:U('Login/index')}"><span class="pl15 ">登录</span></a> | <a rel="nofollow" target="_blank" href="{:U('Register/index')}"><span class=" pr15">注册</span></a></li>
+
+              <?php  
+              }else{         
+              ?>
+
+             <li class="loginNew" id="loginMess"><span class="gray">Hi,</span><a title="" target="_blank" href="" rel="nofollow"><span class="pl5 pr5">{$_SESSION['users']['username']}</span></a> <a id="logout"  href="{:U('Login/logout')}" rel="nofollow"><span class="pl5 pr15">[退出]</span></a></li>
+
+            <?php 
+            }
+             ?>  
+            
+
+            <li class="order"><a rel="nofollow"  href="{:U('Account/order')}"><span class="pl15 pr15">我的订单</span></a></li>
+            <li class="hd_list show_hide_block" object="#help" type="slide" speed="fast" buffer="300">
+
+                <a href="/helpself.html" target="_blank"><span class="pl15 pr25">帮助中心</span></a>
+                <dl id="help">
+                    <dt><a href="/helpself.html" target="_blank">帮助中心</a></dt>
+                    <dd><a href="/help/wlps/cjdsps.html" target="_blank">配送安装</a></dd>
+                    <dd><a href="/help/bxzc/cjds.html" target="_blank">售后服务</a></dd>
+                    <dd><a href="/help/pswt/yfbz.html" target="_blank">运费标准</a></dd>
+                    <dd><a href="/onlineservice.html" target="_blank">联系客服</a></dd>
+                </dl>
+            </li>
+            <li class="hd_list show_hide_block" object="#dao" type="slide" speed="fast" buffer="300">
+
+                <a href="javascript:void(0)"><span class="pl15 pr25">生态导航</span></a>
+                <dl id="dao">
+                    <dt>生态导航</dt>
+                    <dd><a href="http://www.letv.com" target="_blank">乐视网</a></dd>
+                    <dd><a href="http://www.wangjiu.com" target="_blank">网酒网</a></dd>
+                    <dd><a href="http://www.lelife.com" target="_blank">乐生活</a></dd>
+                    <!--<dd><a href="/zt/cp2c.html" target="_blank">CP2C</a></dd>-->
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+	<div class="center">
+	    <a class="block logo left " href="{:U('index/index')}"></a>
+
+	    <div class="clear"></div>
+	</div>
+	<div class="cart_top_border"></div>
+</div>	
+<script type="text/javascript">
+    var timeOutList = {};
+    $(document).ready(function () {
+        $.each($(".show_hide_block"), function () {
+            showHideBlock(this, $(this).attr("object"), $(this).attr("type"), $(this).attr("buffer"), $(this).attr("speed"), $(this).attr("effect"))
+        });
+        $.each($(".show_children"), function () {
+            showChildren(this, $(this).attr("buffer"), $(this).attr("speed"))
+        });
+        $.each($('[status="toggle"]'), function () {
+            $($(this).attr("object")).hide()
+        })
+    });
+    function showHideBlock(a, b, g, d, f, c, h) {
+        var e = null;
+        "undefined" == typeof c && (c = "");
+        e = "slide" == g ? ["slideDown", "slideUp"] : "fade" == g ? ["fadeIn", "fadeOut"] : ["show", "hide"];
+        $(a).unbind("mouseenter").mouseenter(function () {
+            clearTimeout(timeOutList[b]);
+            $(a).addClass(c);
+            $(a).siblings().removeClass(c);
+            $(b)[e[0]](f, function () {
+                $(this).css("overflow", "visible")
+            })
+        });
+        $(b).unbind("mouseenter").mouseenter(function () {
+            $(a).addClass(c);
+            clearTimeout(timeOutList[b]);
+        });
+        $(b).unbind("mouseleave").mouseleave(function () {
+            timeOutList[b] = setTimeout(function () {
+                $(b)[e[1]](f, function () {
+                    $(a).removeClass(c)
+                });
+                !!h ? h() : null;
+            }, d || 1E3)
+        });
+        $(a).unbind("mouseleave").mouseleave(function () {
+            timeOutList[b] = setTimeout(function () {
+                $(b)[e[1]](f, function () {
+                    $(a).removeClass(c)
+                });
+                !!h ? h() : null;
+            }, d || 1E3)
+        })
+    }
+    function showChildren(a, b) {
+        $(a).mouseenter(function () {
+            clearTimeout(timeOutList[$(this).text()]);
+            $("ul", $(this)).show();
+            $(this).siblings().find("ul").hide()
+        });
+        $(a).unbind("mouseleave").mouseleave(function () {
+            var a = $(this).text(), d = this;
+            clearTimeout(timeOutList[a]);
+            timeOutList[a] = setTimeout(function () {
+                $("ul", d).hide()
+            }, b || 1E3)
+        })
+    }
+    $(function () {
+        try {
+            $("img.lz").lazyload({data_attribute: "url", skip_invisible: !1, threshold: 10});
+        } catch (e) {
+        }
+        ;
+        refreshHeader()
+    });
+    function refreshHeader() {
+        if (Js.login.getAuth()) {
+            var a = getCookie("COOKIE_NICKNAME"), a = 10 < a.length ? a.substring(0, 10) + "..." : a;
+            $("#loginMess").html('<a rel="nofollow" href="' + _hrefPath + '/user/center/orderList.html" target="_blank" title="' + getCookie("COOKIE_NICKNAME") + '"><span class="pl15 pr15">' + a + '</span></a> <a rel="nofollow" id="logout"><span class="pl15 pr15">[退出]</span></a>');
+            $("#logout").click(function () {
+                Js.login.logout(function () {
+                    window.location.href = "/"
+                })
+            })
+        } else $("#login").click(function () {
+            Js.login.hasLogin(function () {
+                location.reload()
+            })
+        })
+    }
+    ;
+</script>
+
+
+<body>
+<div class="main_body pb20 pt10">
+	<div class="center order">
+<!-- 地址模块  begin -->
+<div id="addressModule"><div class="pt20 pb20 t_l">
+	 
+  <!-- 选择收货地址信息展示开始-->
+  <div class="title pl5 pb10 line_b">
+	<span class="font16 dark">选择收货地址</span>
+	<span style="display:none" class="font14 red pl10 nopsMsg">您所选地区暂不在配送范围内。请确认收货地址，<a target="_blank" href="/help/psfwcx.html"><span class="skyblue">查看可配送地区&gt;&gt;</span></a>或<a target="_blank" href="/help/kffeedback.html"><span class="skyblue">留下您的收货信息&gt;&gt;</span></a>，可送达后第一时间告知。</span>
+  </div>
+  <!-- 选择收货地址信息展示结束-->
+  
+  <!-- 收货地址列表开始-->
+  <div class="address_list">
+   <div class="pt10">
+    <ul>        <!-- class="addressListLi font14 cur" -->
+                    <foreach name="consignees" item="vo" > 
+				<li isdefault="0" addressid="{$vo.id}" class="addressListLi font14" >
+					<div class="default italic hidden">默认地址</div>
+					<div class="set-up hidden" style="display: none;"><a href="javascript:addToDefaultAddress(2451058);"><span class="dark italic">设为默认</span></a></div>
+					 
+                    <div class="pb10">   
+						<dl>
+                            <?php $address=$vo.address;?>
+							<dt title="{$vo.name}（一一一）收" class="pb5"><span class="bold">{$vo.name}</span> （一一一 收）</dt>
+							<dd title="{$vo.address}（{$vo.postal_code}）" class="dline_t pt5 pb5 gray"><?php $arr = explode(',',$vo['addressid']); ?>{$arr[0]|getAddress}{$arr[1]|getAddress}{$arr[2]|getAddress},{$vo.address}（{$vo.postal_code}）</dd>
+							<dd class="dline_t pt5 pb5 gray">{$vo.mobile_phone}</dd>
+						</dl>
+                       
+					</div>
+                    
+					<div style="position: absolute; right: 10px; bottom: 10px; " class="list_foot t_r hidden pr20">
+						<span class="pr5"><a title="编辑" href="javascript:editCurrentAddress(1,2451058);"><img src="http://img1.hdletv.com/file/20140521/default/37062628198369368"></a></span>
+						<span><a title="删除" href="javascript:editCurrentAddress(2,2451058);"><img src="http://img3.hdletv.com/file/20140521/default/37062676075742138"></a></span>
+					</div>
+                   
+					 <div class="cur_right"></div>
+				</li>
+                  </foreach>
+                
+                
+			
+	
+    <div class="clear"></div>
+    </ul>
+   </div>
+  </div>
+  <!-- 收货地址列表结束-->
+  
+  <!-- 显示全部按钮区域开始 -->
+  <div class="address_btn pl5 pt10">
+  
+   <div class="left red_bt_m " id="addres"><a>
+   <span class="white font14">+ 使用新地址</span></a></div>
+   <div class="clear"></div>
+  </div>
+  <!-- 显示全部按钮区域结束 -->
+  
+ </div></div>
+ <div id="newAddressModule" style="display: none;"><div id="newAddress">
+<div class="address_up t_l line_t">
+  <div class="tit">
+   <span class="font16 white pl20">新增地址</span>
+  </div>
+  <div class="pt15 pl25 pr25 pb25">
+  <form action="{:U('Orderinfo/add')}"  method="post">
+   <div class="addressee_info">
+    <dl>
+     <dt><span class="red">*</span> 收货人姓名：</dt>
+     <dd><input type="text" value="" class="text2 font12" name="name" id="receiver" maxlength="30" wjvalidaddress="false">
+     <div class="message">
+     <span id="receiverError" class="red" style="display: none;">请填写正确的姓名</span>
+     <span id="receiverEmptyError" class="red" style="display: none;">请填写姓名</span>	 
+     </div>
+     </dd>
+    </dl>
+    <dl>
+    <dt><span class="red">*</span> 省份：</dt>
+    <dd>
+    <select name="province" id="province" class="select2 font12" maxlength="30" wjvalidaddress="false">
+        <option value="0">请选择</option>
+        <foreach name="sheng" item="vo" key="k">
+        <option value="{$vo['areaid']}">{$vo['diqu']}</option>
+        </foreach>
+        
+    </select>
+    <select name="city" id="city" class="select2 font12 ml10" maxlength="30" wjvalidaddress="false">
+    <option value="0">请选择</option>
+    </select>
+      <select name="county" id="district" class="select2 font12 ml10" maxlength="30" wjvalidaddress="false"><option value="0">请选择</option></select>
+      <div class="message"><span id="regionError" class="red" style="display: none;">地区填写不完整 </span>
+		<span class="red hidden" id="regionArriveError">
+		您所选地区暂不在配送范围内。请确认收货地址，<a target="_blank" href="/help/psfwcx.html"><span class="skyblue">查看可配送地区&gt;&gt;</span></a>或<a target="_blank" href="/help/kffeedback.html?select_type=5"><span class="skyblue">留下您的收货信息&gt;&gt;</span></a>，可送达后第一时间告知。
+		</span>
+	  </div>
+      </dd>
+    </dl>
+  <dl>
+    <dt><span class="red">*</span> 详细地址：</dt>
+    <dd><input type="text" value="" name="address" id="detailAddr" class="text3 font12" maxlength="30" wjvalidaddress="false">
+     <div class="message"><span id="detailAddrError" class="red" style="display: none;">请填写正确的地址</span><span id="detailAddrEmptyError" class="red" style="display: none;">请填写地址</span></div>
+    </dd>
+    </dl>
+  <dl>
+    <dt><span class="red">*</span> 手机号码：</dt>
+    <dd><input type="text" value="" class="text2 font12" name="mobile_phone" id="mobile" maxlength="30" wjvalidaddress="false"> 或者  固定电话： <input type="text" value="" class="text2 font12" name="fix_phone" id="phone" maxlength="30" wjvalidaddress="false">
+     <div class="message"><span class="red" id="mobileError" style="display: none;">手机号码填写不正确</span><span class="red" id="mobileEmptyError" style="display: none;">请填写手机号码</span></div>
+    </dd>
+  </dl>
+    
+  <dl>
+    <dt><span class="red">*</span> 邮政编码：</dt>
+    <dd><input type="text" value="" class="text2 font12" name="postal_code" id="post" maxlength="30" wjvalidaddress="false">
+     <div class="message"><span class="red" id="postError" style="display: none;">邮政编码填写不正确</span><span class="red" id="postEmptyError" style="display: none;">请填写邮政编码</span></div>
+    </dd>
+    </dl>
+	
+	
+   </div>
+  
+   <div style="height:30px; line-height:20px;" class="pl80"><div id="setDefaultAddr" class="pl75 font14"><input type="checkbox"> 设置为默认地址</div></div>
+   <div class="pl80 pt10">
+    <div class="pl75 font14">
+     <div id="addrSubmit" class="red_bt_s left hand"><input type="submit" value="保存"></div>
+     <div id="quxiao" class="gray_bt_s left ml20 hand"><span class="">取消</span></div>
+	 <div><span id="retMessageNewAddress" style="line-height:28px;" class="red MSyh pl10"></span></div>
+   </form>
+     <div class="clear"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ 
+ 
+</div></div>
+
+
+<script type="text/javascript">
+    <!-- 点击新增地址,新增地址显示 -->
+    $("#addres").click(function(){
+        $("#newAddressModule").css('display','');
+    })
+    <!-- 点击取消,新增地址隐藏 -->
+    $("#quxiao").click(function(){
+        $("#newAddressModule").css('display','none');
+    })
+    
+    //地区选择(市)
+    $("#province").change(function(){
+        var id = $(this).val();
+        $.get('{:U("Orderinfo/city")}',{id:id},function(msg){
+            $("#city").html(msg);
+        });
+    });
+    //地区选择(县)
+    $("#city").change(function(){
+        var id=$(this).val();
+        $.get('{:U("Orderinfo/county")}',{id:id},function(msg){
+            $('#district').html(msg);
+        })
+    })
+    //默认地址
+    $(".addressListLi").click(function(){
+        $(".addressListLi").each(function(){
+            $(this).removeAttr('class','cur');
+        });
+        $(this).attr("class",'addressListLi font14 cur');
+    })
+  
+    
+</script>
+
+
+
+
+
+ 
+ <!-- 配送信息模块 begin  -->
+ <div class=" pt20 pb20 t_l">
+  <div class="title pl5 pb10 line_b"><span class="font18 dark">配送信息</span></div>
+  <div class="pt20">
+   <div class="pb20 pl20 font14"><input type="radio" checked="" name="shipRadio" class="mr15"> 
+     <span>快递配送</span><span class="gray pl10 summaryFeeShow">（免配送费）</span>
+   </div>
+  <!-- <div class="pl25">预计到货时间：<span class="red" id="bookTime"></span></div> -->
+  
+  <!--<div class="tishi_bg"><span class="white t_c">声明</span></div> 
+  <p>1.我们会在您成功支付后立刻安排发货，但因天气、交通等各类因素影响，您的订单有可能会有延误现象！<br />2.部分服务仅在乐视配送区域提供，非乐视配送区域无法选择！<br />3.为避免送货延迟，大件商品要尽快完成支付！以上敬请谅解！ </p>-->
+  </div>
+ </div>
+ <!-- 配送信息模块 end  -->
+ 
+ 
+<!-- 发票模块  begin--->
+<div id="invoiceBlock"><div class="pt20 pb20 t_l">
+  <div class="title pl5 pb10 line_b"><span class="font18 dark">发票信息</span><span class="font14 pl15"><a id="modifyInvoice" href="javascript:void(0);"><span class="skyblue">修改</span></a></span></div>
+  <div class="pt20">
+    <div class="pb20 pl5"><span class="font14 pr30 pl30"><span class="gray">发票类型：</span>普通发票</span></div>
+   <div class="pl5">
+   
+     <span class="font14 pr30 pl30"><span class="gray">发票名称：</span><span id="invoicePersonName">个人</span></span>
+   
+   </div>
+  </div>
+ </div></div>
+
+
+
+<!--发票模块  end-->
+ 
+
+<!-- 商品及价格展示模块  begin -->
+ <div class="pt20 pb20 line_t t_l">
+  <div class="title pl5"><span class="font18 dark">商品清单</span><a webtrekkparam="{ct:'shop_generateorders_list_back'}" class="hidden" id="backToCart" href="{:U('Cart/index')}" style="display: inline;"><span class="font14 ml10 blue">返回购物车</span></a></div>
+  <div class="product_tab block_center pt15 font14">
+  <div class="note hidden" id="splitNote" style="display: block;">
+	<span class="pl50 left">由于您的商品所在不同库房，所以您的订单可能会被拆分为多个子订单分开配送，给您带来的不便还请谅解。</span>
+	<div class="clear"></div>
+	</div>
+   <table width="100%" cellspacing="1" cellpadding="0" border="0" id="cart-inner"><tbody><tr>
+	<th align="center" width="20%" scope="col">商品编号</th>
+	<th align="center" width="40%" scope="col">商品名称</th>
+	<th align="center" width="10%" scope="col">价格</th>
+	
+	<th align="center" width="10%" scope="col">库存状态</th>
+	<th align="center" width="10%" scope="col">数量</th>
+</tr>
+<foreach name="carts" item="vo" >    
+<tr>
+	<td class = "goodsId" align="center">{$vo['id']}</td>
+	<td align="center"><a href="#" target="_blank"><span>{$vo.name}</span></a></td>
+	<td align="center"><span>￥</span><span>{$vo.price}</span></td>
+	
+		<td align="center">
+		有货
+		
+		</td>
+	
+	<td align="center">{$vo['num']}</td>
+
+            <!-- 商品总价 -->
+              <?php  $sum+=$vo["price"]*$vo['num']; ?>
+</tr>
+</foreach>
+
+</tbody></table>
+  </div>
+  <div class="t_r pt10 font14" id="summaryBlock">商品金额：<span id="orderAmount"><?php echo $sum; ?>.00</span>元  +  运费：<span class="summaryFee">0.00</span>元  -  优惠劵：<span id="summaryCoupon">0.00</span>元</div>
+ </div>
+ 
+ 
+
+
+ 
+<!--  优惠劵展示模块 begin -->
+
+
+ <div class="pb30" id="couponBlock"><div class="pl25 pr25 font14"><a id="useCoupon" class="pack-up" onclick="showCoupon();">使用优惠券</a></div>
+			<div id="couponShowDiv" class="pt10 hidden">
+			   <div class="coupon_tit"><a class="cur" href="javascript:void(0);" id="bindedCoupon">已绑定优惠券</a><a href="javascript:void(0);" id="newBindCoupon">新增绑定优惠券</a></div>
+			   <div class="coupon_box">
+				<div class="product_tab block_center" id="bindedCouponDiv">
+			   <table width="100%" cellspacing="1" cellpadding="0" border="0" id="coupon-inner">
+			   <tbody><tr>
+				<th align="center" width="25%" valign="middle" scope="col">名称</th>
+				<th align="center" width="13%" valign="middle" scope="col">面值</th>
+				<th align="center" width="18%" valign="middle" scope="col">有效期</th>
+				<th align="center" width="32%" valign="middle" scope="col">使用说明</th>
+				<th align="center" width="12%" valign="middle" scope="col">操作</th>
+			  </tr>
+		
+<tr>
+<td align="center" colspan="5">暂无数据</td>
+</tr>
+			  
+			</tbody></table>
+			  </div>
+				<div id="newCouponDiv" class="hidden pl20">请输入优惠券编号：<input type="text" class="text1 font12" id="couponNOInput"> <input type="button" value="绑定并使用" class="button1 red_bt_m font14 ml5" id="useNewCouponNo"></div>
+			   </div>
+			  </div>
+			  <div class="pt10 pl50" id="selectedCouponInfo">			  
+			  </div></div>
+ 
+ 
+ <div class="write_jumpWrap l_h70">
+ <div id="agreeDiv" class="left hidden ml20"><input type="checkbox" id="agreeCheckBox" checked="checked"> 我已阅读并同意<a webtrekkparam="{ct:'shop_generateorders_agreement'}" id="agreePop"><span class="blue">乐视TV·超级电视预购协议</span></a></div>
+  <div class="red_bt_l right mt15 mr20"><a webtrekkparam="{:U('Orderinfo/addOrder')}" id="orderSubmit"><span class="white font16 block" id="orderSubmitSpan">提交订单</span></a></div>
+  <span class=" font16 gray right">应付金额：<span class="red font16">￥<span id="finalAmount"><?php echo $sum; ?>.00</span></span>
+   	<span id="orderSubmitError" class="pl10 pr10 font12 bold red"></span>
+   </span>
+    
+ </div>
+</div>
+
+</div>
+
+ 
+ 
+
+
+<div class="xieyi clear" style="display:none" id="buyagreement">
+	<div class="close right"><a href="javascript:void(0)" id="wjPop-close">X</a></div>
+    	<div class="title">乐视TV·超级电视预购协议</div>
+        <div class="content">
+          <p><br />
+    甲方:乐视致新电子科技（天津）有限公司<br />
+    乙方:  ____________<span style="text-decoration:underline;">客户</span>_______________<br />
+	鉴于，乙方了解甲方的产品，并希望购买甲方的产品，根据《中华人民共和国合同法》及其司法解释，甲乙双方本着平等自愿的原则，达成如下定金协议：<br /> 
+	一、本协议的“已阅读”按钮的点击，代表乙方已完全清楚并接受本协议 中的全部条款和内容。<br />
+	二、乙方接受本协议代表乙方向甲方发出订购甲方产品的需求，甲方将按照订单需求安排产品的生成组装。<br />
+	三、乙方定购产品需要向甲方缴纳一定比例的定金（具体比例请查看订单），此定金在乙方支付尾款时转为合同产品价款。<br />                           
+	四、甲乙双方均同意，预购订单不支持单方面取消，如果乙方取消订单或者不支付尾款的，甲方有权不退还定金。<br />
+	五、甲方有义务提醒催促乙方及时支付尾款。<br />
+	六、乙方订单的成功提交，代表本协议的正式生效 ，对双方均有法律约束力。<br />
+	七、双方在协议履行中若有争议可协商解决，协商不成应向北京市朝阳区人民法院提起诉讼<br />
+	八、因不可抗力（国家相关政策调整等）因素造成的服务变更，乐视不承担相应责任，对此拥有最终解释权。</p>
+
+</div></div>
+
+
+  
+  
+  
+  
+  
+  
+<!--右侧飘窗-->
+<div class="sidebar_float">
+	<!-- 百度分享 -->
+	<div class="is_share ie6-hover border hand handle  hidden " object="#bd_share">
+		<div class="share_show" id="bd_share">
+			<div class="share_bg absolute bdsharebuttonbox">
+				<a title="分享到QQ空间" href="javascript:void(0);" class="bds_qzone" data-cmd="qzone"></a>
+				<a title="分享到新浪微博" href="javascript:void(0);" class="bds_tsina" data-cmd="tsina"></a>
+				<a title="分享到微信" href="javascript:void(0);" class="bds_weixin" data-cmd="weixin"></a>
+				<a title="分享到腾讯微博" href="javascript:void(0);" class="bds_tqq" data-cmd="tqq"></a>
+				<a title="分享到搜狐微博" href="javascript:void(0);" class="bds_tsohu" data-cmd="tsohu"></a>
+				<a title="分享到人人网" href="javascript:void(0);" class="bds_renren" data-cmd="renren"></a>
+				<a title="分享到豆瓣网" href="javascript:void(0);" class="bds_douban" data-cmd="douban"></a>
+			</div>
+		</div>
+	</div>
+	<!-- 有奖调查 -->
+    <a href="http://www.sojump.com/jq/3881495.aspx" target="_blank">
+	<div class="is_survey ie6-hover border hand handle  show1 " id="diaocha_div" object="#dc_div">
+		<!--<div class="top_show" id="dc_div">
+			<div class="arrow absolute"></div>
+			<div class="red_bg absolute">有奖调查</div>
+		</div>-->
+	</div>
+  </a>
+	<!-- 销量天王 -->
+    <a href="http://bbs.letv.com/thread-458916-1.html" target="_blank">
+    <div class="is_king ie6-hover border hand handle  show2 " id="king_div" object="#tw_div">
+		<!--<div class="top_show" id="tw_div">
+			<div class="arrow absolute"></div>
+			<div class="red_bg absolute">销量天王</div>
+		</div>-->
+	</div>
+  </a>
+	<!-- 下载APP -->
+    <div class="is_app ie6-hover border hand handle  show3 " id="app_div" object="#xz_div">
+		<div class="app_show" id="xz_div">
+			<div class="app_bg border absolute">
+              <p class="pt5 pb5">手机下单更快捷</p>
+              <p><img  alt=""  src="Picture/e3b9b73482f940a2b27e7dbb8e9ca2da.gif" style=""/></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--返回顶部-->
+<div class="top_float ">
+	<div class="is_top ie6-hover border hand handle" id="backTop" object="#bt_div">
+		<!--<div class="top_show" id="bt_div">
+			<div class="arrow absolute"></div>
+			<div class="red_bg absolute">返回顶部</div>
+		</div>-->
+	</div>
+</div>
+
+<div class="footer">
+	<div class="white_bg pt40 pb30">
+		<div class="center clearfix">
+			<ul class="icon_list line_b clear">
+				<li class="zheng"><span class="font18 dark">正品保障</span><br />所有产品都是原装正品</li>
+				<li class="threeday"><a webtrekkparam="{ct:'xbsy_fwpt_3RNSD'}" href="/xinwen/zixunDetail-aid-78.html" target="_blank"><span class="font18 dark">3日内送达</span><br /><span class="gray">24大核心城市</span></a></li>
+				<li class="returns"><a webtrekkparam="{ct:'xbsy_fwpt_7RWLY'}" href="/help/bxzc/cjds.html"  target="_blank"><span class="font18 dark">7天无理由退换货</span><br /><span class="gray">支持7天退货，30天换货</span></a></li>
+				<li class="delivery"><a webtrekkparam="{ct:'xbsy_fwpt_616CSSD'}" href="/help/wlps/cjdsps.html" target="_blank"><span class="font18 dark">616城市送达</span><br /><span class="gray">覆盖全国29个省</span></a></li>
+				<li class="policy"><a webtrekkparam="{ct:'xbsy_fwpt_3BZC'}" href="/help/fwzc/gjsb.html" target="_blank"><span class="font18 dark">3包政策</span><br /><span class="gray">享受国家质量保障政策</span></a></li>
+			</ul>
+			<div class="help_list  left pt50">
+				<dl>
+					<dt>新手入门</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zcydl'}" href="/help/xsrm/zczh.html"><span class="simsun">> </span>注册与登录</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zhaq'}" href="/help/zczh/dlzh.html" ><span class="simsun">> </span>账户安全</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zhmm'}" href="/help/xsrm/zhmm.html" ><span class="simsun">> </span>如何找回密码</a></dd>
+					<!--<dd><a target="_blank" webtrekkparam="{ct:'YW_xsrm_tab4'}" href="/help/gwlc.html" ><span class="simsun">> </span>购物指南</a></dd>-->
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_lmFAQ'}" href="/help/lema_faq.html" ><span class="simsun">> </span>乐码FAQ</a></dd>
+				</dl>
+				<dl>
+					<dt>订单服务</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_wszf'}" href="/help/zxzf.html"><span class="simsun">> </span>网上支付</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_tksm'}" href="/help/ddfw/tksm.html" ><span class="simsun">> </span>退款说明</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_fpzd'}" href="/help/fpzd.html" ><span class="simsun">> </span>发票制度</a></dd>
+				  
+				</dl>
+				<dl>
+					<dt>物流服务</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_psaz'}" href="/help/wlps/cjdsps.html" ><span class="simsun">> </span>配送范围查询</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_pscx'}" href="/help/wlps/ddps.html"><span class="simsun">> </span>配送费收取标准</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_yhqs'}" href="/help/yhqs.html" ><span class="simsun">> </span>自提与签收注意事项</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_cjwt'}" href="/help/pswt/cjds.html"><span class="simsun">> </span>配送常见问题</a></dd>
+					<!--<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_yyaz'}" href="/user/center/fixAndMaintain.html"><span class="simsun">> </span>预约安装</a></dd>-->
+				 
+				</dl>
+				<dl>
+					<dt>售后服务</dt>
+					<!--<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_fwyzc_gwts'}" href="/help/gwts.html" ><span class="simsun">> </span>购物提示</a></dd>-->
+                    <dd><a href="/help/fwzc/gyaz.html" webtrekkparam="{ct:'Help_fwzc_tab1'}" target="_blank"><span class="simsun">> </span>关于安装</a></dd>
+					<!--<dd><a href="/help/fwzc/gjsb.html" webtrekkparam="{ct:'Help_fwzc_tab2'}" target="_blank"><span class="simsun">> </span>国家三包政策</a></dd>-->
+  <dd><a href="/help/bxzc/cjds.html" webtrekkparam="{ct:'Help_fwzc_tab3'}" target="_blank"><span class="simsun">> </span>售后服务政策</a></dd>
+  <!--<dd><a href="/help/bxzc/lshz.html" webtrekkparam="{ct:'Help_fwzc_tab4'}" target="_blank"><span class="simsun">> </span>配件、盒子三包政策</a></dd>-->
+  <!--<dd><a href="/help/thhzc/cjds.html" webtrekkparam="{ct:'Help_fwzc_tab5'}" target="_blank"><span class="simsun">> </span>超级电视售后说明</a></dd>-->
+  <!--<dd><a href="/help/thhzc/lshz.html" webtrekkparam="{ct:'Help_fwzc_tab6'}" target="_blank"><span class="simsun">> </span>配件、盒子售后说明</a></dd>-->
+  <dd><a href="/help/fwwd.html" webtrekkparam="{ct:'Help_fwzc_tab7'}" target="_blank"><span class="simsun">> </span>线下服务中心</a></dd>
+  <dd><a href="/help/fwzc/fwgs.html" webtrekkparam="{ct:'Help_fwzc_tab8'}" target="_blank"><span class="simsun">> </span>售后服务公示</a></dd>
+  <dd><a href="/help/xxtyt.html" webtrekkparam="{ct:'Help_fwzc_tab9'}" target="_blank"><span class="simsun">> </span>线下体验厅</a></dd>
+  <dd><a href="/help/xufei.html" webtrekkparam="{ct:'Help_fwzc_tab10'}" target="_blank"><span class="simsun">> </span>TV版服务续费教程</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_fwyzc_hyj'}" href="/ott/yys.html" ><span class="simsun">> </span>电视合约机</a></dd>
+				</dl>
+				<dl>
+					<dt>走进乐视TV</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_gsjs'}"  href="/gywm-zjid-zj01.html"><span class="simsun">> </span>公司介绍</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_ppsp'}"  href="/zt/ppTv.html" ><span class="simsun">> </span>品牌视频</a></dd> 
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_share'}"  href="/cps/index.html" ><span class="simsun">> </span>分享邀请</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_shhyx'}"  href="/gywm-zjid-zj05.html"><span class="simsun">> </span>社会化营销</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_lxwm'}"  href="/gywm-zjid-zj06.html"><span class="simsun">> </span>联系我们</a></dd>
+					<dd><a webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_gzwm'}"  href="javascript:void(0)" onclick="javascript:pop('#guanzhuPOP')"><span class="simsun">> </span>关注我们</a></dd>
+				</dl>
+			</div>
+			<div class="service_online pt50 right">
+				<dl>
+					<dt>在线服务</dt>
+					<dd class="phone400"><span class="font16 dark">1010-9000</span><br />7*24小时客服电话<br />（仅收市话费）</dd>
+					<dd class="kf_online"><a webtrekkparam="{ct:'xbsy_fwpt_ZXFW'}" href="/onlineservice.html" target="_blank"><span class="font16 dark">在线客服</span><br /><span class="gray">服务时段 8:00-20:00</span></a></dd>
+					<dd class="UE_center"><a webtrekkparam="{ct:'xbsy_fwpt_YHTYZX'}" href="/help/tiyan/index.html" target="_blank"><span class="font16 dark">用户体验中心</span><br /><span class="gray">从用户的角度完善购物体验</span></a></dd>
+					<dd class="returns_oline"><a webtrekkparam="{ct:'xbsy_fwpt_ZXTHH'}" href="/user/center/refundOrderList.html" target="_blank"><span class="font16 dark">在线退换货</span></a></dd>
+				</dl>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="copyright">
+		<div class="center">Copyright © 2004-2014 乐视网 All rights reserved. 备案/许可证编号为：京ICP备09045969 不良信息举报中心 网络文化经营许可证文网文[2009]221号</div>
+	</div>
+
+</div>
+<!--关注我们 弹框-->
+<div id="guanzhuPOP" class="hidden" style="width:640px">
+	<div class="f8_bg title pl10 line_b relative">
+		<span class="font14 dark">关注我们</span>
+		<a href="javascript:void(0)" class="absolute" id="wjPop-close">×</a>
+	</div>
+	<div class="pl30 pr30 pt20 white_bg careus border">
+		<div class="pl90 pb30 pt15 line_b sina">
+			<span class="font16 dark mr15">乐视TV 官方微博</span>
+			<a href="#" class="inline_block"><img src="Picture/445bcc7b3246422bac2f8a8880f2c4b5.gif" alt="" /></a>
+		</div>
+		<div class="pl90 pb30 pt15 weixin">
+			<div class="clearfix">
+				<div class="left pr40 line_r">
+					<span class="font16 dark">乐视TV 官方微信</span><br />
+					<img src="Picture/908cb848af5c413f8906337f3dc09dd7.gif" alt="" />
+				</div>
+				<div class="left pl40">
+					<span class="font16 dark">乐视商城 官方微信</span><br />
+					<img src="Picture/ad1f0df379cb456485a2b407225246f5.gif" alt="" />
+				</div>
+			</div>
+			<div class="mt15 gray font12">打开微信，点击右上角的“魔法棒”，选择“扫一扫”功能，对准下方二维码即可。</div>
+		</div>
+	</div>
+</div>
+    <script type="text/javascript">
+    $("#orderSubmitSpan").click(function(){
+        var addressid = $('.cur').attr('addressid');
+        var goodid = [];
+        $(".goodsId").each(function(){
+            goodid.push($(this).html());
+        });
+        var goodsid = goodid.join(',');
+        if(!addressid){
+            alert("请选择收货地址");
+            return false;
+        }
+        $.get("{:U('Orderinfo/addOrder')}",{addressid:addressid,goodid:goodid},function(msg){
+            //添加成功
+            if(msg==0){
+                 location.href='{:U('Orderinfo/pay')}';
+            }
+            
+        });
+        //alert(addressid+'-'+goodsid);
+    });
+    </script>
+    
+<script type="text/javascript">
+  window._bd_share_config={
+	"common": {
+		"bdSnsKey": {	
+		},
+		"bdText" : "",	
+		"bdDesc" : "",	
+		"bdUrl" : "", 	
+		"bdPic" : "",
+		"bdMini": "2",
+		"bdMiniList": false,
+		"bdStyle": "0",
+		"bdSize": "32"	
+	},
+	"share": {	
+	}
+};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<script type="text/javascript">
+//右侧飘窗显示隐藏方法
+$.fn.extend({showOrHide:function(){var _this=this;this.each(function(index,elem){var $handle=$(elem);var name=$handle.attr("object");var $content=$(name);var timer=null;$handle.mouseover(function(){show();}).mouseout(function(){hide();});$content.mouseover(function(){show();}).mouseout(function(){hide2();});function show(){clearTimeout(timer);$content.show();}
+function hide(){var interval=300;timer=setTimeout(function(){$content.hide();},interval);}
+function hide2(){$content.hide();}});}});
+
+var is_hidden="1";//返回顶部
+var is_share_show="0";//是否分享
+
+$(function(){
+    //右侧飘窗显示隐藏
+	$(".handle").showOrHide();
+    //返回顶部
+	if(is_hidden=="1"){
+		initBackTop();
+	}
+    
+  $(".ie6-hover").mouseover(function () {
+  	$(this).addClass("hover");
+  });
+  
+  $(".ie6-hover").mouseout(function () {
+  	$(this).removeClass("hover");
+  });
+});
+
+//初始化返回顶部按钮事件
+function initBackTop(){
+	window.onscroll=function(){
+		if(document.body.scrollTop==0?document.documentElement.scrollTop:document.body.scrollTop > 50){
+			$("#backTop").show();
+		}else{
+			$("#backTop").hide();
+		}
+	}
+
+	$("#backTop").unbind("click").bind("click",function(){
+	    pageScroll();
+	});
+}
+//鼠标滚动事件  
+function pageScroll(){
+    window.scrollBy(0,-50);
+    scrolldelay = setTimeout('pageScroll()',1);
+    var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+    if(sTop==0){
+		clearTimeout(scrolldelay);
+	}
+}
+</script>
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/jquery.lazyload.js'></script>
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/zxvideo.js'></script>
+
+</body>
+</html>
+

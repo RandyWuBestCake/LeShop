@@ -1,0 +1,18 @@
+<div class="mws-form-item">
+    <table>
+        <tr>
+            <foreach name="goods" item="vo" key="k">
+                {$k%5==0?'
+        </tr>
+        <tr>':''}
+            <td width="14px"><input type="checkbox" name="ids[]" value="{$vo['id']}"></td>
+            <td class="tag">{$vo['title']}</td>
+            <td class="img"><img src="__PUBLIC__/Uploads/{$vo['img']}" width="60px"></td>
+            </foreach>
+        </tr>
+        <tr>
+            <td colspan="12"></td>
+            <td id="page" colspan='3'>{$page}</td>
+        </tr>
+    </table>
+</div>

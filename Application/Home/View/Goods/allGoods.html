@@ -1,0 +1,83 @@
+﻿<extend name="Helpself:base" />
+<block name="nav">
+<script>var _hrefPath = '',_imagePath = 'http://img0.hdletv.com',_basePath = 'http://web_dev_service_group:80/';</script>
+        <!--[if lt IE 7]>
+                <script type="text/javascript" src="../Scripts/unitpngfix.js"></script>
+        <![endif]-->
+            <link  type='text/css' href='__PUBLIC__/CSS/global.css' rel='stylesheet' />
+
+            <script type='text/javascript' src='__PUBLIC__/Scripts/generatesession.js'></script>
+
+            <script type='text/javascript' src='__PUBLIC__/Scripts/zxlib.js'></script>
+
+            <script type='text/javascript' src='__PUBLIC__/Scripts/template.js'></script>
+
+            <link  type='text/css' href='__PUBLIC__/CSS/products.css' rel='stylesheet' />
+        <link rel="icon" href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 
+        <link rel="shortcut icon"  href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 
+<div class="main">
+  <div class="center">
+      <div class="pro_top line_b pb5">
+        <div class="left">
+            <a href="/"><span class="dark font14"><strong>首页</strong> </span></a>
+            <span class="font14"> > </span>
+            <span class="font14 gray">全部商品</span>
+        </div>
+      </div>
+      <div class="product_alllist">
+         <foreach name="res" item="vo" >
+           <div class="row">
+
+              <div class="row_col tall">
+                 <div class="v">
+                    <div class="product_pic"><img  alt="{$vo.name}"  src="__ROOT__{$vo.img}" style=""/></div>
+                    <h2 class="product_tit t_c">{$vo.name}</h2>
+                    <div class="product_sub pt10">
+                       <ul>
+                          <foreach name="goods" item="vo1" >
+                           <foreach name="vo1" item="vo2" > 
+                           <if condition="$vo['id']== $vo2['pid']">    
+                          <li>· <a href="{:U('Goods/headline',array('id'=>$vo2['id']))}" target="_blank" webtrekkparam="{ct:'lj_sy_qbsp_max70'}">{$vo2.name}</a></li>
+                          <else /> </if>
+                           </foreach>
+                         </foreach>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+                </foreach>
+              <div class="clear"></div>
+               <foreach name="fit" item="vo" >
+              <div class="row_col low">
+                 <div class="v">
+                    <div class="product_pic"><img  alt="{$vo.name}"  src="__ROOT__{$vo.img}" style=""/></div>
+                    <h2 class="product_tit t_c">{$vo.name}</h2>
+                    <div class="product_sub pt10">
+                       <ul>
+                          <foreach name="fits" item="vo1" >
+                           <foreach name="vo1" item="vo2" > 
+                          <if condition="$vo['id']== $vo2['pid']">   
+                          <li>· <a href="{:U('Fit/FitList')}" target="_blank" webtrekkparam="{ct:'lj_sy_qbsp_newC1S'}">{$vo2.name}</a></li>
+                            <else /> </if>
+                           </foreach>
+                         </foreach>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              </foreach>
+              <div class="clear"></div>
+           </div>
+        </div>
+    </div>
+
+</div>  
+    <script type='text/javascript'>
+  //全局统计变量
+var globalTongJi={
+  wk_contentId:"category.all"
+}
+</script>
+
+
+</block>

@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+                    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<!-- js引用文件添加 -->
+<!-- 页面底部统一引用jsInclude -->
+<!-- 引用静态页面标签 -->
+				<script>var _hrefPath = '',_imagePath = 'http://img0.hdletv.com',_basePath = 'http://web_dev_service_group:80/';</script>
+				<!--[if lt IE 7]>
+				        <script type="text/javascript" src="Scripts/unitpngfix.js"></script>
+				<![endif]-->
+  		  		<link  type='text/css' href='__PUBLIC__/cart/Content/global.css' rel='stylesheet' />
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/generatesession.js'></script>
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/zxlib.js'></script>
+
+  		  		<!-- <script type='text/javascript' src='__PUBLIC__/cart/Scripts/template.js'></script> -->
+
+  		  		<link  type='text/css' href='__PUBLIC__/cart/Content/cart.css' rel='stylesheet' />
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/cart.js'></script>
+
+
+				<link rel="icon" href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 
+				<link rel="shortcut icon"  href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 
+	<title>我的购物车</title>
+</head>
+<body>
+<div class="header">
+	<div class="top_link f8_bg">
+    <div class="center">
+        <ul class="left quick_links">
+            <li><a href="/LetvTV.html" webtrekkparam="{ct:'H_letv'}" target="_blank" ><span class="pr15">乐视网TV版</span></a>|</li>
+            <li><a href="http://ui.letv.com/index.html" webtrekkparam="{ct:'H_letvui'}" target="_blank" ><span class="pl15 pr15">LetvUI</span></a>|</li>
+            <li><a href="http://www.letvstore.com/" webtrekkparam="{ct:'H_letvstroe'}" target="_blank" ><span class="pl15 pr15">LetvStore </span></a>|</li>
+            <li class="hd_list show_hide_block abroad" object="#abroad" type="slide" speed="fast" buffer="300">
+                <a href="http://hk.shop.letv.com/" target="_blank"><span class="pl15 pr25">海外版</span></a>|
+                <dl id="abroad">
+                    <dt><a href="http://hk.shop.letv.com/" target="_blank">海外版</a></dt>
+                    <dd><a href="http://hk.shop.letv.com/" target="_blank">香港站</a></dd>
+
+                </dl>
+            </li>
+            <li class="mzhan show_hide_block" object="#mzhan" type="slide" speed="fast" buffer="300">
+                <a href="/app/download.html" target="_blank"><span class="pl15 pr15">手机版</span></a>|
+                <div id="mzhan">
+                    <div class="left"><img  alt=""  src="Picture/b45bcf8fd09b4df7ab4a758065cead18.gif" style="width:95px;"/></div>
+                    <div class="left pl5">
+                        <span class="dark">扫描下载客户端<br/>手机抢购更给力</span><br/>
+                        <span class="gray">iPhone | Android</span><br/>
+                        <a href="/app/download.html" class="block red_bt_s mt10" target="_blank"><span class="font12 white">免费下载</span></a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="http://bbs.letv.com" target="_blank"><span class="pl15 pr15">社区</span></a>|</li>
+            <li><a href="/dkh.html" target="_blank"><span class="pl15 pr15">大客户通道</span></a></li>
+        </ul>
+        <ul class="right log_order t_r">
+
+            <?php 
+                  session_start();
+                  if(!session('users')){
+             ?>
+              <li id="loginMess" class="loginNew"><a id="login" rel="nofollow" href="{:U('Login/index')}"><span class="pl15 ">登录</span></a> | <a rel="nofollow" target="_blank" href="{:U('Register/index')}"><span class=" pr15">注册</span></a></li>
+
+              <?php  
+              }else{         
+              ?>
+
+             <li class="loginNew" id="loginMess"><span class="gray">Hi,</span><a title="" target="_blank" href="" rel="nofollow"><span class="pl5 pr5">{$_SESSION['users']['username']}</span></a> <a id="logout"  href="{:U('Login/logout')}" rel="nofollow"><span class="pl5 pr15">[退出]</span></a></li>
+
+            <?php 
+            }
+             ?>        
+
+
+            <li class="order"><a rel="nofollow"  href="{:U('Account/order')}"><span class="pl15 pr15">我的订单</span></a></li>
+            <li class="hd_list show_hide_block" object="#help" type="slide" speed="fast" buffer="300">
+
+                <a href="/helpself.html" target="_blank"><span class="pl15 pr25">帮助中心</span></a>
+                <dl id="help">
+                    <dt><a href="/helpself.html" target="_blank">帮助中心</a></dt>
+                    <dd><a href="/help/wlps/cjdsps.html" target="_blank">配送安装</a></dd>
+                    <dd><a href="/help/bxzc/cjds.html" target="_blank">售后服务</a></dd>
+                    <dd><a href="/help/pswt/yfbz.html" target="_blank">运费标准</a></dd>
+                    <dd><a href="/onlineservice.html" target="_blank">联系客服</a></dd>
+                </dl>
+            </li>
+            <li class="hd_list show_hide_block" object="#dao" type="slide" speed="fast" buffer="300">
+
+                <a href="javascript:void(0)"><span class="pl15 pr25">生态导航</span></a>
+                <dl id="dao">
+                    <dt>生态导航</dt>
+                    <dd><a href="http://www.letv.com" target="_blank">乐视网</a></dd>
+                    <dd><a href="http://www.wangjiu.com" target="_blank">网酒网</a></dd>
+                    <dd><a href="http://www.lelife.com" target="_blank">乐生活</a></dd>
+                    <!--<dd><a href="/zt/cp2c.html" target="_blank">CP2C</a></dd>-->
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+	<div class="center">
+	    <a class="block logo left " href="{:U('index/index')}"></a>
+
+	    <div class="clear"></div>
+	</div>
+	<div class="cart_top_border"></div>
+</div>	
+<script type="text/javascript">
+    var timeOutList = {};
+    $(document).ready(function () {
+        $.each($(".show_hide_block"), function () {
+            showHideBlock(this, $(this).attr("object"), $(this).attr("type"), $(this).attr("buffer"), $(this).attr("speed"), $(this).attr("effect"))
+        });
+        $.each($(".show_children"), function () {
+            showChildren(this, $(this).attr("buffer"), $(this).attr("speed"))
+        });
+        $.each($('[status="toggle"]'), function () {
+            $($(this).attr("object")).hide()
+        })
+    });
+    function showHideBlock(a, b, g, d, f, c, h) {
+        var e = null;
+        "undefined" == typeof c && (c = "");
+        e = "slide" == g ? ["slideDown", "slideUp"] : "fade" == g ? ["fadeIn", "fadeOut"] : ["show", "hide"];
+        $(a).unbind("mouseenter").mouseenter(function () {
+            clearTimeout(timeOutList[b]);
+            $(a).addClass(c);
+            $(a).siblings().removeClass(c);
+            $(b)[e[0]](f, function () {
+                $(this).css("overflow", "visible")
+            })
+        });
+        $(b).unbind("mouseenter").mouseenter(function () {
+            $(a).addClass(c);
+            clearTimeout(timeOutList[b]);
+        });
+        $(b).unbind("mouseleave").mouseleave(function () {
+            timeOutList[b] = setTimeout(function () {
+                $(b)[e[1]](f, function () {
+                    $(a).removeClass(c)
+                });
+                !!h ? h() : null;
+            }, d || 1E3)
+        });
+        $(a).unbind("mouseleave").mouseleave(function () {
+            timeOutList[b] = setTimeout(function () {
+                $(b)[e[1]](f, function () {
+                    $(a).removeClass(c)
+                });
+                !!h ? h() : null;
+            }, d || 1E3)
+        })
+    }
+    function showChildren(a, b) {
+        $(a).mouseenter(function () {
+            clearTimeout(timeOutList[$(this).text()]);
+            $("ul", $(this)).show();
+            $(this).siblings().find("ul").hide()
+        });
+        $(a).unbind("mouseleave").mouseleave(function () {
+            var a = $(this).text(), d = this;
+            clearTimeout(timeOutList[a]);
+            timeOutList[a] = setTimeout(function () {
+                $("ul", d).hide()
+            }, b || 1E3)
+        })
+    }
+    $(function () {
+        try {
+            $("img.lz").lazyload({data_attribute: "url", skip_invisible: !1, threshold: 10});
+        } catch (e) {
+        }
+        ;
+        refreshHeader()
+    });
+    function refreshHeader() {
+        if (Js.login.getAuth()) {
+            var a = getCookie("COOKIE_NICKNAME"), a = 10 < a.length ? a.substring(0, 10) + "..." : a;
+            $("#loginMess").html('<a rel="nofollow" href="' + _hrefPath + '/user/center/orderList.html" target="_blank" title="' + getCookie("COOKIE_NICKNAME") + '"><span class="pl15 pr15">' + a + '</span></a> <a rel="nofollow" id="logout"><span class="pl15 pr15">[退出]</span></a>');
+            $("#logout").click(function () {
+                Js.login.logout(function () {
+                    window.location.href = "/"
+                })
+            })
+        } else $("#login").click(function () {
+            Js.login.hasLogin(function () {
+                location.reload()
+            })
+        })
+    }
+    ;
+</script>
+
+
+    <div class="clear mt10"></div>
+    <div class="center">
+        <div class="cart_title mt10">
+            <div class="left">
+              <span class="font12 gray">
+                  <span class="font20 dark">我的购物车</span>     
+			
+              </span>
+             
+          	</div>
+          
+          <!--<div class="right simsun">有问题？请您<a href="/onlineservice.html" target="_blank"><span class="red">联系客服</span></a></div>-->
+            <div class="clear"></div>
+        </div>
+        <div id="tip" class="cart_tishi clear mt10 pb20" style="display:none">
+            <span class="tishi_bg block left white t_c">声明</span>
+            <span class="block left red">由于您的选购的商品由不同的区域仓库配送,所以您需要分别结算订单.由此给您带来的不便深表歉意.</span>
+        </div>
+
+        <?php 
+        //定义区域数组
+        $province_arr = array('北京','重庆','福建','甘肃','广东','广西','贵州','海南','河北','安徽','黑龙江','河南','香港','湖北','湖南','江苏','江西','吉林','辽宁','澳门','内蒙古','宁夏','青海','山东','上海','山西','陕西','四川','台湾','天津','新疆','西藏','云南','浙江','海外'); 
+        ?>
+
+
+
+      <?php 
+            session_start();
+            // var_dump($_SESSION['cart'][7]); die;
+            if(!session('cart')){
+       ?>
+        
+      <div class="cart_noneWrap">
+      <img class="cart_img mr50" src="__PUBLIC__/cart/Images/cart9527.jpeg">
+  
+     <!--登录状态无商品-->
+      <div id="loginCartNone" class="cart_login mt10 hidden" style="display: block;">
+        <span class="cart_txt">你的购物车还是空的！ <br>赶紧行动吧！</span>
+        <a href="#"><span class="shop_now">马上去购物</span></a>
+      </div>
+      </div>
+      
+     
+       <?php  
+        }else{         
+        ?>
+
+      <div id="head" style="">
+
+        <table border="0" cellspacing="0" cellpadding="0" class="cart_list">
+     
+          <th class="no_bl" width="100"><input type="checkbox" name="selectGood" class="mr10" id="allcheck" /> 全选</th>
+          <th class="no_bl"></th>
+          <th class="cart-pGoods no_bl">商品</th>
+          <th class="cart-pPrice" width="152">单价</th>
+          <th class="cart-pQuantity" width="152">数量</th>
+          <th class="cart-pDiscount" width="152">小计</th>
+
+          <th class="cart-pAction" width="152"><select class=" cart_select">
+
+            <?php
+            //遍历区域数组
+             foreach ($province_arr as $k => $v){ 
+             echo   "<option value='$k'>$v</option>";
+              } 
+            ?>
+              
+          </select></th>
+          
+          <th width="152">操作</th>   
+         <foreach name="data" item="vo">
+          <tbody>
+
+            <tr>
+         
+              <td width="60"><input type="checkbox" class="force" value=""   id="{$vo.id}"></td>
+              <td width="100" class="no_bl"><a target="_blank" href="#"><img width="46" height="46" src="__ROOT__{$vo.img}"></a></td>  
+              <td style="text-align:left; padding:0 10px;" class="no_bl"><a target="_blank" href="#">{$vo.name}</a></td>
+              <td width="148"><span class="MSyh">￥</span><span class="Arial">{$vo.price}</span></td>
+
+
+              <td width="148"><span  class=" lower border pl5 pr5 reduceItem count-down" id="{$vo['id']}" >-</span>
+              <input type="text" value="{$vo.num}" size="8" class="t_c count-free">
+              <span class=" higher border pl5 pr5 addItem count-up" id="{$vo['id']}" >+</span></td>
+
+
+              <td width="148"><span class="red">{$vo["price"] * $vo["num"]}</span></td>
+              <td width="148">有货</td>
+              <td width="148"><a href="__MODULE__/cart/del/id/{$vo['id']}"><span class="itemDelete blue hand product-erase">删除</span></a></td>
+
+              <!-- 商品总价 -->
+              <?php  $sum+=$vo["price"]*$vo['num']; ?>
+        
+        
+            </tr>
+           </tbody>
+             </foreach>
+
+        </table>
+      </div>
+
+            <div class=" write_jumpWrap l_h70">
+        <div class="red_bt_l right mt15 mr20">
+          <a webtrekkparam="" id="account" >
+            <span class="white block">去结算</span>
+          </a>
+        </div>
+        <div class="right mr20 font14">
+         <span class="cart_cleasTxt">总计（不含运费）：</span>
+          <span class="red font24">￥</span>
+          <span class=" Arial red font22 cartPirce">
+          <?php echo $sum; ?>.00</span> 
+        </div>
+   
+
+
+          <div id="clearCart" class="left clearCart dark font14 hand">
+            <a webtrekkparam="{ct:'shop_myshoppingcart_delete_chosen'}" class="del_cart"></a>删除选中商品
+          </div>
+          <div>
+          <a webtrekkparam="{ct:'shop_myshoppingcart_goonshop'}" class="left" id="goback" href="{:U('Cart/clear')}">
+            <span class="ml30 font14"> 清空购物车</span>
+          </a>
+        </div>
+
+          
+          <div class="left clearCart dark font14 hand">
+             <a href="{:U('Fit/fitlist')}"><span class="ml30 font14"> 继续购物</span></a>
+          </div>
+
+        <div id="attact">
+          <div id="suite">
+          
+          </div>
+          <!--1-->
+
+          <div id="program">
+          
+          </div>
+          <!--2-->
+          <div id="markup">
+          
+          </div>
+          <!--4-->
+          <div id="plus" class="cart_menu_wrap">
+          
+          </div>
+          <!--3-->
+          <div id="price">
+          
+          </div>
+        </div>   
+      
+      	<!--5-->
+        <div id="pay">
+          
+        </div>
+      	
+    </div>
+
+       <?php  
+      }
+       ?>
+
+
+
+  <div class="center mb20 mt80" style="display:none;" id="recommend">
+    <div class="cart_title line_b mt10 "><span class="font18 dark"></span></div>          
+  </div>
+ 	
+<div id="light" class="cart_div">正在转向结算页面，请稍等……</div>
+<div id="fade" class="cart_overlay"></div>
+
+  
+    <script>
+        $(function(){
+            Cart.load();
+        });
+    </script>
+
+    
+<!--右侧飘窗-->
+
+
+<div class="sidebar_float">
+	<!-- 百度分享 -->
+	<div class="is_share ie6-hover border hand handle  hidden " object="#bd_share">
+		<div class="share_show" id="bd_share">
+			<div class="share_bg absolute bdsharebuttonbox">
+				<a title="分享到QQ空间" href="javascript:void(0);" class="bds_qzone" data-cmd="qzone"></a>
+				<a title="分享到新浪微博" href="javascript:void(0);" class="bds_tsina" data-cmd="tsina"></a>
+				<a title="分享到微信" href="javascript:void(0);" class="bds_weixin" data-cmd="weixin"></a>
+				<a title="分享到腾讯微博" href="javascript:void(0);" class="bds_tqq" data-cmd="tqq"></a>
+				<a title="分享到搜狐微博" href="javascript:void(0);" class="bds_tsohu" data-cmd="tsohu"></a>
+				<a title="分享到人人网" href="javascript:void(0);" class="bds_renren" data-cmd="renren"></a>
+				<a title="分享到豆瓣网" href="javascript:void(0);" class="bds_douban" data-cmd="douban"></a>
+			</div>
+		</div>
+	</div>
+	<!-- 有奖调查 -->
+    <a href="http://www.sojump.com/jq/3881495.aspx" target="_blank">
+	<div class="is_survey ie6-hover border hand handle  show1 " id="diaocha_div" object="#dc_div">
+		<!--<div class="top_show" id="dc_div">
+			<div class="arrow absolute"></div>
+			<div class="red_bg absolute">有奖调查</div>
+		</div>-->
+	</div>
+  </a>
+	<!-- 销量天王 -->
+    <a href="http://bbs.letv.com/thread-458916-1.html" target="_blank">
+    <div class="is_king ie6-hover border hand handle  show2 " id="king_div" object="#tw_div">
+		<!--<div class="top_show" id="tw_div">
+			<div class="arrow absolute"></div>
+			<div class="red_bg absolute">销量天王</div>
+		</div>-->
+	</div>
+  </a>
+	<!-- 下载APP -->
+    <div class="is_app ie6-hover border hand handle  show3 " id="app_div" object="#xz_div">
+		<div class="app_show" id="xz_div">
+			<div class="app_bg border absolute">
+              <p class="pt5 pb5">手机下单更快捷</p>
+              <p><img  alt=""  src="Picture/e3b9b73482f940a2b27e7dbb8e9ca2da.gif" style=""/></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--返回顶部-->
+<div class="top_float ">
+	<div class="is_top ie6-hover border hand handle" id="backTop" object="#bt_div">
+		<!--<div class="top_show" id="bt_div">
+			<div class="arrow absolute"></div>
+			<div class="red_bg absolute">返回顶部</div>
+		</div>-->
+	</div>
+</div>
+
+<div class="footer">
+	<div class="white_bg pt40 pb30">
+		<div class="center clearfix">
+			<ul class="icon_list line_b clear">
+				<li class="zheng"><span class="font18 dark">正品保障</span><br />所有产品都是原装正品</li>
+				<li class="threeday"><a webtrekkparam="{ct:'xbsy_fwpt_3RNSD'}" href="/xinwen/zixunDetail-aid-78.html" target="_blank"><span class="font18 dark">3日内送达</span><br /><span class="gray">24大核心城市</span></a></li>
+				<li class="returns"><a webtrekkparam="{ct:'xbsy_fwpt_7RWLY'}" href="/help/bxzc/cjds.html"  target="_blank"><span class="font18 dark">7天无理由退换货</span><br /><span class="gray">支持7天退货，30天换货</span></a></li>
+				<li class="delivery"><a webtrekkparam="{ct:'xbsy_fwpt_616CSSD'}" href="/help/wlps/cjdsps.html" target="_blank"><span class="font18 dark">616城市送达</span><br /><span class="gray">覆盖全国29个省</span></a></li>
+				<li class="policy"><a webtrekkparam="{ct:'xbsy_fwpt_3BZC'}" href="/help/fwzc/gjsb.html" target="_blank"><span class="font18 dark">3包政策</span><br /><span class="gray">享受国家质量保障政策</span></a></li>
+			</ul>
+			<div class="help_list  left pt50">
+				<dl>
+					<dt>新手入门</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zcydl'}" href="/help/xsrm/zczh.html"><span class="simsun">> </span>注册与登录</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zhaq'}" href="/help/zczh/dlzh.html" ><span class="simsun">> </span>账户安全</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zhmm'}" href="/help/xsrm/zhmm.html" ><span class="simsun">> </span>如何找回密码</a></dd>
+					<!--<dd><a target="_blank" webtrekkparam="{ct:'YW_xsrm_tab4'}" href="/help/gwlc.html" ><span class="simsun">> </span>购物指南</a></dd>-->
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_lmFAQ'}" href="/help/lema_faq.html" ><span class="simsun">> </span>乐码FAQ</a></dd>
+				</dl>
+				<dl>
+					<dt>订单服务</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_wszf'}" href="/help/zxzf.html"><span class="simsun">> </span>网上支付</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_tksm'}" href="/help/ddfw/tksm.html" ><span class="simsun">> </span>退款说明</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_fpzd'}" href="/help/fpzd.html" ><span class="simsun">> </span>发票制度</a></dd>
+				  
+				</dl>
+				<dl>
+					<dt>物流服务</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_psaz'}" href="/help/wlps/cjdsps.html" ><span class="simsun">> </span>配送范围查询</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_pscx'}" href="/help/wlps/ddps.html"><span class="simsun">> </span>配送费收取标准</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_yhqs'}" href="/help/yhqs.html" ><span class="simsun">> </span>自提与签收注意事项</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_cjwt'}" href="/help/pswt/cjds.html"><span class="simsun">> </span>配送常见问题</a></dd>
+					<!--<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_yyaz'}" href="/user/center/fixAndMaintain.html"><span class="simsun">> </span>预约安装</a></dd>-->
+				 
+				</dl>
+				<dl>
+					<dt>售后服务</dt>
+					<!--<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_fwyzc_gwts'}" href="/help/gwts.html" ><span class="simsun">> </span>购物提示</a></dd>-->
+                    <dd><a href="/help/fwzc/gyaz.html" webtrekkparam="{ct:'Help_fwzc_tab1'}" target="_blank"><span class="simsun">> </span>关于安装</a></dd>
+					<!--<dd><a href="/help/fwzc/gjsb.html" webtrekkparam="{ct:'Help_fwzc_tab2'}" target="_blank"><span class="simsun">> </span>国家三包政策</a></dd>-->
+  <dd><a href="/help/bxzc/cjds.html" webtrekkparam="{ct:'Help_fwzc_tab3'}" target="_blank"><span class="simsun">> </span>售后服务政策</a></dd>
+  <!--<dd><a href="/help/bxzc/lshz.html" webtrekkparam="{ct:'Help_fwzc_tab4'}" target="_blank"><span class="simsun">> </span>配件、盒子三包政策</a></dd>-->
+  <!--<dd><a href="/help/thhzc/cjds.html" webtrekkparam="{ct:'Help_fwzc_tab5'}" target="_blank"><span class="simsun">> </span>超级电视售后说明</a></dd>-->
+  <!--<dd><a href="/help/thhzc/lshz.html" webtrekkparam="{ct:'Help_fwzc_tab6'}" target="_blank"><span class="simsun">> </span>配件、盒子售后说明</a></dd>-->
+  <dd><a href="/help/fwwd.html" webtrekkparam="{ct:'Help_fwzc_tab7'}" target="_blank"><span class="simsun">> </span>线下服务中心</a></dd>
+  <dd><a href="/help/fwzc/fwgs.html" webtrekkparam="{ct:'Help_fwzc_tab8'}" target="_blank"><span class="simsun">> </span>售后服务公示</a></dd>
+  <dd><a href="/help/xxtyt.html" webtrekkparam="{ct:'Help_fwzc_tab9'}" target="_blank"><span class="simsun">> </span>线下体验厅</a></dd>
+  <dd><a href="/help/xufei.html" webtrekkparam="{ct:'Help_fwzc_tab10'}" target="_blank"><span class="simsun">> </span>TV版服务续费教程</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_fwyzc_hyj'}" href="/ott/yys.html" ><span class="simsun">> </span>电视合约机</a></dd>
+				</dl>
+				<dl>
+					<dt>走进乐视TV</dt>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_gsjs'}"  href="/gywm-zjid-zj01.html"><span class="simsun">> </span>公司介绍</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_ppsp'}"  href="/zt/ppTv.html" ><span class="simsun">> </span>品牌视频</a></dd> 
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_share'}"  href="/cps/index.html" ><span class="simsun">> </span>分享邀请</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_shhyx'}"  href="/gywm-zjid-zj05.html"><span class="simsun">> </span>社会化营销</a></dd>
+					<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_lxwm'}"  href="/gywm-zjid-zj06.html"><span class="simsun">> </span>联系我们</a></dd>
+					<dd><a webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_gzwm'}"  href="javascript:void(0)" onclick="javascript:pop('#guanzhuPOP')"><span class="simsun">> </span>关注我们</a></dd>
+				</dl>
+			</div>
+			<div class="service_online pt50 right">
+				<dl>
+					<dt>在线服务</dt>
+					<dd class="phone400"><span class="font16 dark">1010-9000</span><br />7*24小时客服电话<br />（仅收市话费）</dd>
+					<dd class="kf_online"><a webtrekkparam="{ct:'xbsy_fwpt_ZXFW'}" href="/onlineservice.html" target="_blank"><span class="font16 dark">在线客服</span><br /><span class="gray">服务时段 8:00-20:00</span></a></dd>
+					<dd class="UE_center"><a webtrekkparam="{ct:'xbsy_fwpt_YHTYZX'}" href="/help/tiyan/index.html" target="_blank"><span class="font16 dark">用户体验中心</span><br /><span class="gray">从用户的角度完善购物体验</span></a></dd>
+					<dd class="returns_oline"><a webtrekkparam="{ct:'xbsy_fwpt_ZXTHH'}" href="/user/center/refundOrderList.html" target="_blank"><span class="font16 dark">在线退换货</span></a></dd>
+				</dl>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="copyright">
+		<div class="center">Copyright © 2004-2014 乐视网 All rights reserved. 备案/许可证编号为：京ICP备09045969 不良信息举报中心 网络文化经营许可证文网文[2009]221号</div>
+	</div>
+
+</div>
+<!--关注我们 弹框-->
+<div id="guanzhuPOP" class="hidden" style="width:640px">
+	<div class="f8_bg title pl10 line_b relative">
+		<span class="font14 dark">关注我们</span>
+		<a href="javascript:void(0)" class="absolute" id="wjPop-close">×</a>
+	</div>
+	<div class="pl30 pr30 pt20 white_bg careus border">
+		<div class="pl90 pb30 pt15 line_b sina">
+			<span class="font16 dark mr15">乐视TV 官方微博</span>
+			<a href="#" class="inline_block"><img src="Picture/445bcc7b3246422bac2f8a8880f2c4b5.gif" alt="" /></a>
+		</div>
+		<div class="pl90 pb30 pt15 weixin">
+			<div class="clearfix">
+				<div class="left pr40 line_r">
+					<span class="font16 dark">乐视TV 官方微信</span><br />
+					<img src="Picture/908cb848af5c413f8906337f3dc09dd7.gif" alt="" />
+				</div>
+				<div class="left pl40">
+					<span class="font16 dark">乐视商城 官方微信</span><br />
+					<img src="Picture/ad1f0df379cb456485a2b407225246f5.gif" alt="" />
+				</div>
+			</div>
+			<div class="mt15 gray font12">打开微信，点击右上角的“魔法棒”，选择“扫一扫”功能，对准下方二维码即可。</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+    //全选    
+    $("#allcheck").change(function(){
+        // console.log($(this).attr('checked'))
+        if($(this).attr('checked')){
+          $('.force').attr('checked',true); 
+        }else{
+          $('.force').attr('checked',false); 
+          // $('.force').removeAttr('checked'); 
+        }
+    });
+
+      //删除选中的商品
+      $("#clearCart").click(function(){
+        var ids=[];
+        var id;
+        // $('.force:checked').parents("tr").remove();
+        $('.force:checked').each(function(){
+            console.log($(this).attr('id'));
+         id=$(this).attr('id');
+         ids.push(id);
+        });
+        console.log(ids);
+        var r = confirm("确认要删除所选商品吗?");
+        if(r){
+          $.post("__CONTROLLER__/delete",{"id":ids},function(msg){
+              if(msg==0){
+                 location.reload();
+              }
+          });
+          }
+
+      });
+      </script>
+
+  <script type="text/javascript">
+             //减号功能  
+          $(".count-down").click(function(){
+            // alert(222);
+              var $this = $(this);
+              var id = $(this).attr('id');
+              var d = {"id":id};
+              var decr = $(this);
+              $.post("__CONTROLLER__/decr",d,function(data){
+                  if(data){
+                    $this.next('input').val(data);
+                    var sum = data * parseInt(decr.parent().prev().find('span[class=Arial]').html());
+                    $this.parent().next().html(sum).css('color','red');
+                    location.reload();
+                  }
+              });
+          })
+
+           //加号功能
+          $(".count-up").click(function(){           
+              // alert(1);
+             var $this = $(this);
+              var id = $(this).attr('id');
+              var d = {"id":id};
+              var decr = $(this);
+              $.post("__CONTROLLER__/incr",d,function(data){
+                  if(data){
+                    $this.prev('input').val(data);
+                    var sum = data * parseInt(decr.parent().prev().find('span[class=Arial]').html());
+                    $this.parent().next().html(sum).css('color','red');
+                    location.reload();
+                  }
+              });
+          })
+
+           </script>
+          
+          <!-- 去结算按钮 -->
+           <script type="text/javascript">
+           $("#account").click(function(){
+            // alert(222);
+                var ids=[];
+                var id;
+                $('.force:checked').each(function(){
+                    console.log($(this).attr('id'));
+                 id=$(this).attr('id');
+                 ids.push(id);
+                window.location = "__MODULE__/Orderinfo/index/id/"+ids;
+                });
+           })
+           </script>
+
+
+ 
+<script type="text/javascript">
+//右侧飘窗显示隐藏方法
+$.fn.extend({showOrHide:function(){var _this=this;this.each(function(index,elem){var $handle=$(elem);var name=$handle.attr("object");var $content=$(name);var timer=null;$handle.mouseover(function(){show();}).mouseout(function(){hide();});$content.mouseover(function(){show();}).mouseout(function(){hide2();});function show(){clearTimeout(timer);$content.show();}
+function hide(){var interval=300;timer=setTimeout(function(){$content.hide();},interval);}
+function hide2(){$content.hide();}});}});
+
+var is_hidden="1";//返回顶部
+var is_share_show="0";//是否分享
+
+$(function(){
+    //右侧飘窗显示隐藏
+	$(".handle").showOrHide();
+    //返回顶部
+	if(is_hidden=="1"){
+		initBackTop();
+	}
+    
+  $(".ie6-hover").mouseover(function () {
+  	$(this).addClass("hover");
+  });
+  
+  $(".ie6-hover").mouseout(function () {
+  	$(this).removeClass("hover");
+  });
+});
+
+//初始化返回顶部按钮事件
+function initBackTop(){
+	window.onscroll=function(){
+		if(document.body.scrollTop==0?document.documentElement.scrollTop:document.body.scrollTop > 50){
+			$("#backTop").show();
+		}else{
+			$("#backTop").hide();
+		}
+	}
+
+	$("#backTop").unbind("click").bind("click",function(){
+	    pageScroll();
+	});
+}
+//鼠标滚动事件  
+function pageScroll(){
+    window.scrollBy(0,-50);
+    scrolldelay = setTimeout('pageScroll()',1);
+    var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+    if(sTop==0){
+		clearTimeout(scrolldelay);
+	}
+}
+</script>
+  
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/jquery.lazyload.js'></script>
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/zxvideo.js'></script>
+
+  		  		<script type='text/javascript' src='__PUBLIC__/cart/Scripts/sxf_scroll_pic.js'></script>
+
+  <script type="text/javascript" src="__PUBLIC__/cart/Scripts/mediav_cart.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/cart/Scripts/cart.js"></script>
+
+</body>
+</html>

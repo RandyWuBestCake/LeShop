@@ -1,0 +1,361 @@
+<!--
+<block name="mjsblock">
+    &lt;!&ndash; 显示用户收获地址数量 begin&ndash;&gt;
+    <script id="addressCountTemplate" type="text/text">
+ <div class="tit">
+   	<% if (result.length === 39 && result[0].TYPE != 1) {%>
+     	<a href="javascript:void('0')" onclick="return false;" class="light_bt_s block left t_c">
+            <span class="white">新增收货地址</span>
+        </a>
+   	<%} else if(result && result.length >=0 && result.length <40){%>
+	<a href="javascript:void('0')" onclick="return false;" class="red_bt_m block left t_c newAddressButton">
+		<span class="white">新增收货地址</span>
+	</a>
+	<%}else{%>
+	<a href="javascript:void('0')" onclick="return false;" class="light_bt_s block left t_c">
+		<span class="white">新增收货地址</span>
+	</a>
+	<%}%>
+
+	<%if(result.length === 0){%>
+   		<div class="left pl20 font14" style="_padding-top:3px;">您还没有收货地址，最多可创建<span class="red">40</span>个</div>
+	<%}else if(result.length === 39 && result[0].TYPE != 1){%>
+		<div class="left pl20 font14" style="_padding-top:3px;">您的普通收货地址已达上限，您可以升级<span class="red">1</span>个一键购地址</div>
+	<%}else if(result && result.length <40){%>
+		<div class="left pl20 font14" style="_padding-top:3px;">您已创建<span class="red"><%=result.length%></span>个收货地址，最多可创建<span class="red">40</span>个</div>
+	<%}else if(result && result.length >= 40){%>
+      	<div class="left pl20 font14" style="_padding-top:3px;">您的收货地址已达到40个</div>
+    <%}%>
+	<div class="clear"></div>
+ </div>
+</script>
+    &lt;!&ndash; 显示用户收获地址数量 end&ndash;&gt;
+
+    &lt;!&ndash; 新增地址 begin&ndash;&gt;
+    <script id="editAddressTemplate" type="text/text">
+&lt;!&ndash;此为点击“新增收货地址”按钮后需要填写的信息&ndash;&gt;
+<%if(isNewAddr !=1){
+var addressName = ADDRESS_NAME;
+if(!addressName || addressName=="" || addressName=="nickname"){
+	addressName = RECEIVER+"—"+DISTRICT_NAME;
+}
+%>
+<div class="title line_b">
+  <div class="left">
+	<div class="font14 left pl10"><%=addressName%></div>
+	<div class="font14 left pl10 red hidden editingShow">请先保存正在编辑的地址信息</div>
+  </div>
+  <div class="clear"></div>
+ </div>
+<%}%>
+
+ <div class="user_edit_addr pt20 pl20 pr20">
+	<dl>
+	 <dt><span class="red">* </span>收货人姓名：</dt>
+	 <dd>
+		<input type="text" value="<%= RECEIVER||''%>" name="receiver" id="receiver" maxlength="30" /><br>
+		<div class="message">
+		<span class="red pl10" id="receiverError">请填写正确的姓名</span>
+		<span class="red pl10" id="receiverEmptyError">请填写姓名</span>
+		</div>
+	 </dd>
+	 </dl>
+	 <dl>
+	 <dt><span class="red">* </span>省份：</dt>
+	 <dd>
+	 <select id="province" name="province_id" maxlength="30" class="select_s" ></select>
+     <select id="city" name="city_id"  maxlength="30" class="select_s" ><option value="-22">请选择</option></select>
+      <select id="district" name="district_id"  maxlength="30" class="" ><option value="-22">请选择</option></select>
+      <div class="message">
+		<span class="red pl10" id="regionError">地区填写不完整 </span>
+		<span id="regionArriveError" class="red pl10 hidden">
+		您所选地区暂不在配送范围内。请确认收货地址，<a href="/help/psfwcx.html" target="_blank"><span class="blue">查看可配送地区>></span></a>或<a href="/help/kffeedback.html" target="_blank"><span class="blue">留下您的收货信息>></span></a>，可送达后第一时间告知。
+		</span>
+	  </div>
+      </dd>
+	</dl>
+	<dl>
+	 <dt><span class="red">* </span>详细地址：</dt>
+	 <dd>
+	 <span class=""><input type="text" style="width:395px;" value="<%= ADDRESS_DETAIL||''%>" name="address_detail" id="detailAddr" maxlength="50" /></span><br>
+	 <div class="message">
+	 <span class="red pl10" id="detailAddrError">请填写正确的地址</span><span class="red pl10" id="detailAddrEmptyError">请填写地址</span>
+	 </div>
+	 </dd>
+	</dl>
+	<dl>
+	 <dt><span class="red">* </span>手机号码：</dt>
+	 <dd>
+	 <input type="text" value="<%= MOBILE||''%>" name="mobile" id="mobile" maxlength="30" /> 或者 固定电话：                                                                                              <input type="text" value="<%= PHONE||''%>" name="phone" id="phone" maxlength="30" /><br>
+	 <div class="message left" style="width:250px;height:20px">
+	 <span class="red pl10" id="mobileError">手机号码填写不正确</span>
+	 <span class="red pl10" id="mobileEmptyError">请填写手机号码</span>
+	 </div>
+	 <div class="message left">
+	 <span class="red pl10" id="phoneError">固定电话填写不正确</span>
+	 </div>
+	 </dd>
+	</dl>
+	<dl>
+	 <dt><span class="red">* </span>邮箱地址：</dt>
+	 <dd>
+	 <input type="text" value="<%= E_MAIL||''%>" name="e_mail" id="email" maxlength="30" />
+	 <span class="gray_2">用来接受订单提醒邮件，便于您及时了解订单状态</span><br>
+	 <div class="message">
+	 <span class="red pl10" id="emailError">电子邮箱填写不正确</span>
+	 <span class="red pl10" id="emailEmptyError">请填写电子邮箱</span>
+	 </div>
+	 </dd>
+	</dl>
+	<dl>
+	 <dt><span class="red">* </span>邮政编码：</dt>
+	 <dd>
+	 <input type="text" value="<%= POSTCODE||''%>" name="postcode" id="post" maxlength="30"/>
+	 <span class="gray pl10 pr10" id="referPostCode"></span>
+	 <a href="javascript:void(0);" id="useThisPostDiv" class="hidden" onclick="showSelectPostCode();"><span class="blue">使用此邮编</span></a><br>
+	 <div class="message">
+	 <span class="red pl10" id="postError">邮政编码填写不正确</span>
+	 <span class="red pl10" id="postEmptyError">请填写邮政编码</span>
+	 </div>
+	 </dd>
+	</dl>
+	<dl>
+	 <dt><span class="red">* </span>地址别名：</dt>
+	 <dd>
+	 <span class=""><input type="text" name="addressName" id="addressName" value="<%=addressName||''%>" maxlength="15" /><span class="gray pl10 pr10">设置一个易记的别名，如：送到家里、送到公司</span></span><br>
+	 <div class="message">
+	 <span class="red pl10" id="addressNameError">请填写正确的地址别名</span>
+	 <span class="red pl10" id="addressNameEmptyError">请填写地址别名</span>
+	 </div>
+	 </dd>
+	</dl>
+	<dl>
+     <dd style="padding-left:100px; *padding-left:90px;">
+	 <span id="setDefaultAddr">
+       <input type="checkbox" value="" name="" <%if(checkDefault == 1){%>checked<%}%> style="margin-right:10px; border:none;"/>设为默认地址
+	 </span>
+	 </dd>
+	</dl>
+	<div class="clear"></div>
+ </div>
+ <div class="pl50">
+ <div class="input_addr pl80">
+   <div id="addrSubmit"><div class="red_bt_ss left t_c hand"><span class="white">保存</span></div></div>
+   <a href="javascript:void('0')" onclick="hideNewAddress(<%if(isNewAddr!=1){%><%=isNewAddr%>,<%=ADDRESS_ID%><%}%>);"><div class="gray_bt_ss left t_c ml20"><span class="">取消</span></div></a>
+   <div class="clear"></div>
+ </div>
+ </div>
+</script>
+
+
+    <script id="addrRegion" type="text/text">
+    <% for (var i = 0; i < result.length; i ++) { %>
+        <% if(result.length==1 || result[i].AREA_ID==pId){%>
+            <option value="<%=result[i].AREA_ID%>" selected="selected" title="<%=result[i].AREA_NAME%>" post="<%=result[i].POSTCODE%>"><%=result[i].AREA_NAME%></option>
+        <%}else{%>
+            <option value="<%=result[i].AREA_ID%>" title="<%=result[i].AREA_NAME%>" post="<%=result[i].POSTCODE%>"><%=result[i].AREA_NAME%></option>
+        <% } %>
+    <% } %>
+</script>
+
+    &lt;!&ndash; 新增地址 end&ndash;&gt;
+
+    &lt;!&ndash; 用户地址列表list begin&ndash;&gt;
+    <script id="userAddressListTemplate" type="text/text">
+<%if(result && result.length>0){
+	for(var i=0;i<result.length;i++){
+		var addressItem = result[i];
+		var addressDetail = addressItem.PROVINCE_NAME+addressItem.CITY_NAME+addressItem.DISTRICT_NAME+addressItem.ADDRESS_DETAIL;
+
+		var addressName = addressItem.ADDRESS_NAME;
+		if(!addressName || addressName=="" || addressName=="nickname"){
+			addressName = addressItem.RECEIVER+"—"+addressItem.DISTRICT_NAME;
+		}
+		var shortAddressDetail = "";
+		if(addressDetail.length >20){
+			shortAddressDetail = addressDetail.substring(0,17)+"...";
+		}else{
+			shortAddressDetail = addressDetail;
+		}
+
+		%>
+          <li class="<%if (i > 9) {%>hidden<%}%> display-address border <%if(i==0 && (addressItem.TYPE == "1")){%>yjg<%}else if(!hasYjg && i==0&& addressItem.IS_DEFAULT =="1"){%>common<%}else if(i==1 && hasYjg && addressItem.IS_DEFAULT =="1"){%>common<%}%> addrInfo_li" id="addrInfo_<%=addressItem.ADDRESS_ID%>">&lt;!&ndash;只需要加上yjg就出现“一键购”的信息&ndash;&gt;
+		 <div class="title line_b">
+		  <div class="left">
+
+		  <%if(i==0 && (addressItem.TYPE == "1")){
+		  %>
+		  <div class="yjg_icon left t_c mr20">一键购</div>
+		  <%}else if(!hasYjg && i==0&& addressItem.IS_DEFAULT =="1"){
+		  %>
+		  <div class="common_icon left t_c mr20">常用</div>
+		  <%}else if(i==1 && hasYjg && addressItem.IS_DEFAULT =="1"){
+		  %>
+		  <div class="common_icon left t_c mr20">常用</div>
+		  <%}%>
+			<div class="font14 left"><%=addressName%></div>
+		  </div>
+		  <div class="right">
+		   <div class="right pl10 t_c close" onmouseover="showDelText(this);" onmouseout="showdelPic(this);">&lt;!&ndash;只需要加上hover“x”就会变成删除&ndash;&gt;
+		   <a href="javascript:void('0')" class="cha"><span class="font16 simsun"></span></a>
+		   <a href="javascript:void('0')" class="delete" data-addrId="<%=addressItem.ADDRESS_ID%>"><span class="red">删除</span></a>
+		   </div>
+		   <div class="right"><a href="javascript:void('0')" class="user_szcydz" data-addrId="<%=addressItem.ADDRESS_ID%>"><span class="font14 blue">设置常用地址</span></a></div>
+		  </div>
+		  <div class="clear"></div>
+		 </div>
+		 <div class="pt20 addr_info">
+			 <div class="addr_info_left pl20 pr30 font14 left">
+			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+				  <td width="22%" align="right" valign="top">收货人：</td>
+				  <td width="78%" align="left" valign="top"><%=addressItem.RECEIVER%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">地址：</td>
+				  <td align="left" valign="top" title="<%=addressDetail%>"><%=shortAddressDetail%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">手机：</td>
+				  <td align="left" valign="top"><%=addressItem.MOBILE%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">固定电话：</td>
+				  <td align="left" valign="top"><%=addressItem.PHONE%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">电子邮箱：</td>
+				  <td align="left" valign="top"><%=addressItem.E_MAIL%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">邮编：</td>
+				  <td align="left" valign="top"><%=addressItem.POSTCODE%></td>
+				</tr>
+			  </table>
+			 </div>
+			 <div class="addr_info_right pr50 font14 right ">
+			 <%if(addressItem.TYPE != "1"){
+			   %>
+			   <div class="usual">
+				<div class="t_c">将地址设置支付及配送方式，即可使用一键购参与抢购快速下单</div>
+				<div class="pt75"><a href="javascript:void('0')" onclick="upToYjgAddr(<%=addressItem.ADDRESS_ID%>);" class="gray_bt_m block_center t_c"><span class="">升级为一键购</span></a></div>
+			   </div>
+			   <%
+			   }
+			   %>
+			   <%if(i==0 && (addressItem.TYPE == "1")){
+			   %>
+			   <div class="yjg">
+				 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+				  <td width="25%" align="right" valign="top">配送方式：</td>
+				  <td width="75%" align="left" valign="top"><%=addressItem.SHIPPING_METHOD_NAME%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">支付方式：</td>
+				  <td align="left" valign="top"><%=addressItem.PAYMENT_METHOD_NAME%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">发票类型：</td>
+				  <td align="left" valign="top"><%=addressItem.INVOICE_TYPE_NAME%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">发票抬头：</td>
+				  <td align="left" valign="top"><%=addressItem.INVOICE_CONTENT%></td>
+				</tr>
+				<tr>
+				  <td align="right" valign="top">发票内容：</td>
+				  <td align="left" valign="top">明细</td>
+				</tr>
+			  </table>
+			   </div>
+			   <%
+			   }
+			   %>
+
+			 </div>
+			 <div class="clear"></div>
+		 </div>
+		 <div class="addr_operate pb20">
+			 <div class="addr_operate_left pl20 pr30 font14 left t_r">
+			   <span class="blue hand" onclick="editUserAddrInfo(<%=addressItem.ADDRESS_ID%><%if(addressItem.IS_DEFAULT =="1" && i==0){%>,1<%}else if(i==1 && addressItem.IS_DEFAULT =="1"){%>,1<%}%>)">编辑地址</span>
+			 </div>
+			 <div class="addr_operate_right pl30 pr20 font14 right t_r">
+			   <a href="javascript:void('0')" onclick="upToYjgAddr(<%=addressItem.ADDRESS_ID%>)"><span class="blue">修改一键购信息</span></a>
+			 </div>
+			 <div class="clear"></div>
+		 </div>
+		</li>
+
+		&lt;!&ndash; 编辑地址 begin &ndash;&gt;
+		<div class="border pb20 mb20 font14 hidden showEditAddrInfo" style="border-color:#d80c18;" id="editAddress_<%=addressItem.ADDRESS_ID%>">
+		</div>
+		&lt;!&ndash; 编辑地址 end &ndash;&gt;
+
+		&lt;!&ndash; 升级为一键购 begin &ndash;&gt;
+		<div class="hidden border pl10 pr10 pb20 mb20 font14 upToYjg_div" style="border-color:#d80c18;" id="upToYjg_<%=addressItem.ADDRESS_ID%>">
+             <div class="title line_b">
+              <div class="left">
+                <div class="font14 left"><%=addressName%></div>
+				<div class="font14 left pl10 red hidden editingYjgShow">请先保存正在编辑的信息</div>
+              </div>
+              <div class="clear"></div>
+             </div>
+             <div class="pl50 pt30 pb10">
+               支付方式： <input type="checkbox" value="" name="" checked disabled style="margin-left:0;"> 在线支付
+             </div>
+             <div class="pt20 pl30 pr30">
+               <div class="dotted_b pl20 pb10">发票信息：</div>
+               <div class="edit_invoice pt20">
+                <dl>
+                 <dt>发票类型：</dt>
+                 <dd>
+                 <div class="fp left pl5 pr5" onclick="showInvoiceInfo(2,<%=addressItem.ADDRESS_ID%>)">
+					<span class="fp_icon <%if(addressItem.INVOICE_TYPE_ID == '2' || addressItem.INVOICE_TYPE_ID == ''){%>cur<%}%> left curInvoceType2"></span>
+					<span class="left">普通发票</span>
+				 </div>
+                 <div class="fp left pl5" onclick="showInvoiceInfo(3,<%=addressItem.ADDRESS_ID%>)">
+					<span class="fp_icon <%if(addressItem.INVOICE_TYPE_ID == '3'){%>cur<%}%> left curInvoceType3"></span>
+					<span class="left">增值税发票</span>
+				 </div>
+                 <div class="clear"></div>
+                 </dd>
+				 <div class="clear"></div>
+                </dl>
+                <dl class="invoice_type_2 <%if(addressItem.INVOICE_TYPE_ID != '2' || addressItem.INVOICE_TYPE_ID == ''){%>hidden<%}%>">
+                 <dt>发票名称：</dt>
+                 <dd>
+                 <span class=""><input type="text" style="width:300px;" value="<%if(addressItem.INVOICE_CONTENT && "null"!=addressItem.INVOICE_CONTENT && "undefined"!=addressItem.INVOICE_CONTENT){%><%=addressItem.INVOICE_CONTENT%><%}else{%>个人<%}%>" id="detailInvoice<%=addressItem.ADDRESS_ID%>" maxlength="30" onblur="showBlurValue(<%=addressItem.ADDRESS_ID%>,'<%=addressItem.INVOICE_CONTENT%>');" onfocus="this.value=''"></span>
+                 <span class="red pl10 detailInvoiceError">请勿填写和发票抬头无关的信息</span>
+                 </dd><div class="clear"></div>
+                </dl>
+				<dl class="invoice_type_3 edit_invoice_dl border font12 <%if(addressItem.INVOICE_TYPE_ID != '3'){%>hidden<%}%>">
+  <dt><span class="MSyh">友情提示：</span></dt><dd>请您在下单后，将以下增值税专用发票资质信息：</br>●  单位名称（必须是您公司营业执照上的全称）；</br>●  纳税人识别号（必须是您公司《税务登记证》的编号，一般为15位，请仔细核对后输入）；</br>●  注册地址（必须是您公司营业执照上的注册地址）；</br>●  电话（请提供能与您公司保持联系的有效电话）；</br>●  开户银行（必须是您公司银行开户许可证上的开户银行）；</br>●  银行账号（必须是您公司开户许可证上的银行账号）；</br>●  加盖公司公章的四证（营业执照副本、税务登记证副本、开户许可证、一般纳税人登记证）复印件；</br>●  订单编号。</br>发邮件至：service1@letv.com</dd><div class="clear"></div></dl>
+                <div class="clear"></div>
+               </div>
+               <div class="pl50">
+               <div class="input_addr pl80">
+               <div class="red_bt_ss left t_c"><a href="javascript:void('0')" id="saveToYjg<%=addressItem.ADDRESS_ID%>" onclick="saveToYjg(<%=addressItem.ADDRESS_ID%>)" data-invoiceType="2" data-addrId="<%=addressItem.ADDRESS_ID%>"><span class="white">保存</span></a></div>
+               <div class="ml20 left t_c"><a href="javascript:void('0')" onclick="closeUpToYjg(<%=addressItem.ADDRESS_ID%>);" class="gray_bt_ss block t_c"><span class="">取消</span></a></div>
+               <div class="clear"></div>
+             </div>
+               </div>
+             </div>
+            </div>
+		&lt;!&ndash; 升级为一键购 end &ndash;&gt;
+		<%
+	}
+}%>
+
+
+</script>
+    &lt;!&ndash; 用户地址列表list end&ndash;&gt;
+
+    <script id="list_page_template" type="text/text">
+  <%if(result &
+  & result.length>10){%>
+    <a class="f8_bg pt20 pb20 block t_c" page_num="2" id="_page" href="javascript:seeMore();"><span class="font16">查看更多>></span></a>
+<%}%>
+</script>
+</block>
+-->

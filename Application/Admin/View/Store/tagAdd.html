@@ -1,0 +1,134 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>资源标签(Tag)添加</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>资源标签(Tag)添加 Store_goods_cate</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Store:tagDoAdd')}" class="mws-form" method="post">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">标签(Tag)标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="title">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">标签(Tag)简介</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="desc">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="submit" class="btn btn-primary" value="添加">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+    <if condition="$tags neq null ">
+        <div class="mws-panel grid_8">
+            <div class="mws-panel-header">
+                        <span>
+                            <i class="icon-table"></i>标签列表 (双击修改)
+                        </span>
+            </div>
+            <div class="dataTables_filter" id="DataTables_Table_1_filter"
+                 style="background:#f2f2f2;padding: 10px 0px;;text-align:right;border:1px #666;box-shadow:4px 2px 2px #333">
+                <label>搜索: <input type="text" id="search"></label>
+            </div>
+            <div class="mws-panel-body no-padding">
+                <form action='{:U("Store:tagDoDel")}' method="post">
+                    <table class="mws-table">
+                        <tbody id='tagCon'>
+                        <tr>
+                            <foreach name="tags" item="vo" key="k">
+                                {$k%5==0?'
+                        </tr>
+                        <tr>':''}
+                            <td width="14px"><input type="checkbox" name="ids[]" value="{$vo['id']}"></td>
+                            <td class="tag">{$vo['title']}</td>
+                            </foreach>
+                        </tr>
+                        </tbody>
+                        <tr>
+                            <td colspan="2"><a href="javascript:" id="checkAll" class="btn btn-danger">全选</a> <input
+                                    type="submit" class="btn btn-danger" value="删除">
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript">
+
+            //双击class=tag的标签时触发
+            $('.tag').dblclick(function () {
+                var t = $(this).html(); //获取当前标签内容
+                $(this).html("<input type='text' value='" + $(this).text() + "'>"); //使用input框替换(进入编辑状态)
+                $('.tag input').select(); //选中内容 使input获取到焦点
+
+                //当input失去焦点
+                $('.tag input').blur(function () {
+                    var input = $(this); //将当前对象复制给input变量
+                    var id = input.parent().prev().children().val(); //获取对应的id(父级的相邻上一个的input的value)
+                    var title = $(this).val(); //获取当前input的值
+
+                    //发送ajax请求去修改数据库
+                    $.post('{:U("Store:tagAjaxEdit")}', {id: id, title: title}, function (msg) {
+                        if (msg == 0) { //如果修改成功
+                            input.parent().html(input.val()); //使用当前值替换input
+                        } else { //如果失败
+                            input.parent().html(t); //使用原值替换input
+                        }
+                    });
+                })
+            });
+
+            // //全选按钮
+            // var i = 0; //声明一个标识确认是否全选状态
+            // function checkAll(){
+            //      i++;
+            //      if(i%2){ //如果没选中则全选中
+            //          $("input[type=checkbox]").prop("checked", true);
+            //      }else{ //如果选中则取消全选
+            //          $("input[type=checkbox]").prop("checked", false);
+            //      }
+            // }
+
+            // 全选按钮
+            $("#checkAll").toggle(function () {  //第一次点击 全部选中
+                $("input[type=checkbox]").prop("checked", true);
+            }, function () { //第二次点击 取消全选
+                $("input[type=checkbox]").prop("checked", false);
+            });
+
+            //搜索框键盘事件
+            $("#search").keyup(function () {
+                var sstr = $(this).val();
+                $.post('{:U("Store:tagAjaxSearch")}', {str: sstr}, function (msg) {
+                    var str = '<tr>';
+                    if (msg == 1) {
+                        str = '<tr><td>您要找的结果未找到</td></tr>';
+                    }
+                    for (var i = 0; i < msg.length; i++) {
+                        str += i % 5 == 0 ? '</tr><tr>' : '';
+                        str += '<td width="14px"><input type="checkbox" name="ids[]" value="' + msg[i]['id'] + '"></td>';
+                        str += '<td class="tag">' + msg[i]['title'] + '</td>';
+                    }
+                    ;
+                    str += '</tr>';
+                    $("#tagCon").html(str);
+                }, 'json')
+            })
+        </script>
+    </if>
+</block>

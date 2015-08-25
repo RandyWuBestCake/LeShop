@@ -1,0 +1,699 @@
+﻿<extend name="Helpself/index" />
+<block name="css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/Content/style.css" />
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/Content/css.css" />
+  <link href="__PUBLIC__/css/Content/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/css/Content/commons.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="__PUBLIC__/js/__PUBLIC__/js/Scripts/productpk.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/Scripts/frontcommon.js"></script>
+</block>
+<block name="main">
+    <div class="Contrast">
+      <div class="index_top" >
+          <div class="left"><a href="index.html" >比一比</a> > <a href="list_p1.html">产品列表</a> > 对比结果</div>
+            <div class="right"><a href="#" id="bdshare_show"><span style="padding-right: 5px;position: relative;top: 0px;">把这个对比结果分享给朋友</span><img src="__PUBLIC__/images/Picture/fx.jpg" /></a></div>
+            <div class="ShareWindow hidden" id="ShareWindow" style="top:15px;right:-50px;position:absolute;width:40px;height:225px;display: none;">
+            <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare" data="">
+              <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a
+              class="bds_tqq"></a> <a class="bds_tsohu"></a> <a class="bds_renren"></a>
+            <a class="bds_douban"></a>
+          </div>
+        </div>
+          <script type="text/javascript" id="bdshare_js" data="type=tools&uid=0"></script>
+                  <script type="text/javascript" id="bdshell_js"></script>
+                  <script type="text/javascript">
+                    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+        
+                      var is_hidden="";
+                    var bdguanzu_diplay = "1";
+                    var bdshare_display = "1";
+                    var timeOut;
+                  
+                    $(function(){
+                        
+                      var isIE6= navigator.appVersion.indexOf("MSIE 6")>-1; 
+                        
+                      if(!bdguanzu_diplay && bdshare_display == "1"){
+                      
+                        $("#ShareWindow").css("top","185px");     
+                        if(isIE6){  
+                          $("#ShareWindow").css("top",185); 
+                          $("#ShareWindow").css("right",190);     
+                        } 
+                      }
+                      
+                      $("#bdshare_show").mouseover(function(){
+                        var showdiv = $("#ShareWindow").slideDown("slow");
+                        clearTimeout(timeOut);
+                      }).mouseleave(function(){
+                        timeOut = setTimeout(hideDiv,300);
+                        return false;
+                      });
+                      
+                      $("#ShareWindow").mouseover(function(){
+                        clearTimeout(timeOut);
+                      }).mouseleave(function(){
+                        timeOut = setTimeout(hideDiv,300);
+                      });
+                                      
+                    });
+                          
+                    function hideDiv(){
+                      $("#ShareWindow").slideUp("slow");
+                    }
+          
+                  </script>
+        </div>
+        <h1 class="bijiao">{$pro1['proname']} 和 {$pro1['proname']}哪个好</h1>
+        <div class="pk_cont">
+          <div class="pk_left">
+              <p class="p1" id="pk_mian1">
+                  <a  href="{:U('Product/xiangqing',array('id'=>$pro1['id']))}" target="_blank" >
+                      <img src="__ROOT__/{$pro1['imgmain']}" width="280" height="180" />
+                  </a>
+                  <a  href="{:U('Product/xiangqing',array('id'=>$pro1['id']))}" target="_blank" >
+                      <img src="__ROOT__/{$pro1['imgside']}" width="280" height="180" style="display:none;"/>
+                  </a>
+                  <a  href="{:U('Product/xiangqing',array('id'=>$pro1['id']))}" target="_blank" >
+                      <img src="__ROOT__/{$pro1['imgback']}" width="280" height="180" style="display:none;" />
+                  </a>
+          
+              </p>  
+              <p class="p2">
+                <h2><a  href="{:U('Product/xiangqing',array('id'=>$pro1['id']))}" target="_blank" >{$pro1['proname']}</a></h2>
+              </p>
+              <p class="p4">
+                <a href="http://shop.letv.com/product/product-pid-GWGT401008-n-3.html" target="_blank">立即购买</a>
+              </p>
+          </div>    
+                <script>
+                   $(function(){
+                     $("#gha_left").click(function(event){
+                      var e=window.event || event;
+                        if(e.stopPropagation){
+                          e.stopPropagation();
+                        }else{
+                          e.cancelBubble = true;
+                        }
+                       $("#pinpai_left").hide();
+                       $("#genghuanchanp_left").fadeIn("fast");
+                     });
+                     $("#genghuanchanp_left").click(function(event){
+                      var e=window.event || event;
+                        if(e.stopPropagation){
+                          e.stopPropagation();
+                        }else{
+                          e.cancelBubble = true;
+                        }
+                      });
+                    
+                    });
+
+                       $(function(){ //隐藏
+                        $(document).bind("click",function(e){
+                         var target  = $(e.target);
+                         if(target.closest("#genghuanchanp_left").length == 0){
+                          $("#genghuanchanp_left").fadeOut("fast");
+                           //document.getElementById("xinghao2").style.display="none";
+                           document.getElementById("xinghao_left").style.display="none";
+                         }
+                        }) 
+                       });
+                       
+                    function ghcpzk1(){
+                        document.getElementById("genghuanchanp1").style.display="block";
+                        }
+                        function ghcpgb1(){
+                        document.getElementById("genghuanchanp1").style.display="none";
+                        } 
+                   </script>
+                
+                
+          <div class="pk_chan_cer">
+              <img src="__PUBLIC__/images/Picture/pk.jpg" width="95" height="95" />
+                    <ul id="ullix">
+                      <li class="li_hover" onmousemove="uanxian(0)">正面</li>
+                        <li onmousemove="uanxian(1)">侧面</li>
+                        <li onmousemove="uanxian(2)">背面</li>
+                    </ul>
+                </div>
+                
+                <div class="pk_left">
+                  <p id="pk_mian2" class="p1">
+                      <a  href="{:U('Product/xiangqing',array('id'=>$pro2['id']))}" target="_blank" >
+                      <img src="__ROOT__/{$pro2['imgmain']}" width="280" height="180" />
+                  </a>
+                  <a  href="{:U('Product/xiangqing',array('id'=>$pro2['id']))}" target="_blank" >
+                      <img src="__ROOT__/{$pro2['imgside']}" width="280" height="180" style="display:none;"/>
+                  </a>
+                  <a  href="{:U('Product/xiangqing',array('id'=>$pro2['id']))}" target="_blank" >
+                      <img src="__ROOT__/{$pro2['imgback']}" width="280" height="180" style="display:none;" />
+                  </a>
+                    </p>
+                    <p class="p2"><h2><a  href="productinfo_800.html" target="_blank" onclick="productinfo2('800')">{$pro2['proname']}</a></h2></p>
+                    
+    <script> 
+        //右边的更换产品的JS
+        $(function(){
+         $("#gha_right").click(function(event){
+          var e=window.event || event;
+          if(e.stopPropagation){
+           e.stopPropagation();
+          }else{
+           e.cancelBubble = true;
+          }
+          $("#pinpai_right").hide();
+          $("#genghuanchanp_right").fadeIn("fast");
+         });
+         $("#genghuanchanp_right").click(function(event){
+          var e=window.event || event;
+          if(e.stopPropagation){
+           e.stopPropagation();
+          }else{
+           e.cancelBubble = true;
+          }
+         });
+        
+        });
+
+          $(function(){ //隐藏
+            $(document).bind("click",function(e){
+             var target  = $(e.target);
+             if(target.closest("#genghuanchanp_right").length == 0){
+              $("#genghuanchanp_right").fadeOut("fast");
+               //document.getElementById("xinghao2").style.display="none";
+               document.getElementById("xinghao_right").style.display="none";
+             }
+            }) 
+          });
+                   
+        window.onload=function(){
+
+          var oflink = document.getElementById('sel_left');
+           var aDt = oflink.getElementsByTagName('dt');
+           var aUl = oflink.getElementsByTagName('ul');
+           var aH3= oflink.getElementsByTagName('h3');
+
+           var t = false;
+           for(var i=0;i<aDt.length;i++){
+              aDt[i].index = i;
+              aDt[i].onclick = function(ev){
+                   
+                   var ev = ev || window.event;
+                   var This = this;
+                   for(var i=0;i<aUl.length;i++){
+                      $("#"+aUl[i].id).fadeOut("fast");
+                   }
+                   if(!t){
+                    $("#"+aUl[this.index].id).fadeIn("fast",function(){t=true;});
+                   }else{
+                    t=false;
+                   }
+                   
+                   ev.cancelBubble = true;
+               };
+           }
+           for(var i=0;i<aUl.length;i++){
+               aUl[i].index = i;
+               (function(ul){
+                   var iLi = ul.getElementsByTagName('li');
+                   for(var i=0;i<iLi.length;i++){
+                       iLi[i].onmouseover = function(){
+                           this.className = 'hover';
+                       };
+                       iLi[i].onmouseout = function(){
+                           this.className = '';
+                       };
+                       iLi[i].onclick = function(ev){
+                          t=false;
+                           var ev = ev || window.event;
+                           aH3[this.parentNode.index].innerHTML = this.innerHTML;
+                           ev.cancelBubble = true;
+                         this.parentNode.style.display = 'none';
+                       };
+                   }
+
+               })(aUl[i]);
+           }
+          
+           var oflink1 = document.getElementById('sel_right');
+           var aDt1 = oflink1.getElementsByTagName('dt');
+           var aUl1 = oflink1.getElementsByTagName('ul');
+           var aH31= oflink1.getElementsByTagName('h3');
+           var t1 = false;
+           for(var i=0;i<aDt1.length;i++){
+           
+              aDt1[i].index = i;
+              aDt1[i].onclick = function(ev){
+                   
+                   var ev = ev || window.event;
+                   var This = this;
+                   for(var i=0;i<aUl1.length;i++){
+                      $("#"+aUl1[i].id).fadeOut("fast");
+                   }
+                   if(!t1){
+                    $("#"+aUl1[this.index].id).fadeIn("fast",function(){t1=true;});
+                   }else{
+                    t1=false;
+                   }
+                   
+                   ev.cancelBubble = true;
+               };
+           }
+           for(var i=0;i<aUl1.length;i++){
+               aUl1[i].index = i;
+               (function(ul){
+                   var iLi = ul.getElementsByTagName('li');
+                   for(var i=0;i<iLi.length;i++){
+                       iLi[i].onmouseover = function(){
+                           this.className = 'hover';
+                       };
+                       iLi[i].onmouseout = function(){
+                           this.className = '';
+                       };
+                       iLi[i].onclick = function(ev){
+                          t1=false;
+                           var ev = ev || window.event;
+                           aH31[this.parentNode.index].innerHTML = this.innerHTML;
+                           ev.cancelBubble = true;
+                         this.parentNode.style.display = 'none';
+                       };
+                   }
+
+               })(aUl1[i]);
+           }
+
+        }
+        function ghcpzk(){
+                document.getElementById("genghuanchanp").style.display="block";
+        }
+        function ghcpgb(){
+          document.getElementById("genghuanchanp").style.display="none";
+        }
+    </script>
+                </div>
+            </div>
+    <script>
+          function uanxian(num){
+              var img1=document.getElementById("pk_mian1").getElementsByTagName("img");
+              var img2=document.getElementById("pk_mian2").getElementsByTagName("img");
+              var ulliimg=document.getElementById("ullix").getElementsByTagName("li");
+              for(var i=0;i<3;i++){
+                if(num==i){
+                  img1[i].style.display="block";
+                  img2[i].style.display="block";
+                  ulliimg[i].className="li_hover";
+                  }else{
+                  img1[i].style.display="none";
+                  img2[i].style.display="none";
+                  ulliimg[i].className="";  
+                    }
+                }
+            }
+    </script>
+        <div class="clear"></div>
+        <div class="diangezhan">
+              <div class="banfenbi">
+                  <p id="hongPraise" class="hong" style="width:50%"></p>
+                    <p id="lanPraise" class="lan" style="width:50%"></p>
+                </div>
+                <div  class="wz1"><span id="leftPraise"></span>   <br /><span class="span1">支持率</span></div>
+          <div  class="wz2"><span id="rightPraise" ></span> <br /><span class="span2">支持率</span></div>
+          <a href="javascript:postPraiseNum('left');" class="top_tu" id="leftTop_tu"><span id="leftZan" class="span1"></span></a>
+          <a href="javascript:postPraiseNum('right');" class="top_tu1" id="rightTop_tu" ><span id="rightZan" class="span2"></span></a> 
+        </div>
+            <div class="dj_gj">
+              <div class="dj_gj_l" style="float:left;">
+                  <dl class="dl1">
+                      <dt>价格</dt>
+                        <dd>
+                          <ul class="ul1">
+                              <li {$pro1['price']<2000?'class="li"':''}>低</li>
+                              <li>稍低</li>
+                              <li>中等</li>
+                              <li>稍高</li>
+                              <li>高</li>
+                          </ul>
+                            <ul id="left_price" class="ul2">
+                              <li {$pro1['price']<2500?'class="li"':''}></li>
+                              <li {$pro1['price'] <= 4000 & $pro1['price'] > 2500?'class="li"':''}></li>
+                              <li {$pro1['price'] <= 6000 & $pro1['price'] > 4000?'class="li"':''}></li>
+                              <li {$pro1['price'] <= 8000 & $pro1['price'] > 6000?'class="li"':''}></li>
+                              <li {$pro1['price'] > 8000?'class="li"':''}></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="dl1">
+                      <dt>屏幕尺寸</dt>
+                        <dd>
+                          <ul class="ul1">
+                              <li>小</li>
+                                <li>较小</li>
+                                <li>中等</li>
+                                <li>较大</li>
+                                <li>大</li>
+                            </ul>
+                            <ul id="left_screen" class="ul2">
+                              <li {$pro1['size'] < 40 ? 'class="li"':''}></li>
+                              <li {$pro1['size'] <= 49 & $pro1['size'] > 40?'class="li"':''}></li>
+                              <li {$pro1['size'] <= 60 & $pro1['size'] >= 50?'class="li"':''}></li>
+                              <li {$pro1['size'] <= 70 & $pro1['size'] > 60?'class="li"':''}></li>
+                              <li {$pro1['size'] <= 80 & $pro1['size'] > 70?'class="li"':''}></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="dl2">
+                      <dt>分辨率</dt>
+                        <dd>
+                          <ul class="ul1">
+                              <li>较低</li>
+                                <li>中等</li>
+                                <li>较高</li>
+                               
+                            </ul>
+                            <ul id="left_resolution" class="ul2">
+                              <li {$pro1['resolution'] == '1366*760' ? 'class="li"':''}></li>
+                              <li {$pro1['resolution'] == '1920*1080'? 'class="li"': ''}></li>
+                              <li {$pro1['resolution'] == '3840*2160'? 'class="li"' : ''}></li1
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div  id="leftorther" class="djds"  style="width:260px;height:42px; display: none;"></div>
+                    <div id="leftMaxVote" class="djds">
+                      <p>大家都在说Ta：</p>
+                        <div class="yanshe">
+                          <div class="yanshe_left"></div>
+                            <div id="leftMaxVoteName" class="yanshe_cer">{$tags1}</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                    </div>
+                    <div class="xihuan">
+                      <dt>我最喜欢这款产品的：<span id="leftPingjia" style="color: red;" ></span></dt>
+                        
+                        <dd>
+                        <div id="left167" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname167" onclick="postVoteForPK('left',167)">屏幕很大</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left168" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname168" onclick="postVoteForPK('left',168)">画质出色</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left169" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname169" onclick="postVoteForPK('left',169)">性能优异</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left170" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname170" onclick="postVoteForPK('left',170)">外观漂亮</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left171" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname171" onclick="postVoteForPK('left',171)">价格亲民</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left172" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname172" onclick="postVoteForPK('left',172)">内容丰富</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left173" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname173" onclick="postVoteForPK('left',173)">操作流畅</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="left174" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="leftname174" onclick="postVoteForPK('left',174)">极致轻薄</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        
+                        
+                    </div>  
+            </div>
+            <div class="dj_gj_l" style="float:right;">
+                  <dl class="dl1">
+                      <dt>价格</dt>
+                        <dd>
+                          <ul class="ul1">
+                            <li {$pro2['price']<2000?'class="li"':''}>低</li>
+                            <li>稍低</li>
+                            <li>中等</li>
+                            <li>稍高</li>
+                            <li>高</li>
+                          </ul>
+                          <ul id="right_price" class="ul2">
+                              <li {$pro2['price']<2500?'class="li"':''}></li>
+                              <li {$pro2['price'] <= 4000 & $pro2['price'] > 2500?'class="li"':''}></li>
+                              <li {$pro2['price'] <= 6000 & $pro2['price'] > 4000?'class="li"':''}></li>
+                              <li {$pro2['price'] <= 8000 & $pro2['price'] > 6000?'class="li"':''}></li>
+                              <li {$pro2['price'] > 8000?'class="li"':''}></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="dl1">
+                      <dt>屏幕尺寸</dt>
+                        <dd>
+                          <ul class="ul1">
+                              <li>小</li>
+                                <li>较小</li>
+                                <li>中等</li>
+                                <li>较大</li>
+                                <li>大</li>
+                            </ul>
+                            <ul id="right_screen" class="ul2">
+                              <li {$pro2['size'] < 40 ? 'class="li"':''}></li>
+                              <li {$pro2['size'] <= 49 & $pro2['size'] > 40?'class="li"':''}></li>
+                              <li {$pro2['size'] <= 60 & $pro2['size'] >= 50?'class="li"':''}></li>
+                              <li {$pro2['size'] <= 70 & $pro2['size'] > 60?'class="li"':''}></li>
+                              <li {$pro2['size'] <= 80 & $pro2['size'] > 70?'class="li"':''}></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="dl2">
+                      <dt>分辨率</dt>
+                        <dd>
+                          <ul class="ul1">
+                              <li>较低</li>
+                                <li>中等</li>
+                                <li>较高</li>
+                               
+                            </ul>
+                            <ul id="right_resolution" class="ul2">
+                              <li {$pro2['resolution'] == '1366*760' ? 'class="li"':''}></li>
+                              <li {$pro2['resolution'] == '1920*1080'? 'class="li"': ''}></li>
+                              <li {$pro2['resolution'] == '3840*2160'? 'class="li"' : ''}></li>
+                               
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div  id="rightorther" class="djds" style="width:260px;height:42px;display: none;"></div>
+                    <div id="rightMaxVote" class="djds">
+                      <p>大家都在说Ta：</p>
+                        <div class="yanshe">
+                          <div class="yanshe_left"></div>
+                            <div  id="rightMaxVoteName" class="yanshe_cer">{$tags2}</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="xihuan">
+                      <dt>我最喜欢这款产品的：<span id="rightPingjia" style="color: red;" ></span></dt>
+                        
+                        <dd>
+                        <div id="right167" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname167" onclick="postVoteForPK('right',167)">屏幕很大</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right168" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname168" onclick="postVoteForPK('right',168)">画质出色</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right169" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname169" onclick="postVoteForPK('right',169)">性能优异</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right170" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname170" onclick="postVoteForPK('right',170)">外观漂亮</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right171" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname171" onclick="postVoteForPK('right',171)">价格亲民</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right172" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname172" onclick="postVoteForPK('right',172)">内容丰富</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right173" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname173" onclick="postVoteForPK('right',173)">操作流畅</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                        <dd>
+                        <div id="right174" class="yanshe1" onmousemove="this.className='yanshe'" onmouseout="this.className='yanshe1'">
+                          <div class="yanshe_left"></div>
+                            <div class="yanshe_cer" id="rightname174" onclick="postVoteForPK('right',174)">极致轻薄</div>
+                            <div class="yanshe_right"></div>
+                        </div>
+                        </dd>
+                        
+                    </div>
+                </div> 
+        </div>
+        <div class="clear"></div>
+    <script type='text/javascript'>
+        
+        var MaxScreen = 5 ;
+        var CurScreen = 1 ;
+      
+          window.onscroll=function(){
+            function getScrollTop()
+              {
+              var scrollTop=0;
+              if(document.documentElement&&document.documentElement.scrollTop)
+              {
+                scrollTop=document.documentElement.scrollTop;
+              }
+              else if(document.body)
+              {
+                scrollTop=document.body.scrollTop;
+              }
+              return scrollTop;
+                }
+            if(getScrollTop()>=925){
+              document.getElementById("navigation").className="table1 qiehuantop";
+              document.getElementById("yy").style.display="block";
+
+            }else{
+              document.getElementById("navigation").className="table1";
+              document.getElementById("yy").style.display="none";
+              }             
+      
+          }     
+    </script>
+    <div class="dbyemian_top">电视产品详细参数对比</div>
+        <table  class="table1" id="navigation">
+           <tr>
+            <td>
+              <ul>
+                <li class="li1"><H2>{$pro1['proname']}</H2></li>
+                <li class="li2">
+                  <span class="xianshi_span" onmousemove="xsjiage('div7731')" onmouseout="gbjiage('div7731')" id="span1">￥{$pro1['price']}
+                    <div class="xianshi_div1" id="div7731"><div class="jian"></div><div class="kuang">硬件全配价格</div></div>
+                  </span>
+                </li>
+              </ul>  
+            </td>
+            <td class="ys1"><H3>名称及价格</H3></td>
+            <td>
+              <ul>
+                    <li class="li1"><H2>{$pro2['proname']}</H2></li>
+                    <li class="li2">
+                       <span class="xianshi_span1" onmousemove="xsjiage('div8001')" onmouseout="gbjiage('div8001')" id="span1">￥{$pro2['price']}  
+
+                       </span>
+                    </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <div class="yinyiny" style="display:none;" id="yy"></div>
+            <!-- name1 -->
+            <foreach name="name" item="vo" key="s">
+            <table class="table2">
+              <tr>
+                  <td style="_width:468px;"></td> 
+                  <td class="ys1"><h3>{$vo}</h3></td>
+                  <td></td> 
+              </tr>
+            </table>
+            <div id="zhankan1" >
+              
+              <table class="table3" >
+              <foreach name="spepr1[$s]" item="v" key="k">
+                <tr  >
+                    <td ><H4>{$v['con']}</H4></td>
+                    <td class="ys1"><H3 >{$v['name']}</H3></td>
+                    <td ><span class="jiage"><H4>{$spepr2[$s][$k]['con']}</H4></span></td>
+                </tr>
+               </foreach>
+              </table>
+            </div>
+            </foreach>
+        </div>
+      
+      <div class="clear"></div>
+      <div class="PK_lyb"></div>
+      
+    </div>
+    <div class="piaofu" id="duibilan">
+      <div class="top" id="p1">对比栏</div>
+      <span id="dbtishi">对比栏已满，您可以删除不需要的栏内商品再继续添加哦！</span>
+      <a href="javascript:" class="yc" onclick="javascript:yinchangduibi();">隐藏</a>
+        <div class="neirong">
+          <div id="bb1">
+              
+            </div>
+            <div class="jixu">
+              
+            </div>
+
+        </div>
+    </div>
+
+</block>
+    

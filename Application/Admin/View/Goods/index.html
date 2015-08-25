@@ -1,0 +1,182 @@
+<extend name="User:add"/>
+<block name="con">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <div class="mws-form-message error" style="display:none">
+        This is an error message
+    </div>
+    <div class="mws-form-message success" style="display:none">
+        This is a success message
+    </div>
+
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i>商品列表</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
+                <div id="DataTables_Table_1_length" class="dataTables_length"><label>显示 <select
+                        name="DataTables_Table_1_length" size="1" aria-controls="DataTables_Table_1">
+
+                    <option value="10"
+                    <eq name="num" value="10">selected ="selected"</eq>
+                    >10</option>
+
+                    <option value="25"
+                    <eq name="num" value="25">selected ="selected"</eq>
+                    >25</option>
+
+                    <option value="50"
+                    <eq name="num" value="50">selected ="selected"</eq>
+                    >50</option>
+                    <option value="100"
+                    <eq name="num" value="100">selected ="selected"</eq>
+                    >100</option></select> 条数据</label></div>
+                <div class="dataTables_filter" id="DataTables_Table_1_filter"><label>Search: <input type="text"
+                                                                                                    aria-controls="DataTables_Table_1"></label>
+                </div>
+                <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
+                       aria-describedby="DataTables_Table_1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                            rowspan="1" colspan="1" style="width: 144px;" aria-sort="ascending"
+                            aria-label="Rendering engine: activate to sort column descending">商品ID
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                            rowspan="1" colspan="1" style="width: 189px;"
+                            aria-label="Browser: activate to sort column ascending">父级分类
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                            rowspan="1" colspan="1" style="width: 177px;"
+                            aria-label="Platform(s): activate to sort column ascending">商品名称
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                            rowspan="1" colspan="1" style="width: 121px;"
+                            aria-label="Engine version: activate to sort column ascending">硬件全配价格
+                        </th>
+                        <!-- <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 121px;" aria-label="Engine version: activate to sort column ascending">硬件价格所属</th> -->
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                            rowspan="1" colspan="1" style="width: 121px;"
+                            aria-label="Engine version: activate to sort column ascending">乐视网TV版服务费
+                        </th>
+                        <!-- <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 121px;" aria-label="Engine version: activate to sort column ascending">服务有效期</th> -->
+                        <!-- <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 121px;" aria-label="Engine version: activate to sort column ascending">增配包价格</th> -->
+                        <!-- <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 121px;" aria-label="Engine version: activate to sort column ascending">硬件全配价格</th> -->
+                        <!-- <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 121px;" aria-label="Engine version: activate to sort column ascending">增配价格描述</th> -->
+                        <!-- <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 121px;" aria-label="Engine version: activate to sort column ascending">添加时间</th> -->
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                            rowspan="1" colspan="1" style="width: 87px;"
+                            aria-label="CSS grade: activate to sort column ascending">操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody role="alert" aria-live="polite" aria-relevant="all">
+                    <foreach name="goodsInfo" item="vo">
+
+                        <tr class="<?php echo $key%2==0 ? " odd
+                        " :"even"; ?>">
+                        <td class="">{$vo.id}</td>
+                        <!-- 使用变量调节器来获取数据库内容 -->
+                        <td class="">{$vo.pid|getGoodsCate}</td>
+                        <td class="">{$vo.name}</td>
+                        <td class=" ">{$vo.hwprice}</td>
+                        <!-- <td class=" ">{$vo.hw}</td> -->
+                        <td class=" ">{$vo.servicebagprice}</td>
+                        <!-- <td class=" ">{$vo.expiry}</td> -->
+                        <!-- <td class=" ">{$vo.servicebagprice}</td> -->
+                        <!-- <td class=" ">{$vo.servicebag}</td> -->
+                        <!-- <td class=" "><?php echo date('Y-m-d',$vo['addtime']); ?></td> -->
+                        <td class=" ">
+                            <a class="btn btn-small" href="{:U('Goods/edit',array('id'=>$vo['id']))}"><i
+                                    class="icon-pencil"></i></a>
+                            <a class="btn btn-small" href="{:U('Goods/delete',array('id'=>$vo['id']))}"><i
+                                    class="icon-trash"></i></a></td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                </table>
+                <style type="text/css">
+                    #DataTables_Table_1_paginate a, #DataTables_Table_1_paginate span {
+                        display: block;
+                        float: left;
+                        margin-right: 40px;
+                        font-size: 16px;
+                    }
+                </style>
+                <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
+                    {$page}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            //绑定change事件修改  每页显示的数量
+            $('select').change(function () {
+                var num = $(this).val();
+                $.get('__CONTROLLER__/changeNum', {num: num}, function () {
+                    location.href = '__CONTROLLER__/index';
+                });
+            })
+
+            $('.username,.email').dblclick(function (event) {
+                //获取当前的值
+                var v = $(this).text();
+                //创建新节点
+                var input = $('<input type="text" />');
+
+                //清空内容
+                $(this).empty();
+                //插入input节点
+                $(this).append(input);
+                input.focus();
+                //设置值
+                input.val(v);
+                input.select();
+
+                //绑定丧失焦点事件
+                input.blur(function () {
+                    //获取当前input的值
+                    var v = $(this).val();
+                    //获取字段名
+                    var name = $(this).parent().attr('class');
+                    //获取tr父级元素
+                    var id = $(this).parents('tr').find('td:first').text();
+                    //获取当前的节点
+                    var node = $(this);
+                    //发送ajax修改用户信息
+                    $.get('{:U("User/ajaxUpdate")}', {id: id, name: name, value: v}, function (msg) {
+                        if (msg == 0) {
+                            show('success', '用户更新成功', 3000);
+                        } else {
+                            show('error', '用户更新失败', 5000);
+                        }
+                        node.parent().html(v);
+                    })
+                })
+            });
+
+            //show('success','用户更新成功');
+            //show('error','用户更新失败');
+            function show(type, msg, timeout) {
+                if (type == 'success') {
+                    $('.success').html(msg);
+                    $('.success').show();
+                } else {
+                    $('.error').html(msg);
+                    $('.error').show();
+                }
+                setTimeout(function () {
+                    $('.success,.error').fadeOut();
+                }, timeout)
+            }
+        })
+    </script>
+</block>

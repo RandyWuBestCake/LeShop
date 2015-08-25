@@ -1,0 +1,58 @@
+<if condition="$count eq 0">
+<div style="width:1000px;margin-left:100px;height:100px;font-size:28px;">抱歉没有找到你需要的商品。不妨看看别的说不定有惊喜呢</div>
+<else />
+<div class="Article">
+        <div class="Article_left">
+          <input type="hidden" id="f" name="flag" value="" />
+            <a id="hot" href="javascript:pxorderProduct('hot');">默认</a>
+              <a id="new" href="javascript:pxorderProduct('new');">新品</a>
+              <a id="cheap" href="javascript:pxorderProduct('cheap');">价格</a>
+          </div>
+        <div class="Article_right"><span><span>共 {$count}件商品</span></span><a href="javascript:void(0);" class="a1_1" ></a><a href="javascript:pageSubmit('page','null','formSearch','2')" class="b1" ></a><input type='hidden' value='1' name='page.currentPage' id='page.currentPage' /><input type='hidden' value='1' name='currentPage' id='currentPage' /><input type='hidden' value='7' name='totalpage' id='totalpage' /><input type='hidden' name='page.pageSize' value='12' id='page.pageSize'/></div>
+</div>
+
+<div class="liebiao" id="list">
+  <div class="pailie">
+  <foreach name="pros" item="vo" key="k">
+    <ul id="pailie{$vo['id']}" onmouseover="ydgg('pailie{$vo['id']}')" onmouseout="lkgg('pailie{$vo['id']}')">
+        	<li class="li1">
+        		<a href="{:U('Product/xiangqing',array('id'=>$vo['id']))}" target="_blank" onclick="productinfo2({$vo['id']})">
+        			<img id="img{$vo['id']}" src="__ROOT__/{$vo['imgmain']}" width="270" height="170"  />
+        		</a>
+        	</li>
+        	<li class="li2">
+            <div class="li2_bb">
+            <a href="{:U('Product/xiangqing',array('id'=>$vo['id']))}" target="_blank" onclick="productinfo2({$vo['id']})" id="pname776"><H3>{$vo['proname']}</H3></a></div></li>
+        	<li class="li3">
+				  <span class="xianshi_span" onmousemove="xsjiage('div{$vo['id']}')" onmouseout="gbjiage('div{$vo['id']}')"
+					 id="span{$vo['id']}">￥{$vo['price']}
+				  </span>
+         </li>
+          <li class="li5">
+            <foreach name="vo['tags']" item="v">
+              <div>{$tags[$v]}</div>
+            </foreach>
+          </li>
+        	<li class="liangge">
+            <a name="duibiname" href="javascript:intocomp({$vo['id']});" id="duibi{$vo['id']}" class="dbanniu"></a>   
+            <a href="" target="_blank" class="ljyd">立即购买</a>
+	        </li> 
+          <input type="hidden" id="allprice{$vo['id']}" value="{$vo[price]}" />
+		</ul>
+    <if condition="($k eq 3) OR ($k eq 7) "> </div><div class="pailie"></if>
+    </foreach>
+  </div>
+</div>
+
+<div  id="temptd">
+      <div class="fanye">
+        
+        <div class="a1" id="page">{$page}</div>
+      </div>
+      <input type='hidden' value='1' name='page.currentPage' id='page.currentPage' />
+      <input type='hidden' value='1' name='currentPage' id='currentPage' />
+      <input type='hidden' value='7' name='totalpage' id='totalpage' />
+      <input type='hidden' name='page.pageSize' value='12' id='page.pageSize'/>
+</div>
+</if>  
+  

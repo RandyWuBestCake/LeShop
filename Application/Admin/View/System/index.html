@@ -1,0 +1,58 @@
+<extend name="User:add"/>
+<block name="con">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<load href="__ADMINCSS__/bootstrap.min.css" />
+<load href="__ADMINJS__/jquery-1.4.2.min.js" />
+ 
+<load href="__UPLOADIFY__/jquery.uploadify.min.js" />
+<load href="__UPLOADIFY__/uploadify.css" />
+<load href="__ADMINJS__/uploadify.js" />
+
+</head>
+<body>
+<div class="mws-panel grid_8 mws-collapsible">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i>网站配置</span>
+        </div>
+<form action="__CONTROLLER__/ModSysHandle" class="form" method="post" enctype="multipart/form-data">
+   <div class="mws-panel-body no-padding">
+            <table class="mws-table mws-datatable">
+        <tr>
+            <td align="right">网站LOGO：</td>
+            <td ><img src="{$logo}" alt="" width=""/></td>
+        </tr>
+        <tr>
+            <td align="right">LOGO上传</td>
+            <td>
+                <input type="file" id="face" name="face" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">网站关键字：</td>
+            <td><input type="text" name="HTTP_KEYWORDS" value="{$keywords}" style="width:600px" /></td>
+        </tr>
+        <tr>
+            <td align="right">网站版权：</td>
+            <td><input type="text" name="HTTP_COPY" value="{$copy}" style="width:600px"></td>
+        </tr>
+        <tr>
+            <td align="right">网站描述：</td>
+            <td><input type="text" name="HTTP_DESCRIPTION" value="{$description}" style="width:600px"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="保存提交" /></td>
+        </tr>
+    </table>
+    </div>
+    </form>
+    </div>
+    <!-- 'HTTP_KEYWORDS' => 'LAMP,PHP,PHP95,项目二,雄赳赳小组,仿乐视商城,乐商',
+            'HTTP_COPY' => '版权所有雄赳赳小组 LAMP兄弟连的第二个项目,欢迎大家交流.',
+            'HTTP_DESCRIPTION'=>'欢迎使用乐商,这是雄赳赳小组在 LAMP兄弟连的第二个项目,欢迎大家交流.', -->
+</body>
+</html>
+
+</block>

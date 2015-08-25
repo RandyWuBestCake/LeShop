@@ -1,0 +1,43 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>优惠卷信息</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i>优惠活动</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <table class="mws-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>内容</th>
+                    <th>最低消费</th>
+                    <th>到期时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="rows" item="vo">
+                    <tr>
+                        <td>{$vo['id']}</td>
+                        <td>{$vo['title']}</td>
+                        <td>{$vo['con']}</td>
+                        <td>{$vo['min_price']}</td>
+                        <td>{:date('Y-m-d',$vo['expire_time'])}</td>
+                        <td><a style="color:#444" href="{:U('Coupon:edit',array('id'=>$vo['id']))}">修改</a> || <a
+                                style="color:#444" href="{:U('Coupon:manage',array('id'=>$vo['id']))}">管理优惠卷</a> || ||
+                            <a style="color:#444" href="{:U('Coupon:create',array('id'=>$vo['id']))}">生成优惠卷</a> ||<a
+                                    style="color:#444" href="{:U('Coupon:del',array('id'=>$vo['id']))}">删除活动</a></td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td colspan="6" style="text-align:right">{$page}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</block>

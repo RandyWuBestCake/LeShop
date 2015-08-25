@@ -1,0 +1,683 @@
+<extend name="Helpself/index" />
+<block name="css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/Content/style.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/Content/css.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/Scripts/jquery.js"></script>
+		
+		<script type="text/javascript" src="__PUBLIC__/js/Scripts/frontcommon.js"></script>
+            <!--
+            <script type="text/javascript" src="__PUBLIC__/js/Scripts/index.js"></script>
+            <script type="text/javascript" src="__PUBLIC__/js/Scripts/tbhb.js"></script>
+            -->
+</head>
+</block> 
+<block name="main">
+		<script type='text/javascript'>
+		var _zpq = _zpq || [];
+		_zpq.push(['_setPageID','298']);
+		_zpq.push(['_setPageType', 'biyibiPage']);
+		_zpq.push(['_setParams','']);
+		_zpq.push(['_setAccount','104']);
+		(function() {
+		    var zp = document.createElement('script'); zp.type = 'text/javascript'; zp.async = true;
+		    zp.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.zampda.net/s.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(zp, s);
+		  })();
+</script>
+	
+	
+
+	<body>
+	
+	
+
+	<!--搜索-->
+	<div class="Search"> 
+		<div class="Kuang">
+        	<input type="text"  value="搜索产品品牌或型号" class="text"  id="wenzhi"  style="font-family: '微软雅黑'"  /><input type="button" class="botton" onclick="search()"/>
+             <ul id="ulbb">
+            </ul>
+            <p>
+            <div class="ShareWindow hidden" id="ShareWindow" style="top:45px;right:-50px;position:absolute;width:40px;height:225px;display: none;">							
+				<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"
+				data="">
+				
+				<a class="bds_qzone"></a> <a class="bds_tsina"></a> <a
+					class="bds_tqq"></a> <a class="bds_tsohu"></a> <a class="bds_renren"></a>
+				<a class="bds_douban"></a>
+			</div>
+			</div>
+            </p>
+    </div>
+</div>
+      <script>
+      function search(){
+        var v = $('#wenzhi').val();
+          //alert(v);
+        $.get('__CONTROLLER__/xiangqing',{v:v},function(){
+            location.href = '__CONTROLLER__/xiangqing/v/'+v;
+        });
+       
+      }
+      </script>
+      <script>
+      function sousuozk(){
+ 		document.getElementById("ulbb").style.display="block";
+ 		if(document.getElementById("wenzhi").value=='搜索产品品牌或型号'){document.getElementById("wenzhi").value='';document.getElementById("wenzhi").style.color="#333";}
+	  }
+      
+     function sousuogb(){
+	   document.getElementById("ulbb").style.display="none";
+	   if(document.getElementById("wenzhi").value==''){document.getElementById("wenzhi").value='搜索产品品牌或型号';document.getElementById("wenzhi").style.color="#999";}
+     }
+  	 function xsjiage(num){
+	   document.getElementById(num).style.display="block";
+	 }
+     function gbjiage(num){
+	  document.getElementById(num).style.display="none";
+	}
+      </script>
+	<script type="text/javascript" id="bdshare_js" data="type=tools&uid=0"></script>
+	<script type="text/javascript" id="bdshell_js"></script>
+	<script type="text/javascript">
+		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+		
+		    var is_hidden="";
+			var bdguanzu_diplay = "1";
+			var bdshare_display = "1";
+			var timeOut;
+		
+			$(function(){
+				//var urls = window.location.href;
+				//var url = urls + "?cps_id=u_p_byb";
+				var bd_params = "{'url':http://shop.letv.com/biyibi/index.html?cps_id=u_p_byb,'pic':http://shop.letv.com/biyibi/images/lby.jpg,'desc':'从内容到外观，从硬件到内存，想怎么比，就怎么比！就是这么任性~有对比才有真相，让我知道你的好~@超级电视 走你！>>>','text':'从内容到外观，从硬件到内存，想怎么比，就怎么比！就是这么任性~有对比才有真相，让我知道你的好~@超级电视 走你！>>>'}";
+				$("#bdshare").attr('data',bd_params);
+				
+				var isIE6= navigator.appVersion.indexOf("MSIE 6")>-1; 
+					
+				if(!bdguanzu_diplay && bdshare_display == "1"){
+				
+					$("#ShareWindow").css("top","245px");			
+					if(isIE6){	
+						$("#ShareWindow").css("top",245);	
+						$("#ShareWindow").css("right",190);			
+					}	
+				}
+				
+			  $("#bdshare_show").mouseover(function(){
+			    var showdiv = $("#ShareWindow").slideDown("slow");
+			    clearTimeout(timeOut);
+			  }).mouseleave(function(){
+			    timeOut = setTimeout(hideDiv,300);
+			    return false;
+			  });
+			  
+			  $("#ShareWindow").mouseover(function(){
+			    clearTimeout(timeOut);
+			  }).mouseleave(function(){
+			    timeOut = setTimeout(hideDiv,300);
+			  });
+			  							  
+			});
+			      
+			function hideDiv(){
+			  $("#ShareWindow").slideUp("slow");
+			}
+			
+      </script>
+		<div class="shortcut">
+		<div class="shortcut_nr">
+	    	<div class="lby_top"><span>快捷搜索</span>您一定在找这样一款电视</div>
+	        <div class="shortcut_banner">
+	            <div class="a_huadong">
+	                <h2><a href="{:U('Product/lists')}" class="a1">性价比最高的</a></h2>
+	                <h2><a href="{:U('Product/lists')}" class="a5">同尺寸销量最好的</a></h2>
+	                <h2><a href="{:U('Product/lists')}" class="a6">视频资源最丰富的</a></h2>
+	            </div>
+	        </div>
+	    </div>  
+	 </div>				
+		
+	<div class="lby_top"><span>快速对比</span>乐视TV · 超级电视和其他竞品电视哪个好</div>
+	<div class="Player">
+	<ul class="dd1" id="pk_left">
+				
+		<li class="li1" id="dbimageli">
+			<a href="{:U('Product/xiangqing',array("id"=>$pros['id']))}" target="_blank">
+			<img id="dbimage" src="__ROOT__/{$pros['imgmain']}" width="280" height="180" title="{$pros['proname']}" /></a>
+      <input type="hidden" name="dbpid1" id="dbpid1" value="{$pros['id']}" />
+		</li>
+		<li class="li2" id="dbnameli">
+			<div class="li2_bb"><a href="{:U('Product/xiangqing',array("id"=>$pros['id']))}" target="_blank"title="{$pros['proname']}" id="dbname">{$pros['proname']}</a></div>
+		</li>
+		<li class="li3">
+			
+			<span class="xianshi_span" onmousemove="xsjiage('div1')" onmouseout="gbjiage('div1')" id="span1">￥{$pros['price']}
+			   <div class="xianshi_div1" id="div1"><div class="jian"></div><div class="kuang">硬件全配价格</div></div>
+			</span>
+		</li>
+		<li class="li4" id="dbbuyurl">
+				<a href="http://shop.letv.com/product/product-pid-GWGT501008-n-3.html" target="_blank"><input type="button" class="index_yd" value="立即购买" ></a>
+		</li>
+  </ul>
+			
+	<div class="dd2">
+				<p><img src="__PUBLIC__/images/Picture/pk.jpg" width="96" height="95" /></p>
+				<p class="Qpk">
+					<a href="javascript:topk()" id="Leyibi_PK" webtrekkparam="{ct:'Leyibi_PK'}"><img src="__PUBLIC__/images/Picture/qpk.jpg" width="109" height="30" />
+					</a>
+				</p>
+				 <p href="javascript:randomChangeProduct();" class="sjqhls"></p>
+				<div class="rollBox">
+					<a class="LeftBotton" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></a>
+					<div class="Cont" id="ISL_Cont">
+						<div class="ScrCont">
+							<div id="List1">
+								<!-- 图片列表 begin -->
+								<foreach name="pro_l" item="vo" >
+								<a class="pic" href="{$vo['id']}" >
+				                    <div class="pic_1"></div>
+				                    <div class="pic_2"><div class="li2_bb">{$vo['proname']}</div></div>
+									<img
+											src="__ROOT__/{$vo['imgmain']}"
+											title="{$vo['proname']}" width="51"
+											height="33" />
+								</a>
+								
+								</foreach>
+								
+
+								<!-- 图片列表 end -->
+							</div>
+							<div id="List2"></div>
+						</div>
+					</div>
+					<a class="RightBotton" onmousedown="ISL_GoDown()"
+						onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"></a>
+				</div>
+  </div>
+			<ul class="dd1" id="pk_right" >
+      <div id="pk2">
+				<li class="li1" id="dbimageli">
+          <a href="{:U('Product/xiangqing',array("id"=>$lpros['id']))}" target="_blank">
+          <img id="dbimage" src="__ROOT__/{$lpros['imgmain']}" width="280" height="180" title="{$lpros['proname']}" /></a>
+          <input type="hidden" name="dbpid2" id="dbpid2" value="{$lpros['id']}" />
+        </li>
+        <li class="li2" id="dbnameli">
+        <div class="li2_bb"><a href="{:U('Product/xiangqing',array("id"=>$lpros['id']))}" target="_blank"title="{$lpros['proname']}" id="dbname">{$lpros['proname']}</a></div>
+        </li>
+        <li class="li3">
+          <span class="xianshi_span" onmousemove="xsjiage('div1')" onmouseout="gbjiage('div1')" id="span1">￥{$lpros['price']}
+          <div class="xianshi_div1" id="div1"><div class="jian"></div><div class="kuang">硬件全配价格</div></div>
+          </span>
+        </li>
+</div>
+        <li class="li4">
+          <div class="gha">
+            <a href="javascript:;" style="margin: 0px;margin-left:-10px;">更换产品</a>
+            <div class="genghuanchanp" id="genghuanchanp" >
+              <div class="select_down" id="sel">
+                <dl>
+                  <dt style="margin-left: 8px;">
+                    <h3>
+                      请选择品牌                 
+                    </h3>
+                    <a href="javascript:;" style=" margin:0px; right:7px; margin-top:5px;"></a>
+                    <ul id="pinpai" style="display: none;left:8px; top:25px;">
+                   <foreach name="brands" item="vo" >
+                      <li>
+                        <b onclick="Brand({$vo['id']})">{$vo['bname']}</b>
+                      </li>
+                      </foreach>
+                    </ul>
+                  </dt>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <a  class="sjhcp" ></a>
+        </li>
+			</ul>
+  </div>
+
+<script>
+
+        $('#List1').find('a').click(function(){
+          $.get('{:U("Product/pkblock")}',{id:$(this).attr('href')},function(msg){
+              $('#pk_left').html(msg);
+          });return false;
+        })
+        function Brand(brand){
+          $.get('{:U("Product/pkblock2")}',{id:brand},function(msg){
+                $('#pk2').html(msg);
+            });
+        }
+        function topk(){
+          var id1=$('#dbpid1').val();
+          var id2=$('#dbpid2').val();
+          window.location.href="{:U('/Home/Product/pk2/id1/"+id1+"/id2/"+id2+"')}";
+        }
+</script>
+<script language="javascript" type="text/javascript">
+        
+        <!--//--><![CDATA[//><!--
+        
+        //图片滚动列表 5icool.org
+        
+        var Speed = 0; //速度(毫秒)
+        
+        var Space = 5; //每次移动(px)
+        
+        var PageWidth = 207; //翻页宽度
+        
+        var fill = 0; //整体移位
+        
+        var MoveLock = false;
+        
+        var MoveTimeObj;
+        
+        var Comp = 0;
+        
+        var AutoPlayObj = null;
+        
+        GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+        
+        GetObj('ISL_Cont').scrollLeft = fill;
+        
+        GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
+        
+        GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
+        
+        AutoPlay();
+        
+        function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
+        
+        function AutoPlay(){ //自动滚动
+        
+         clearInterval(AutoPlayObj);
+        
+         AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',10000000000); //间隔时间
+        
+        }
+        
+        function ISL_GoUp(){ //上翻开始
+        
+         if(MoveLock) return;
+        
+         clearInterval(AutoPlayObj);
+        
+         MoveLock = true;
+        
+         MoveTimeObj = setInterval('ISL_ScrUp();',Speed);
+        
+        }
+        
+        function ISL_StopUp(){ //上翻停止
+        
+         clearInterval(MoveTimeObj);
+        
+         if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0){
+        
+          Comp = fill - (GetObj('ISL_Cont').scrollLeft % PageWidth);
+        
+          CompScr();
+        
+         }else{
+        
+          MoveLock = false;
+        
+         }
+        
+         AutoPlay();
+        
+        }
+        
+        function ISL_ScrUp(){ //上翻动作
+        
+         if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
+        
+         GetObj('ISL_Cont').scrollLeft -= Space ;
+        
+        }
+        
+        function ISL_GoDown(){ //下翻
+        
+         clearInterval(MoveTimeObj);
+        
+         if(MoveLock) return;
+        
+         clearInterval(AutoPlayObj);
+        
+         MoveLock = true;
+        
+         ISL_ScrDown();
+        
+         MoveTimeObj = setInterval('ISL_ScrDown()',Speed);
+        
+        }
+        
+        function ISL_StopDown(){ //下翻停止
+        
+         clearInterval(MoveTimeObj);
+        
+         if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0 ){
+        
+          Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
+        
+          CompScr();
+        
+         }else{
+        
+          MoveLock = false;
+        
+         }
+        
+         AutoPlay();
+        
+        }
+        
+        function ISL_ScrDown(){ //下翻动作
+        
+         if(GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;}
+        
+         GetObj('ISL_Cont').scrollLeft += Space ;
+        
+        }
+        
+        function CompScr(){
+        
+         var num;
+        
+         if(Comp == 0){MoveLock = false;return;}
+        
+         if(Comp < 0){ //上翻
+        
+          if(Comp < -Space){
+        
+           Comp += Space;
+        
+           num = Space;
+        
+          }else{
+        
+           num = -Comp;
+        
+           Comp = 0;
+        
+          }
+        
+          GetObj('ISL_Cont').scrollLeft -= num;
+        
+          setTimeout('CompScr()',Speed);
+        
+         }else{ //下翻
+        
+          if(Comp > Space){
+        
+           Comp -= Space;
+        
+           num = Space;
+        
+          }else{
+        
+           num = Comp;
+        
+           Comp = 0;
+        
+          }
+        
+          GetObj('ISL_Cont').scrollLeft += num;
+        
+          setTimeout('CompScr()',Speed);
+        
+         }
+        
+        }
+        
+        //--><!]]>
+        </script>
+          <script>
+               $(function(){
+            		 $(".gha").click(function(event){
+            		  var e=window.event || event;
+            		  if(e.stopPropagation){
+            		   e.stopPropagation();
+            		  }else{
+            		   e.cancelBubble = true;
+            		  }
+            		  $("#pinpai").hide();
+            		  $("#genghuanchanp").fadeIn("fast");
+            		 });
+            		 $("#genghuanchanp").click(function(event){
+            		  var e=window.event || event;
+            		  if(e.stopPropagation){
+            		   e.stopPropagation();
+            		  }else{
+            		   e.cancelBubble = true;
+            		  }
+            		 });
+            		
+            		});
+
+           	       $(function(){ //вўВи
+           	        $(document).bind("click",function(e){
+           	         var target  = $(e.target);
+           	         if(target.closest(".genghuanchanp").length == 0){
+           	          $(".genghuanchanp").fadeOut("fast");
+           	           //document.getElementById("xinghao2").style.display="none";
+           	           document.getElementById("xinghao").style.display="none";
+           	         }
+           	        }) 
+           	       });
+            	       
+              	window.onload=function(){
+              	   var oflink = document.getElementById('sel');
+              	   var aDt = oflink.getElementsByTagName('dt');
+              	   var aUl = oflink.getElementsByTagName('ul');
+              	   var aH3= oflink.getElementsByTagName('h3');
+              	   var t = false;
+              	   for(var i=0;i<aDt.length;i++){
+              		 
+              	      aDt[i].index = i;
+              	      aDt[i].onclick = function(ev){
+              	           
+              	           var ev = ev || window.event;
+              	           var This = this;
+              	           for(var i=0;i<aUl.length;i++){
+              	              $("#"+aUl[i].id).fadeOut("fast");
+              	           }
+              	           if(!t){
+              	           	$("#"+aUl[this.index].id).fadeIn("fast",function(){t=true;});
+              	           }else{
+              	           	t=false;
+              	           }
+              	           
+              	           ev.cancelBubble = true;
+              	       };
+              	   }
+            	   
+            	   for(var i=0;i<aUl.length;i++){
+            	       aUl[i].index = i;
+            	       (function(ul){
+            	           var iLi = ul.getElementsByTagName('li');
+            	           for(var i=0;i<iLi.length;i++){
+            	               iLi[i].onmouseover = function(){
+            	                   this.className = 'hover';
+            	               };
+            	               iLi[i].onmouseout = function(){
+            	                   this.className = '';
+            	               };
+            	               iLi[i].onclick = function(ev){
+            	            	 
+            	               		t=false;
+            	                   var ev = ev || window.event;
+            	                   aH3[this.parentNode.index].innerHTML = this.innerHTML;
+            	                   ev.cancelBubble = true;
+            	                 this.parentNode.style.display = 'none';
+            	               };
+            	           }
+
+            	       })(aUl[i]);
+            	   }
+
+            	}
+          </script>
+		<div class="clear"></div>
+		<div class="xuanzhe" id="question">
+			<div class="lby_top b_0"><span>帮您挑选</span>花1分钟让我们了解您的需求</div>
+			<div class="xuanzhe_nr">
+				<div class="xuanzhe_div_top" id="xuanzhe_div">
+		        	<div id="quandiv1" class="ys3">1</div>
+		            <div id="quandiv2" class="ys3">2</div>
+		            <div id="quandiv3" class="ys3">3</div>
+		            <div id="quandiv4" class="ys3">4</div>
+		            <div id="quandiv5" class="ys3">5</div>
+        		</div>
+		        
+				<div class="xuanzhe_div_nr">
+					<div class=main-wrap>
+						<div id=slide-box>
+							<div class=slide-content id=J_slide>
+								<div class=wrap>
+									<ul class="ks-switchable-content"  id="J_UL" style="left:0px">
+										
+										<LI>
+											<dl>
+												<dt>1.您理想的电视尺寸大约是？</dt>
+												<dd>
+													
+													<p class="p1" itemid="21"
+														onclick="itemchange('1','1');huanlj_b1()"
+														id="xx11">40英寸或更小</p>
+													
+													<p class="p1" itemid="22"
+														onclick="itemchange('2','1');huanlj_b1()"
+														id="xx12">40英寸~60英寸</p>
+													
+													<p class="p1" itemid="23"
+														onclick="itemchange('3','1');huanlj_b1()"
+														id="xx13">60英寸或更大</p>
+													
+												</dd>
+											</dl>
+										</LI>
+										
+										<LI>
+											<dl>
+												<dt>2.您购买电视时最看重？</dt>
+												<dd>
+													
+													<p class="p1" itemid="27"
+														onclick="itemchange('1','2');huanlj_b2()"
+														id="xx21">硬件配置及质量</p>
+													
+													<p class="p1" itemid="28"
+														onclick="itemchange('2','2');huanlj_b2()"
+														id="xx22">视频内容及体验</p>
+													
+													<p class="p1" itemid="29"
+														onclick="itemchange('3','2');huanlj_b2()"
+														id="xx23">售前及售后服务</p>
+													
+												</dd>
+											</dl>
+										</LI>
+										
+										<LI>
+											<dl>
+												<dt>3.您希望用这台电视欣赏什么节目？</dt>
+												<dd>
+													
+													<p class="p1" itemid="30"
+														onclick="itemchange('1','3');huanlj_b3()"
+														id="xx31">只看传统电视台节目</p>
+													
+													<p class="p1" itemid="31"
+														onclick="itemchange('2','3');huanlj_b3()"
+														id="xx32">海量免费网络视频</p>
+													
+													<p class="p1" itemid="32"
+														onclick="itemchange('3','3');huanlj_b3()"
+														id="xx33">独家影视及高清视频资源</p>
+													
+												</dd>
+											</dl>
+										</LI>
+										
+										<LI>
+											<dl>
+												<dt>4.您理想中的电视可提供的功能是？</dt>
+												<dd>
+													
+													<p class="p1" itemid="33"
+														onclick="itemchange('1','4');huanlj_b4()"
+														id="xx41">体感或其他智能操控功能</p>
+													
+													<p class="p1" itemid="34"
+														onclick="itemchange('2','4');huanlj_b4()"
+														id="xx42">大屏游戏及应用扩展功能</p>
+													
+													<p class="p1" itemid="35"
+														onclick="itemchange('3','4');huanlj_b4()"
+														id="xx43">定制播放或智能推荐功能</p>
+													
+												</dd>
+											</dl>
+										</LI>
+										
+										<LI>
+											<dl>
+												<dt>5.您准备如何摆放这台电视？</dt>
+												<dd>
+													
+													<p class="p1" itemid="24"
+														onclick="itemchange('1','5');huanlj_b5()"
+														id="xx51">稳妥且美观的固定底座</p>
+													
+													<p class="p1" itemid="25"
+														onclick="itemchange('2','5');huanlj_b5()"
+														id="xx52">可调节高度或角度的挂架</p>
+													
+													<p class="p1" itemid="26"
+														onclick="itemchange('3','5');huanlj_b5()"
+														id="xx53">可自由移动电视的推车</p>
+													
+												</dd>
+											</dl>
+										</LI>
+										
+
+									</ul>
+								</div>
+							<DIV class=ks-switchable-triggers>
+                            <A class=prev href="javascript:void(0);" id="huan_A1" title="已经是第一个了" onclick="huan_a1()" style="display: none"></A> 
+                            <A class=prev href="javascript:void(0);" id="huan_A2" style="display:none;" onclick="huan_a2()" title="2"></A> 
+                            <A class=prev href="javascript:void(0);" id="huan_A3" style="display:none;" onclick="huan_a3()" title="3"></A>
+                            <A class=prev href="javascript:void(0);" id="huan_A4" style="display:none;" onclick="huan_a4()" title="4"></A> 
+                            <A class=prev href="javascript:void(0);" id="huan_A5" style="display:none;" onclick="huan_a5()" title="5"></A>
+                            <A class=next href="javascript:void(0);" id="huan_B1" onclick="huan_b1()" title="1"  style="display: none"></A>
+                            <A class=next href="javascript:void(0);" id="huan_B2" style="display:none;" onclick="huan_b2()" title="2"></A>	
+                            <A class=next href="javascript:void(0);" id="huan_B3" style="display:none;" onclick="huan_b3()" title="3"></A>
+                            <A class=next href="javascript:void(0);" id="huan_B4" style="display:none;" onclick="huan_b4()" title="4"></A>	
+                            <A class=next href="javascript:void(0);" id="huan_B5" style="display:none;" onclick="huan_b5()" title="已经是最后一个了"></A>
+                         </DIV>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="PK_lyb">	
+			</div>
+		</div>
+		
+
+</block>
+
+<block name="htmljs">
+<!-- 底部系统引用 勿动 -->
+<script type='text/javascript' src='__PUBLIC__/js/Scripts/jquery.lazyload.js'></script>
+<script type='text/javascript' src='__PUBLIC__/js/Scripts/zxvideo.js'></script>
+<script type='text/javascript' src='__PUBLIC__/js/Scripts/sxf_scroll_pic.js'></script>
+<script type='text/javascript' src='__PUBLIC__/js/Scripts/jquery.easing.1.3.js'></script>
+</block>

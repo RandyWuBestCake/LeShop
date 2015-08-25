@@ -1,0 +1,53 @@
+<!-- 模板替换 -->
+<extend name="User:add"/>
+<!-- 替换模板标题 -->
+<block name="title">
+    <title>配件图显区图片添加</title>
+</block>
+<!-- 替换模板内容表单 -->
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>配件图显区图片添加</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Fitimg/insert')}" class="mws-form" method="post" enctype="multipart/form-data">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">配件名称</label>
+
+                        <div class="mws-form-item" style="width:600px;">
+                            <select class="large" name="fid">
+                                <option value="0">请选择</option>
+                                <foreach name="info" item="vo">
+                                    <option value="{$vo.id}"
+                                    <eq name="vo['id']" value="$fid">selected="selected"</eq>
+                                    >{$vo.name}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">图显区图片</label>
+
+                        <div class="mws-form-item">
+                            <input type="file" class="small" name='img'>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="submit" class="btn btn-danger" value="点击上传,继续添加">
+                    <input type="button" class="btn btn-danger" name="go" value="完成上传,回到列表">
+                    <script type="text/javascript" src="__PUBLIC__/js/libs/jquery-1.8.3.js"></script>
+                    <script type="text/javascript">
+                        //获取节点并绑定事件
+                        $("input[name='go']").click(function () {
+                            window.location.href = "{:U('Fitimg/index')}";
+                        })
+                    </script>
+                    <input type="reset" class="btn " value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

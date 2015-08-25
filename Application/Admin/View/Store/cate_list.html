@@ -1,0 +1,41 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>资源分类列表信息</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i>资源分类列表</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <table class="mws-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>分类名</th>
+                    <th>分类简介</th>
+                    <th>父级分类</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="rows" item="vo">
+                    <tr>
+                        <td>{$vo['id']}</td>
+                        <td>{$vo['title']}</td>
+                        <td>{$vo['desc']}</td>
+                        <td>{$vo['pid']?$cates[$vo['pid']]:'--'}</td>
+                        <td><a style="color:#444" href="{:U('Store:cate_edit',array('id'=>$vo['id']))}">修改</a> ||<a
+                                style="color:#444"
+                                href="{:U('Store:cate_goods_list',array('cid'=>$vo['id']))}">管理分类下商品</a> ||<a
+                                style="color:#444" href="{:U('Store:cate_dodel',array('id'=>$vo['id']))}">删除</a></td>
+                    </tr>
+                </foreach>
+                <tr>
+                    <td colspan="6" style="text-align:right">{$page}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</block>

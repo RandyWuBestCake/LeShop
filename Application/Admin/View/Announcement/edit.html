@@ -1,0 +1,66 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>首页公告修改</title>
+</block>
+
+<block name="con">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>首页公告修改</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Announcement/update')}" class="mws-form" method="post">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">公告标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name='title' value="{$announcementInfo['title']}">
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">公告内容</label>
+
+                        <div class="mws-form-item">
+                            <script id="editor" type="text/plain" style="width:650px;height:300px;" name="content">
+                                {$announcementInfo['content']}
+                            </script>
+
+                            <script type="text/javascript">
+                                var ue = UE.getEditor('editor');
+                            </script>
+                        </div>
+                    </div>
+
+
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">作者</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name="author" value="{$announcementInfo['author']}">
+                        </div>
+                    </div>
+
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">创建时间</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small Wdate" name="create_time" onClick="WdatePicker()"
+                                   value="<?php echo date('Y-m-d',$announcementInfo['create_time']); ?>">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mws-button-row">
+                    <input type="hidden" name="id" value="{$announcementInfo['id']}">
+                    <input type="submit" class="btn btn-danger" value="点击修改">
+                    <input type="reset" class="btn " value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</block>

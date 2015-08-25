@@ -1,0 +1,68 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>优惠卷信息修改</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>优惠卷修改 Coupon</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Coupon:c_doedit')}" class="mws-form" method="post">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">选择活动</label>
+
+                        <div class="mws-form-item">
+                            <select name="cid">
+                                <foreach name="rows" item="vo">
+                                    <option value="{$vo['id']}"
+                                    <eq name="vo['id']" value="$cid">selected="selected"</eq>
+                                    >{$vo['title']}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">所属用户ID</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="" name="uid" value="{$row['uid']?$row['uid']:''}"> 用户名:
+                            {$row['uid']|getUser}
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">是否被使用</label>
+
+                        <div class="mws-form-item">
+                            <select name="is_used">
+                                <option value='0' {$row[
+                                'is_used']?'':'selected = "selected"'}>未使用</option>
+                                <option value='1' {$row[
+                                'is_used']?'selected = "selected"':''}>已使用</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">订单id</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="" name="order_id" value="{$row['order_id']?$row['order_id']:''}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="hidden" name="id" value="{$row['id']}">
+                    <input type="submit" class="btn btn-primary" value="修改">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

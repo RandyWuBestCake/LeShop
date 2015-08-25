@@ -1,0 +1,282 @@
+<!-- 模板替换 -->
+<extend name="User:add"/>
+<!-- 替换模板标题 -->
+<block name="title">
+    <title>订单详情及评价</title>
+</block>
+<!-- 替换模板内容表单 -->
+<block name="con">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>订单详情及评价</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Goodsassess/update')}" class="mws-form" method="post" enctype="multipart/form-data">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">订单ID</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <input type="text" class="small" name='id' value="{$info['id']}" readonly>
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">订单号</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <input type="text" class="small" name='order_num' value="{$info['order_num']}" readonly>
+                        </div>
+                    </div>
+                    <hr style="border:1px dashed #CCCCCC;height:1px"/>
+                    <hr style="border:1px dashed #CCCCCC;height:1px"/>
+                    <span style="display:block;width:150px;height:45px;font-size:18px;font-weight:bold;color:#345">评价详情>>>>>>></span>
+
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">评价时间</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name='ass_time' value="{$info['ass_time']}">
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">评价内容</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <script id="editor" type="text/plain" style="width:1024px;height:500px;" name="con">
+                                {$info['con']}
+                            </script>
+                            <script type="text/javascript">
+                                var ue = UE.getEditor('editor', {
+                                    initialFrameWidth: 680,
+                                    initialFrameHeight: 320
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">评价等级</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name='grade' value="{$info['grade']}">星级
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">晒单图</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <!-- ****************************晒单图引用地址************************* -->
+                            <img src="__ROOT__{$img['0']}" alt="" width="250px" height="150px" border="1px solid red"
+                                 name="img0">
+                            <input type="file" class="small" name='img0'>
+                            <br>
+                            <img src="__ROOT__{$img['1']}" alt="" width="250px" height="150px" border="1px solid red"
+                                 name="img1">
+                            <input type="file" class="small" name='img1'>
+                            <br>
+                            <img src="__ROOT__{$img['2']}" alt="" width="250px" height="150px" border="1px solid red"
+                                 name="img2">
+                            <input type="file" class="small" name='img2'>
+                            <!-- ****************************晒单图引用地址************************* -->
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">"赞"数量</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <input type="text" class="small" name='ok_amount' value="{$info['ok_amount']}">个
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">评价状态</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <input type="radio" name="status" value="0"
+                            <eq name="info['status']" value="0">checked = "checked"</eq>
+                            >前台显示开启
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="status" value="1"
+                            <eq name="info['status']" value="1">checked = "checked"</eq>
+                            >前台显示屏蔽
+                            <!-- <input type="text" class="small" name='order_amount' value="{$info['status']}"> -->
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">处理人</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name='manager' readonly>
+                        </div>
+                    </div>
+                    <div class="mws-button-row">
+                        <input type="hidden" name="id" value="{$info['id']}">
+                        <input type="submit" class="btn btn-danger" value="点击修改">
+                        <!-- <input type="reset" class="btn " value="重置"> -->
+                    </div>
+            </form>
+            <!--                 <hr style="border:1px dashed #CCCCCC;height:1px" /> -->
+            <hr style="border:1px dashed #CCCCCC;height:1px"/>
+            <span style="display:block;width:150px;height:45px;font-size:18px;font-weight:bold;color:#345;">订单详情>>>>>>></span>
+
+            <div class="mws-form-row">
+                <label class="mws-form-label">订单商品名称</label>
+
+                <div class="mws-form-item">
+                    <!-- <span>※</span> -->
+                    <input type="text" class="small" name='order_time' value="{$info['name']}" readonly>
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">商品单价</label>
+
+                <div class="mws-form-item">
+                    <!-- <span>※</span> -->
+                    <input type="text" class="small" name='order_amount' value="{$info['price']}" readonly>
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">预定数量</label>
+
+                <div class="mws-form-item">
+                    <!-- <span>※</span> -->
+                    <input type="text" class="small" name='order_amount' value="{$orderInfo['order_amount']}" readonly>
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">订单用户名</label>
+
+                <div class="mws-form-item">
+                    <!-- <span>※</span> -->
+                    <input type="text" class="small" name='order_amount' value="{$info['amount']}" readonly>
+                </div>
+            </div>
+
+            <hr style="border:1px dashed #CCCCCC;height:1px"/>
+            <hr style="border:1px dashed #CCCCCC;height:1px"/>
+            <span style="display:block;width:150px;height:45px;font-size:18px;font-weight:bold;color:#345;">配送详情>>>>>>></span>
+            <!-- 收货信息,配送信息 -->
+            <div class="mws-form-row">
+                <label class="mws-form-label">配送信息</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='deliveryinfo' value="快递配送（配送费:￥0.00" readonly>
+                </div>
+            </div>
+            <!--                 <div class="mws-form-row">
+                                <label class="mws-form-label">收货人</label>
+                                <div class="mws-form-item">
+                                    <input type="text" class="small" name='deliveryinfo_id'>
+                                </div>
+                            </div> -->
+            <div class="mws-form-row">
+                <label class="mws-form-label">收货人姓名</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='name' value="{$cinfo['name']}" readonly>
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">固定电话</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='fix_phone' value="{$cinfo['fix_phone']}" readonly>
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">移动电话</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='mobile_phone' value="{$cinfo['mobile_phone']}" readonly="">
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">收货地址</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='address' value="{$cinfo['address']}" readonly="">
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">邮政编码</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='postal_code' value="{$cinfo['postal_code']}" readonly="">
+                </div>
+            </div>
+            <hr style="border:1px dashed #CCCCCC;height:1px"/>
+            <hr style="border:1px dashed #CCCCCC;height:1px"/>
+            <span style="display:block;width:150px;height:45px;font-size:18px;font-weight:bold;color:#345;">支付详情>>>>>>></span>
+            <!-- 支付方式 -->
+            <div class="mws-form-row">
+                <label class="mws-form-label">支付类型</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='deliveryinfo_id' value="{$pinfo['type']}" readonly="">
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">发票类型</label>
+
+                <div class="mws-form-item">
+                    <input type="text" class="small" name='receipt_type' value="普通发票" readonly>
+                </div>
+            </div>
+            <div class="mws-form-row">
+                <label class="mws-form-label">订单状态</label>
+                <!--                     <div class="mws-form-item" style="width:600px;">
+                                        <select class="large" name='order_status'>
+                                            <option value="0" <eq name="orderInfo['order_status']" value="0">selected ="selected"</eq>>请选择</option>
+                                            <option value="1" <eq name="$orderInfo['order_status']" value="1">selected ="selected"</eq>>提交订单</option>
+                                            <option value="2" <eq name="orderInfo['order_status']" value="2">selected ="selected"</eq>>付款成功</option>
+                                            <option value="3" <eq name="$orderInfo['order_status']" value="3">selected ="selected"</eq>>商品生产</option>
+                                            <option value="4" <eq name="orderInfo['order_status']" value="4">selected ="selected"</eq>>商品配货</option>
+                                            <option value="5" <eq name="$orderInfo['order_status']" value="5">selected ="selected"</eq>>商品出库</option>
+                                            <option value="6" <eq name="$orderInfo['order_status']" value="6">selected ="selected"</eq>>等待收货</option>
+                                            <option value="7" <eq name="$orderInfo['order_status']" value="7">selected ="selected"</eq>>完成</option>
+                                        </select>
+                                    </div>
+                                </div>  -->
+
+                <div class="mws-form-row">
+                    <label class="mws-form-label">快递单号</label>
+
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='express_list_num' readonly>
+                    </div>
+                </div>
+                <hr style="border:1px dashed #CCCCCC;height:1px"/>
+                <hr style="border:1px dashed #CCCCCC;height:1px"/>
+                <span style="display:block;width:150px;height:45px;font-size:18px;font-weight:bold;color:#345;">优惠详情>>>>>>></span>
+
+                <div class="mws-form-row">
+                    <label class="mws-form-label">优惠类型</label>
+
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='coupon_type' value="优惠码" readonly>
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">优惠信息</label>
+
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='coupon_info' value="{$orders['coupon_info']}" readonly>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</block>

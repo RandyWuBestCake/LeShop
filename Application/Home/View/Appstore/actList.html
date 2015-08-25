@@ -1,0 +1,35 @@
+<extend name="index"/>
+<block name="con">
+    <body class="classBg">
+    <div id="mainBox">
+        <h2 class="lm_title margt10" id="playerM">
+            <span class="font_yh">专题</span>
+        </h2>
+
+        <div class="zt_box">
+
+        </div>
+        <div id="pageBox" class="clear"></div>
+    </div>
+</block>
+<block name="script">
+    <a href="javascript:;" id="goTop"></a>
+    <script src="__PUBLIC__/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="__PUBLIC__/Scripts/appajaxpage.js"></script>
+    <script src="__PUBLIC__/Scripts/mustache.js"></script>
+    <script src="__PUBLIC__/Scripts/search.js"></script>
+    <script src="__PUBLIC__/Scripts/gotop.js"></script>
+    <script src="__PUBLIC__/Scripts/topiclist.js"></script>
+    </body>
+    </html>
+    <script id="topic_template" type="text/template">
+        {{#subjectList}}
+        <dl class="zt_marginR">
+            <dt><a href="{:U('Appstore:actDetail')}?Id={{id}}"><img src="__PUBLIC__/uploads/{{picUrl}}"/></a></dt>
+            <dd>
+                <h3><!--<ins>73857人浏览</ins>--><span class="font_yh">共{{appCount}}款应用</span></h3>
+            </dd>
+        </dl>
+        {{/subjectList}}
+    </script>
+</block>

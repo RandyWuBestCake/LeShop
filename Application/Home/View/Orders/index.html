@@ -1,0 +1,1672 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'
+        'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <!-- 系统引用 勿动 -->
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <!-- js引用文件添加 -->
+    <!-- 页面底部统一引用jsInclude -->
+    <!-- 引用静态页面标签 -->
+    <script>var _hrefPath = '', _imagePath = 'http://img0.hdletv.com', _basePath = 'http://web_dev_service_group:80/';</script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="Scripts/unitpngfix.js"></script>
+    <![endif]-->
+    <link type='text/css' href='__PUBLIC__/cart/Content/global.css' rel='stylesheet'/>
+            
+    <script type='text/javascript' src='__PUBLIC__/cart/Scripts/generatesession.js'></script>
+
+    <script type='text/javascript' src='__PUBLIC__/cart/Scripts/zxlib.js'></script>
+
+    <script type='text/javascript' src='__PUBLIC__/cart/Scripts/template.js'></script>
+
+    <link type='text/css' href='__PUBLIC__/cart/Content/user.css' rel='stylesheet'/>
+
+    <link type='text/css' href='__PUBLIC__/cart/Content/page.css' rel='stylesheet'/>
+
+    <script type='text/javascript' src='__PUBLIC__/cart/Scripts/jquery.pagination.js'></script>
+
+    <script type='text/javascript' src='__PUBLIC__/cart/Scripts/orderlist.js'></script>
+
+
+    <link rel="icon" href="http://www.letv.com/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="http://www.letv.com/favicon.ico" type="image/x-icon"/>
+    <title>我的订单-乐视商城</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+</head>
+<body>
+<div class="header">
+    <div class="top_link f8_bg">
+        <div class="center">
+            <ul class="left quick_links">
+                <li><a href="http://zhifu.letv.com/tobuy/pro" webtrekkparam="{ct:'xbsy_dh1_xfb'}" target="_blank"><span
+                        class="pr15">TV版续费</span></a>|
+                </li>
+                <li><a href="http://ui.letv.com/index.html" webtrekkparam="{ct:'xbsy_dh1_UI'}" target="_blank"><span
+                        class="pl15 pr15">LetvUI</span></a>|
+                </li>
+                <li><a href="http://www.letvstore.com/" webtrekkparam="{ct:'xbsy_dh1_Store'}" target="_blank"><span
+                        class="pl15 pr15">LetvStore </span></a>|
+                </li>
+                <li class="hd_list show_hide_block abroad" object="#abroad" type="slide" speed="fast" buffer="300"><a
+                        href="http://hk.shop.letv.com/" webtrekkparam="{ct:'xbsy_dh1_hw'}" target="_blank"><span
+                        class="pl15 pr25">海外版</span></a>|
+                    <dl id="abroad">
+                        <dt><a href="http://hk.shop.letv.com/" webtrekkparam="{ct:'xbsy_dh1_hw'}"
+                               target="_blank">海外版</a></dt>
+                        <dd><a href="http://hk.shop.letv.com/" webtrekkparam="{ct:'xbsy_dh1_HK'}"
+                               target="_blank">香港站</a></dd>
+                    </dl>
+                </li>
+                <li class="mzhan show_hide_block" object="#mzhan" type="slide" speed="fast" buffer="300"><a
+                        href="/app/download.html" webtrekkparam="{ct:'xbsy_dh1_sj'}" target="_blank"><span
+                        class="pl15 pr15">手机版</span></a>|
+                    <div id="mzhan">
+                        <div class="left"><img alt="" src="Picture/b45bcf8fd09b4df7ab4a758065cead18.gif"
+                                               style="width:95px;"/></div>
+                        <div class="left pl5"> <span class="dark">扫描下载客户端<br/>
+              手机抢购更给力</span><br/>
+                            <span class="gray">iPhone | Android</span><br/>
+                            <a href="/app/download.html" webtrekkparam="{ct:'xbsy_dh1_sj_download'}"
+                               class="block red_bt_s mt10" target="_blank"><span class="font12 white">免费下载</span></a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="http://bbs.letv.com" webtrekkparam="{ct:'xbsy_dh1_sq'}" target="_blank"><span
+                        class="pl15 pr15">社区</span></a>|
+                </li>
+                <li><a href="/dkh.html" webtrekkparam="{ct:'xbsy_dh1_dkh'}" target="_blank"><span class="pl15 pr15">大客户通道</span></a>
+                </li>
+            </ul>
+            <ul class="right log_order t_r">
+
+                <?php
+                  session_start();
+                  if(!session('users')){
+             ?>
+                <li id="loginMess" class="loginNew"><a id="login" rel="nofollow" href="{:U('Login/index')}"><span
+                        class="pl15 ">登录</span></a> | <a rel="nofollow" target="_blank"
+                                                         href="{:U('Register/index')}"><span class=" pr15">注册</span></a>
+                </li>
+
+                <?php
+              }else{         
+              ?>
+
+                <li class="loginNew" id="loginMess"><span class="gray">Hi,</span><a title="" target="_blank" href=""
+                                                                                    rel="nofollow"><span
+                        class="pl5 pr5">{$_SESSION['users']['username']}</span></a> <a id="logout"
+                                                                                       href="{:U('Login/logout')}"
+                                                                                       rel="nofollow"><span
+                        class="pl5 pr15">[退出]</span></a></li>
+
+                <?php
+            }
+             ?>
+
+
+                <li class="order"><a rel="nofollow" webtrekkparam="{ct:'xbsy_dh1_myorder'}"
+                                     href="/user/center/orderList.html"><span class="pl15 pr15">我的订单</span></a></li>
+                <li class="hd_list show_hide_block" object="#help" type="slide" speed="fast" buffer="300"><a
+                        href="/helpself.html" webtrekkparam="{ct:'xbsy_dh1_help'}" target="_blank"><span
+                        class="pl15 pr25">帮助中心</span></a>
+                    <dl id="help">
+                        <dt><a href="/helpself.html" target="_blank">帮助中心</a></dt>
+                        <dd><a href="/help/wlps/cjdsps.html" webtrekkparam="{ct:'xbsy_dh1_help_psaz'}" target="_blank">配送安装</a>
+                        </dd>
+                        <dd><a href="/help/bxzc/cjds.html" webtrekkparam="{ct:'xbsy_dh1_help_shfw'}" target="_blank">售后服务</a>
+                        </dd>
+                        <dd><a href="/help/pswt/yfbz.html" webtrekkparam="{ct:'xbsy_dh1_help_yfbz'}" target="_blank">运费标准</a>
+                        </dd>
+                        <dd><a href="/onlineservice.html" webtrekkparam="{ct:'xbsy_dh1_help_lxkf'}"
+                               target="_blank">联系客服</a></dd>
+                    </dl>
+                </li>
+                <li class="hd_list show_hide_block" object="#dao" type="slide" speed="fast" buffer="300"><a
+                        href="javascript:void(0)" webtrekkparam="{ct:'xbsy_dh1_stdh'}"><span
+                        class="pl15 pr25">生态导航</span></a>
+                    <dl id="dao">
+                        <dt>生态导航</dt>
+                        <dd><a href="http://www.letv.com" webtrekkparam="{ct:'xbsy_dh1_stdh_lsw'}"
+                               target="_blank">乐视网</a></dd>
+                        <dd><a href="http://www.wangjiu.com" webtrekkparam="{ct:'xbsy_dh1_stdh_wjw'}" target="_blank">网酒网</a>
+                        </dd>
+                        <dd><a href="http://www.lelife.com" webtrekkparam="{ct:'xbsy_dh1_stdh_lsh'}"
+                               target="_blank">乐生活</a></dd>
+                        <!--<dd><a href="/zt/cp2c.html" target="_blank">CP2C</a></dd>-->
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="center"><a class="block logo left " webtrekkparam="{ct:'xbsy_LOGO'}" href="/"></a>
+
+        <div class="logo_right left">
+            <a href="http://shop.letv.com/huodong/150120.html" webtrekkparam="{ct:'xbsy_zexhr'}"><img
+                    src="Picture/22e945fc474d4aba98cd04b578a33497.gif"/></a>
+        </div>
+        <a class="block head_cart" href="/cart.html" webtrekkparam="{ct:'xbsy_gwc'}" target="_blank">
+            <div class="had_num" id="productNumInCart"></div>
+            <span class="pl20 white font14">购物车</span> </a>
+
+        <div class="clear"></div>
+    </div>
+    <div class="nav">
+        <div class="center relative zindex299">
+            <ul class="main_nav left">
+                <li class="home"><a href="/" webtrekkparam="{ct:'xbsy_dh2_sy'}" class="">首页</a></li>
+                <li id="allProductTab" class="hadlist"><a href="/product/" target="_blank"
+                                                          webtrekkparam="{ct:'xbsy_dh2_qbsp'}"><span
+                        class="pr15">全部商品</span></a></li>
+                <li id="allTVTab" class="hadlist"><a href="javascript:viod(0)"
+                                                     webtrekkparam="{ct:'xbsy_dh2_cjds'}"><span class="pr15">超级电视</span></a>
+                </li>
+                <li><a href="/product/New_C1S.html" webtrekkparam="{ct:'xbsy_dh2_lshz'}"><span class="">乐视盒子</span></a>
+                </li>
+                <li id="allLeMeTab" class="hadlist nav_leme"><a href="javascript:viod(0)"
+                                                                webtrekkparam="{ct:'xbsy_dh2_LeMe'}"><span class="pr30">LeMe</span></a>
+                </li>
+                <li class="parts"><a href="/product/parts.html" webtrekkparam="{ct:'xbsy_dh2_pj'}" class=""><span
+                        class="">配件</span></a></li>
+                <li class="parts"><a href="/dkh/VIPcard.html" target="_blank" webtrekkparam="{ct:'xbsy_dh2_lpk'}"
+                                     class=""><span class="">礼品卡</span></a></li>
+            </ul>
+            <ul class="yinxiao right">
+                <li>|</li>
+                <li><a href="/biyibi/" target="_blank" webtrekkparam="{ct:'xbsy_dh2_b1b'}">比一比 </a></li>
+                <li><a href="/wenwen/" target="_blank" webtrekkparam="{ct:'xbsy_dh2_w1w'}">问一问 </a></li>
+                <li><a href="/kankan/" target="_blank" webtrekkparam="{ct:'xbsy_dh2_k1k'}">看一看</a></li>
+                <li><a href="/cps/index.html" target="_blank" webtrekkparam="{ct:'xbsy_dh2_share'}">分享邀请</a></li>
+                <!--<li><a target="_blank" webtrekkparam="{ct:'H_tyzx'}" href="http://shop.hdletv.com/#/Homepage">超级体验中心</a></li>-->
+            </ul>
+            <div id="allProduct" class="all_product absolute zindex999">
+                <ul class="product_list product_tabs">
+                    <li><img alt="超级电视" src="Picture/19c71c74605c4b67aec2ea7a0c3503fe.gif" style=""/><br/>
+                        超级电视
+                    </li>
+                    <li><img alt="乐视盒子" src="Picture/8a155cd7b614447d823cb8ac5adb0e5b.gif" style=""/><br/>
+                        乐视盒子
+                    </li>
+                    <li><img alt="leme" src="Picture/f912bc9bc3954d64aa5a1c8b227db274.gif" style=""/><br/>
+                        LeMe
+                    </li>
+                    <li><img alt="配件" src="Picture/e44b17990f1e4a26b172cdb9ef7980b2.gif" style=""/><br/>
+                        配件
+                    </li>
+
+
+                </ul>
+                <div class="tab_detail_box hidden">
+                    <ul>
+                        <li class="product_show clearfix tab_detail" id="p01">
+                            <dl class="line_r">
+                                <dt>70吋电视</dt>
+                                <dd><a href="/product/max70.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_Max70'}"
+                                       target="_blank">· Max70</a></dd>
+                            </dl>
+                            <dl class="line_r">
+                                <dt>60吋电视</dt>
+                                <dd><a href="/product/x60s.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_X60S_gsd'}"
+                                       target="_blank">· X60S 敢死队·硬汉版</a></dd>
+                                <dd><a href="/product/x60sqp.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_X60S_qp'}"
+                                       target="_blank">· X60S 全配版</a></dd>
+                            </dl>
+                            <dl class="line_r">
+                                <dt>50吋电视</dt>
+                                <dd><a href="/product/x50airysb.html"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_X50Air_gl'}" target="_blank">· X50 Air
+                                    张艺谋《归来》艺术版</a></dd>
+                                <!--<dd><a href="/product/x50airclb.html" webtrekkparam="{ct:''}" target="_blank">·  X50 Air C罗·足球版</a></dd>-->
+                                <dd><a href="/product/x50air.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_X50Air_qp'}"
+                                       target="_blank">· X50 Air 全配版</a></dd>
+                                <dd><a href="/product/s50airclb.html"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_S50Air_Cl'}" target="_blank">· S50 Air
+                                    C罗·足球版</a></dd>
+                                <dd><a href="/product/s50airqpb.html"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_S50Air_qp'}" target="_blank">· S50 Air
+                                    全配版</a></dd>
+                                <!--<dd><a href="/zt/cp2c_2.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_X50Air_DIY'}" target="_blank">·  DIY X50 Air</a></dd>-->
+                            </dl>
+                            <dl>
+                                <dt>40吋电视</dt>
+                                <dd><a href="/product/s40airlxsd.html"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_S40AirL_xsd'}" target="_blank">· S40 Air L
+                                    郭敬明·小时代版</a></dd>
+                                <dd><a href="/product/s40airl.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_cjds_S40AirL_qp'}"
+                                       target="_blank">· S40 Air L 全配版</a></dd>
+                                <!--<dd><a href="/product/s40airxsd.html" webtrekkparam="{ct:''}" target="_blank">·  S40 Air 郭敬明·小时代版</a></dd>
+                                    <dd><a href="/product/s40airqpb.html" webtrekkparam="{ct:''}" target="_blank">·  S40 Air 全配版</a></dd>-->
+
+                            </dl>
+                        </li>
+                        <li class="product_show clearfix tab_detail" id="p02">
+                            <dl>
+                                <dd><a href="/product/New_C1S.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_lshz_NewC1S'}"
+                                       target="_blank">· New C1S</a></dd>
+                            </dl>
+                            <dl>
+                                <dd><a href="/product/box.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_lshz_C1S'}"
+                                       target="_blank">· C1S</a></dd>
+                            </dl>
+                        </li>
+                        <li class="product_show clearfix tab_detail" id="p03">
+                            <dl>
+                                <dd><a href="/product/lexiaobao.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_LeMe_lxb'}"
+                                       target="_blank">· 乐小宝</a></dd>
+                            </dl>
+                            <dl>
+                                <dd><a href="/product/lemexl.html" webtrekkparam="{ct:'xbsy_dh2_qbsp_LeMe_lyej'}"
+                                       target="_blank">· 蓝牙耳机</a></dd>
+                            </dl>
+                        </li>
+                        <li class="product_show clearfix tab_detail" id="p04">
+                            <dl class="line_r">
+                                <dt><a href="/product/parts.html?t=7" webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_yyyl'}"
+                                       target="_blank">影音娱乐</a></dt>
+                                <dd><a href="/product/parts.html?t=7&z=39"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_yyyl_ej'}" target="_blank">· 耳机/耳麦</a></dd>
+                                <dd><a href="/product/parts.html?t=7&z=40"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_yyyl_Kg'}" target="_blank">· 家庭K歌</a></dd>
+                                <dd><a href="/product/parts.html?t=7&z=43"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_yyyl_yx'}" target="_blank">· 音箱/音响</a></dd>
+                                <dd><a href="/product/parts.html?t=7&z=44"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_yyyl_yxsb'}" target="_blank">· 游戏设备</a></dd>
+                            </dl>
+                            <dl class="line_r">
+                                <dt><a href="/product/parts.html?t=34" webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_wssp'}"
+                                       target="_blank">外设商品</a></dt>
+                                <dd><a href="/product/parts.html?t=34&z=35"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_wssp_js'}" target="_blank">· 键鼠</a></dd>
+                                <dd><a href="/product/parts.html?t=34&z=36"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_wssp_ccsb'}" target="_blank">· 存储设备</a></dd>
+                                <dd><a href="/product/parts.html?t=34&z=37"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_wssp_xl'}" target="_blank">· 线缆</a></dd>
+                                <dd><a href="/product/parts.html?t=34&z=38"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_wssp_cz'}" target="_blank">· 插座</a></dd>
+                            </dl>
+                            <dl class="line_r">
+                                <dt><a href="/product/parts.html?t=29" webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj'}"
+                                       target="_blank">电视配件</a></dt>
+                                <dd><a href="/product/parts.html?t=29&z=30"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj_cksb'}" target="_blank">· 操控设备</a></dd>
+                                <dd><a href="/product/parts.html?t=29&z=31"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj_dsdz'}" target="_blank">· 电视底座</a></dd>
+                                <dd><a href="/product/parts.html?t=29&z=32"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj_dsgj'}" target="_blank">· 电视挂架</a></dd>
+                                <dd><a href="/product/parts.html?t=29&z=33"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj_dszj'}" target="_blank">· 电视支架</a></dd>
+                                <dd><a href="/product/parts.html?t=29&z=50"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj_sxt'}" target="_blank">· 摄像头</a></dd>
+                                <dd><a href="/product/parts.html?t=29&z=51"
+                                       webtrekkparam="{ct:'xbsy_dh2_qbsp_pj_dspj_3Dyj'}" target="_blank">· 3D眼镜</a></dd>
+                            </dl>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div id="allTV" class="all_tv absolute ">
+                <ul class="product_list product_tabs">
+                    <li><a href="/product/max70.html" webtrekkparam="{ct:'xbsy_dh2_cjds_Max70'}"><img alt="Max70"
+                                                                                                      src="Picture/19c71c74605c4b67aec2ea7a0c3503fe.gif"
+                                                                                                      style=""/><br/>
+                        Max70</a></li>
+                    <li><a href="/product/x60s.html" webtrekkparam="{ct:'xbsy_dh2_cjds_X60S'}"><img alt="X60S"
+                                                                                                    src="Picture/7d5cb8e294fd4db4bf4af20c7f285329.gif"
+                                                                                                    style=""/><br/>
+                        X60S</a></li>
+                    <li><a href="/product/x50airysb.html" webtrekkparam="{ct:'xbsy_dh2_cjds_X50Air'}"><img
+                            alt="4K X50 Air" src="Picture/286f8992bdbe4d55aa875c448083c143.gif" style=""/><br/>
+                        4K X50 Air</a></li>
+                    <li><a href="/product/s50airclb.html" webtrekkparam="{ct:'xbsy_dh2_cjds_S50Air'}"><img alt="S50 Air"
+                                                                                                           src="Picture/7372f605a75d4b19822d0521912b4ee6.gif"
+                                                                                                           style=""/><br/>
+                        S50 Air</a></li>
+                    <!--<li><a href="/product/s40airqpb.html" webtrekkparam="{ct:''}"><img  alt="S40 Air"  src="Picture/d5731f839324484c857fd2d683a0bd62.gif" style=""/><br />S40 Air</a></li>-->
+                    <li><a href="/product/s40airlxsd.html" webtrekkparam="{ct:'xbsy_dh2_cjds_S40AirL'}"><img
+                            alt="S40 Air L" src="Picture/50376bcba6a24cec91a9d91f894725ff.gif" style=""/><br/>
+                        S40 Air L</a></li>
+                </ul>
+                <div class="tab_detail_box clearfix hidden">
+                    <ul>
+                        <li class="product_show tab_detail" id="t01">
+                            <div class="pb20 pt25 pl100 pr100">
+                                <div class="pro_text pl20 left " style="width:430px;">
+                                    <div class="pb20 pt20"><a href="/product/max70.html" webtrekkparam="{ct:''}"><img
+                                            alt="Max70" src="Picture/53c5311dfe5943b2a768ace60e11d913.gif"
+                                            style=""/></a></div>
+                                    <div class="gray font14 pb20"> 乐视TV·超级电视Max70，你的私家智能影院，双倍性能，1/3价格。
+                                        采用70吋原装进口SDP面板，十代线UV2A技术，不闪式3D，画质纯净自然。
+                                        高通四核1.7GHz处理器，由富士康精心打造的精湛工艺。
+                                        乐视网TV版，享受全网络视频，LetvUI 3.0最好用的智能电视UI系统。
+                                        LetvStore拥有最全的应用、视频、游戏。
+                                    </div>
+                                    <a href="/product/max70.html" webtrekkparam="{ct:'xbsy_dh2_cjds_Max70_ckgd'}"
+                                       class="block red_bt_m"><span class="white">查看更多</span></a></div>
+                                <div class="right pro_pic pr20 t_l" style="width:400px；"><a href="/product/max70.html"
+                                                                                            webtrekkparam="{ct:'xbsy_dh2_cjds_Max70_TP'}"><img
+                                        alt="" src="Picture/2a92221489074561a56af70657519fc6.gif" style=""/></a></div>
+                                <div clsdd="clear"></div>
+                            </div>
+                        </li>
+                        <li class="product_show tab_detail" id="t02">
+                            <div class="pb20 pl35 pr35">
+                                <div class="pb20 t_c pt30"><img alt="X60S"
+                                                                src="Picture/a76c2028ce87464dba676681e9161fea.gif"
+                                                                style=""/></div>
+                                <div class="inline_block pr10" style="width:540px;">
+                                    <div class="left pro_pic"><a href="/product/x60s.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_X60S_gsd_TP'}"><img
+                                            alt="敢死队·硬汉版" src="Picture/c1ace6ccd41449458617f4b34f5ecdb6.gif" style=""/></a>
+                                    </div>
+                                    <div class="pro_text left pl20">
+                                        <div class=" pb20"><a href="/product/x60s.html" webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">敢死队·硬汉版</span></a> <span
+                                                class="gray font12">·  60吋液晶面板；1.7GHz高通四核处理器；<br/>
+                      ·  2GB内存，32GB闪存；2.4G&5G双频Wi-Fi；<br/>
+                      ·  蓝牙4.0，专属证书、彩色包装；<br/>
+                      </span></div>
+                                        <a href="/product/x60s.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_X60S_gsd_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                                <div class="inline_block pl10" style="width:540px;">
+                                    <div class="left pro_pic"><a href="/product/x60sqp.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_X60S_qp_TP'}"><img
+                                            alt="全配版" src="Picture/4b994c1e395a488baa922c0bc154bd91.gif" style=""/></a>
+                                    </div>
+                                    <div class="pro_text left pl20">
+                                        <div class=" pb20"><a href="/product/x60sqp.html"><span
+                                                class="dark font18 block pb10">全配版</span></a> <span class="gray font12">·  60吋液晶面板，1.7GHz高通四核处理器；<br/>
+                      ·  2GB内存，8GB闪存；2.4G&5G双频Wi-Fi；<br/>
+                      ·  蓝牙4.0，全铝无缝机身，富士康完美打造；<br/>
+                      </span></div>
+                                        <a href="/product/x60sqp.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_X60S_qp_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product_show tab_detail" id="t03">
+                            <div class="pb20 pl35 pr35">
+                                <div class="pb20 t_c pt30"><img alt="X50 Air"
+                                                                src="Picture/a4e366d6f87c479db2552c7ac5873c43.gif"
+                                                                style=""/></div>
+                                <div class="inline_block pr10" style="width:540px;">
+                                    <div class="left pro_pic"><a href="/product/x50airysb.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_X50Air_gl_TP'}"><img
+                                            alt="张艺谋《归来》艺术版" src="Picture/9e12e7accfe34bdf8c0e6d2d0e06523b.gif"
+                                            style=""/></a></div>
+                                    <div class="pro_text left pl20">
+                                        <div class=" pb20"><a href="/product/x50airysb.html"
+                                                              webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">张艺谋《归来》艺术版</span></a> <span
+                                                class="gray font12">·  InnoLux液晶面板/4000:1对比度；<br/>
+                      ·  2G 内存/16G闪存/内置蓝牙4.0/快门式3D；<br/>
+                      ·  Mstar6A819四核CPU/Mali450四核GPU；<br/>
+                      </span></div>
+                                        <a href="/product/x50airysb.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_X50Air_gl_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                                <div class="inline_block pl10" style="width:540px;">
+                                    <div class="left pro_pic"><a href="/product/x50air.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_X50Air_qp_TP'}"><img
+                                            alt="全配版" src="Picture/d5a54ff8a4fd4884b11bbd148ee13c64.gif" style=""/></a>
+                                    </div>
+                                    <div class="pro_text left pl20">
+                                        <div class=" pb20"><a href="/product/x50air.html" webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">全配版</span></a> <span class="gray font12">·  InnoLux液晶面板 快门式3D；<br/>
+                      ·  第三代魔音系统  2G 内存/8G闪存；<br/>
+                      ·  Mstar6A819四核CPU/Mali450四核GPU；<br/>
+                      </span></div>
+                                        <a href="/product/x50air.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_X50Air_qp_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product_show tab_detail" id="t04">
+                            <div class="pb20 pl35 pr35">
+                                <div class="pb20 t_c pt30"><img alt="S50 Air"
+                                                                src="Picture/b237f1449ac54a6d9e4cafb056ca60ce.gif"
+                                                                style=""/></div>
+                                <div class="inline_block pr10" style="width:540px;">
+                                    <div class="left pro_pic"><a href="/product/s50airclb.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_S50Air_Cl_TP'}"><img
+                                            alt="C罗·足球版" src="Picture/e07ea210f4894b3cb5186d6f4242608d.gif"
+                                            style=""/></a></div>
+                                    <div class="pro_text left pl20 ply">
+                                        <div class=" pb20"><a href="/product/s50airclb.html"
+                                                              webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">C罗·足球版</span></a> <span
+                                                class="gray font12">·  50吋LG/InnouLux FHD面板<br/>
+                      ·  2G内存/16G 闪存/5.9mm金属极窄边框<br/>
+                      ·  蓝牙4.0/20W独立低音炮/体感操控<br/>
+                      </span></div>
+                                        <a href="/product/s50airclb.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_S50Air_Cl_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                                <div class="inline_block pl10" style="width:540px;">
+                                    <div class="left pro_pic"><a href="/product/s50airqpb.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_S50Air_qp_TP'}"><img
+                                            alt="全配版" src="Picture/f0e22fe9c74a4aee8c22698ef60a1586.gif" style=""/></a>
+                                    </div>
+                                    <div class="pro_text left pl20 ply">
+                                        <div class=" pb20"><a href="/product/s50airqpb.html"
+                                                              webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">全配版</span></a> <span class="gray font12">·  50吋LG/InnouLux FHD面板<br/>
+                      ·  2G内存/8G闪存/6.9mm 极窄塑胶边框 <br/>
+                      ·  4核CPU+4核GPU/体感操控<br/>
+                      </span></div>
+                                        <a href="/product/s50airqpb.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_S50Air_qp_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--<li class="product_show tab_detail" id="t05">
+                          <div class="pb20 pl35 pr35">
+                            <div class="pb20 t_c pt30"><img  alt="S40 Air"  src="Picture/cf342ce6c00a4c49a3cc720147172a18.gif" style=""/></div>
+                            <div class="inline_block pr10" style="width:540px;">
+                              <div class="left pro_pic"><a href="/product/s40airxsd.html" ><img alt="郭敬明·小时代版" src="Picture/e38cdcdeff8b43cfb056787922023f58.gif" style=""></a></div>
+                              <div class="pro_text left pl20 ply">
+                                <div class=" pb20"> <a href="/product/s40airxsd.html" ><span class="dark font18 block pb10">郭敬明·小时代版</span></a> <span class="gray font12">·  39.5吋 InnoLux  FHD面板/5000:1对比度<br />
+                                  ·  2G内存/16G 闪存/蓝牙4.0/USB3.0/ <br />
+                                  ·  5.9mm 金属纤薄机身/透明背板<br />
+                                  </span> </div>
+                                <a href="/product/s40airxsd.html" class="block red_bt_m"><span class="white">查看更多</span></a> </div>
+                            </div>
+                            <div class="inline_block pl10" style="width:540px;">
+                              <div class="left pro_pic"><a href="/product/s40airqpb.html"><img alt="全配版" src="Picture/0f75438573bd47d292555f6f191cf364.gif" style=""></a></div>
+                              <div class="pro_text left pl20 ply">
+                                <div class=" pb20"> <a href="/product/s40airqpb.html"><span class="dark font18 block pb10">全配版</span></a> <span class="gray font12">·  39.5吋 InnoLux  FHD面板/5000:1对比度<br />
+                                  ·  4核CPU+4核GPU/2G内存/8G闪存<br />
+                                  ·  透明背板/USB3.0<br />
+                                  </span> </div>
+                                <a href="/product/s40airqpb.html" class="block red_bt_m"><span class="white">查看更多</span></a> </div>
+                            </div>
+                          </div>
+                        </li>-->
+                        <li class="product_show tab_detail" id="t06">
+                            <div class="pb20 pl35 pr35">
+                                <div class="pb20 t_c pt30"><img alt="S40 Air L"
+                                                                src="Picture/124a2bae71de40289e89fdf76d997f26.gif"
+                                                                style=""></div>
+                                <div class="inline_block pr5" style="width:545px;">
+                                    <div class="left pro_pic"><a href="/product/s40airlxsd.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_S40AirL_xsd_TP'}"><img
+                                            alt="郭敬明·小时代版" src="Picture/9326d1619c7d4439b58f1df73778d104.gif" style=""/></a>
+                                    </div>
+                                    <div class="pro_text left pl20">
+                                        <div class=" pb5"><a href="/product/s40airlxsd.html"
+                                                             webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">郭敬明·小时代版</span></a> <span
+                                                class="gray font12">·  SAMSUNG原装进口40吋高清LED屏幕<br>
+                      ·  5000:1对比度，1.5GHz4核CPU， 4核GPU。<br>
+                      ·  2G内存，16 G闪存。蓝牙4.0，<br>
+                      ·  内置wifi，双收双发双天线。<br>
+                      </span></div>
+                                        <a href="/product/s40airlxsd.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_S40AirL_xsd_ckgd'}"><span class="white">查看更多</span></a>
+                                    </div>
+                                </div>
+                                <div class="inline_block pl5" style="width:570px;">
+                                    <div class="left pro_pic"><a href="/product/s40airl.html"
+                                                                 webtrekkparam="{ct:'xbsy_dh2_cjds_S40AirL_qp_TP'}"><img
+                                            alt="全配版" src="Picture/74f957048572443c972fb0706fc6e837.gif" style=""/></a>
+                                    </div>
+                                    <div class="pro_text left pl20 ply">
+                                        <div class=" pb5"><a href="/product/s40airl.html" webtrekkparam="{ct:''}"><span
+                                                class="dark font18 block pb10">全配版</span></a> <span class="gray font12">·  SAMSUNG原装进口40吋高清LED屏幕<br>
+                      ·  1920*1080高分辨率，<br>
+                      ·  1.5GHz4核CPU， 4核GPU。2G内存，8 G闪存。<br>
+                      ·  内置wifi，双收双发双天线。<br>
+                      </span></div>
+                                        <a href="/product/s40airl.html" class="block red_bt_m"
+                                           webtrekkparam="{ct:'xbsy_dh2_cjds_S40AirL_qp_ckgd'}"><span
+                                                class="white">查看更多</span></a></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="allLeMe" class="all_leme absolute ">
+                <ul class="product_list product_tabs">
+                    <li><a href="/product/lexiaobao.html" webtrekkparam="{ct:'xbsy_dh2_LeMe_lxb'}"><img alt="乐小宝"
+                                                                                                        src="Picture/f912bc9bc3954d64aa5a1c8b227db274.gif"
+                                                                                                        style=""/><br/>
+                        乐小宝</a></li>
+                    <li><a href="/product/lemexl.html" webtrekkparam="{ct:'xbsy_dh2_LeMe_lyej'}"><img alt="蓝牙耳机"
+                                                                                                      src="Picture/c10dce7eed584d3889a5beb44e928e03.gif"
+                                                                                                      style=""/><br/>
+                        蓝牙耳机</a></li>
+
+                </ul>
+                <div class="tab_detail_box clearfix hidden">
+                    <ul>
+                        <li class="product_show tab_detail" id="t01">
+                            <div class="pb20 pt25 pl100 pr100">
+                                <div class="pro_text pl20 left " style="width:430px;">
+                                    <div class="pb20 pt20"><a href="/product/lexiaobao.html"
+                                                              webtrekkparam="{ct:''}"><img alt="乐小宝"
+                                                                                           src="Picture/b69bda4b08d043179439e8b4c71cb612.gif"
+                                                                                           style=""/></a></div>
+                                    <div class="gray font14 pb20">
+                                        乐小宝是一款儿童故事光机，能够让父母给家里的孩子讲故事、进行语音对讲、推送乐视亲子的视频，并拥有一支完整的专家团队对内容进行整理推荐，还不伤害孩子的眼睛。帮助父母与孩子回归真正的交流，是全球首款真正的智能亲子硬件。
+                                    </div>
+                                    <a href="/product/lexiaobao.html" webtrekkparam="{ct:'xbsy_dh2_LeMe_lxb_ckgd'}"
+                                       class="block red_bt_m"><span class="white">查看更多</span></a></div>
+                                <div class="right pro_pic pr20 t_l" style="width:400px；"><a
+                                        href="/product/lexiaobao.html" webtrekkparam="{ct:'xbsy_dh2_LeMe_lxb_pic'}"><img
+                                        alt="" src="Picture/789c69dc71764f47868a13b8cd990471.gif" style=""/></a></div>
+                                <div clsdd="clear"></div>
+                            </div>
+                        </li>
+                        <li class="product_show tab_detail" id="t02">
+                            <div class="pb20 pt25 pl100 pr100">
+                                <div class="pro_text pl20 left " style="width:430px;">
+                                    <div class="pb20 pt20"><a href="/product/lemexl.html" webtrekkparam="{ct:''}"><img
+                                            alt="蓝牙耳机" src="Picture/516514c98f9e4433a5f6da57397b37bc.gif" style=""/></a>
+                                    </div>
+                                    <div class="gray font14 pb20">
+                                        头带最舒适的“神兽级”蓝牙耳机，能让你深夜看球、玩游戏不打扰家人；与手机连接，降噪技术让通话更清晰；40mm大动圈单元，开放式音腔，音质更出色；更支持26天超长待机。
+                                    </div>
+                                    <a href="/product/lemexl.html" webtrekkparam="{ct:'xbsy_dh2_LeMe_lyej_ckgd'}"
+                                       class="block red_bt_m"><span class="white">查看更多</span></a></div>
+                                <div class="right pro_pic pr20 t_l" style="width:400px；"><a href="/product/lemexl.html"
+                                                                                            webtrekkparam="{ct:'xbsy_dh2_LeMe_lyej_pic'}"><img
+                                        alt="" src="Picture/6ab7f28595994267ae25201eed3be075.gif" style=""/></a></div>
+                                <div clsdd="clear"></div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var timeOutList = {};
+    $(document).ready(function () {
+        $.each($(".show_hide_block"), function () {
+            showHideBlock(this, $(this).attr("object"), $(this).attr("type"), $(this).attr("buffer"), $(this).attr("speed"), $(this).attr("effect"))
+        });
+        $.each($(".show_children"), function () {
+            showChildren(this, $(this).attr("buffer"), $(this).attr("speed"))
+        });
+        $.each($('[status="toggle"]'), function () {
+            $($(this).attr("object")).hide()
+        })
+    });
+    function showHideBlock(a, b, g, d, f, c, h, i) {
+        var e = null;
+        "undefined" == typeof c && (c = "");
+        e = "slide" == g ? ["slideDown", "slideUp"] : "fade" == g ? ["fadeIn", "fadeOut"] : ["show", "hide"];
+        i = i || 0;
+        $(a).unbind("mouseenter").mouseenter(function () {
+            clearTimeout(timeOutList[b]);
+            timeOutList[a] = setTimeout(function () {
+                $(a).addClass(c);
+                $(a).siblings().removeClass(c);
+                $(b)[e[0]](f, function () {
+                    $(this).css("overflow", "visible")
+                });
+            }, i);
+        });
+        $(b).unbind("mouseenter").mouseenter(function () {
+            $(a).addClass(c);
+            clearTimeout(timeOutList[b]);
+        });
+        $(b).unbind("mouseleave").mouseleave(function () {
+            timeOutList[b] = setTimeout(function () {
+                $(b)[e[1]](f, function () {
+                    $(a).removeClass(c);
+                    !!h ? h() : null;
+                });
+            }, d || 1E3);
+        });
+        $(a).unbind("mouseleave").mouseleave(function () {
+            clearTimeout(timeOutList[a], i);
+            timeOutList[b] = setTimeout(function () {
+                $(b)[e[1]](f, function () {
+                    $(a).removeClass(c);
+                    !!h ? h() : null;
+                });
+            }, d || 1E3);
+        })
+    }
+    function showChildren(a, b) {
+        $(a).mouseenter(function () {
+            clearTimeout(timeOutList[$(this).text()]);
+            $("ul", $(this)).show();
+            $(this).siblings().find("ul").hide()
+        });
+        $(a).unbind("mouseleave").mouseleave(function () {
+            var a = $(this).text(), d = this;
+            clearTimeout(timeOutList[a]);
+            timeOutList[a] = setTimeout(function () {
+                $("ul", d).hide()
+            }, b || 1E3)
+        })
+    }
+    $(function () {
+        try {
+            $("img.lz").lazyload({data_attribute: "url", skip_invisible: !1, threshold: 10});
+        } catch (e) {
+        }
+        ;
+        refreshHeader()
+    });
+    function refreshHeader() {
+        if (Js.login.getAuth()) {
+            var a = getCookie("COOKIE_NICKNAME"), a = 10 < a.length ? a.substring(0, 10) + "..." : a;
+            $("#loginMess").html('<span class="gray">Hi,</span><a rel="nofollow" href="' + _hrefPath + '/user/center/orderList.html" target="_blank" title="' + getCookie("COOKIE_NICKNAME") + '"><span class="pl5 pr5">' + a + '</span></a> <a rel="nofollow" id="logout"><span class="pl5 pr15">[退出]</span></a>');
+            $("#logout").click(function () {
+                Js.login.logout(function () {
+                    window.location.href = "/"
+                })
+            })
+        } else $("#login").click(function () {
+            Js.login.hasLogin(function () {
+                location.reload()
+            })
+        })
+    }
+    ;
+</script>
+<script type="text/javascript">
+    function SlideTabs(opt) {
+        this.opt = $.extend({}, this.oriOpt, opt); //合并默认参数与传递参数
+        this.container = $("#" + this.opt.id); //最外层容器
+        this.curTabIndex = 1; //当前标签
+        this.isAnimating = false; //是否有动画方法正在进行中
+        this.tabList = this.container.find("ul.product_tabs li"); //标签列表
+        this.tabDetails = this.container.find(".tab_detail"); //标签详情列表
+        this.init();
+    }
+
+    SlideTabs.prototype = {
+        oriOpt: {},
+        /**
+         * 初始化方法
+         */
+        init: function () {
+            var tabfocus = this.slideTab();
+            //初始化所有标签和详情的下标
+            for (var i = 0; i < this.tabList.length; i++) {
+                var tab = $(this.tabList[i]), detail = $(this.tabDetails[i]);
+
+                tab.attr("tab_index", i);
+                detail.attr("detail_index", i);
+            }
+            //标签附上鼠标移入时间
+            this.tabList.mouseenter(tabfocus);
+        },
+        /**
+         * 根据鼠标指向移动
+         */
+        slideTab: function () {
+            var _this = this;
+            return function () {
+                var prevTabWidth = 0, prevTabs;
+
+                $(this).siblings().removeClass("hover");
+                $(this).addClass("hover");
+
+                //改变当前标签下标
+                _this.curTabIndex = $(this).attr("tab_index");
+                prevTabs = _this.container.find(".tab_detail[detail_index=" + _this.curTabIndex + "]").prevAll();
+
+                for (var i = 0; i < prevTabs.length; i++) {
+                    prevTabWidth += $(prevTabs[i]).outerWidth();
+                }
+
+                if (_this.container.find(".tab_detail_box").css('display') == 'none') {
+                    _this.container.find(".tab_detail_box").fadeIn();
+                    _this.container.find(".tab_detail_box ul").css('margin-left', -prevTabWidth + "px");
+                    return;
+                }
+
+                _this.container.find(".tab_detail_box ul").clearQueue().animate({'margin-left': -prevTabWidth + "px"}, 600);
+            }
+        },
+        hideDetail: function () {
+            this.container.find(".tab_detail_box").hide();
+            this.container.find("ul.product_tabs li").removeClass("hover");
+        }
+    }
+
+    $(document).ready(function () {
+        var allProduct = new SlideTabs({id: "allProduct"});
+        showHideBlock("#allProductTab", "#allProduct", "fade", 100, "fast", "hover", function () {
+            allProduct.hideDetail();
+        }, 200);
+
+        var allTV = new SlideTabs({id: "allTV"});
+        showHideBlock("#allTVTab", "#allTV", "fade", 100, "fast", "hover", function () {
+            allTV.hideDetail();
+        }, 200);
+
+        var allLeMe = new SlideTabs({id: "allLeMe"});
+        showHideBlock("#allLeMeTab", "#allLeMe", "fade", 100, "fast", "hover", function () {
+            allLeMe.hideDetail();
+        }, 200);
+        showProductNumInCart();
+    });
+
+    function showProductNumInCart() {
+        $("#productNumInCart").hide();
+        var arrivalId = getCookie("COOKIE_SELECT_PROVINCE_ID") || 1;
+
+        Js.sendData(sendLink.cart + "api/web/query/viewCart.jsonp", "cartType=0&TO_PAY=0&arrivalId=" + arrivalId, function (data) {
+            if (data.status == "1") {
+                if (data.result && data.result[0] && data.result[0].itemCount) {
+                    $("#productNumInCart").html(data.result[0].itemCount).show();
+                }
+            }
+        });
+    }
+</script>
+<div class="main_body center pb20">
+    <div class="crumb">
+        <div class="left">
+            <a href="/" target="_blank"><span class="dark font14"><strong>首页</strong> </span></a>
+            <span class="font14"> > </span>
+            <span class="font14">我的订单</span>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="user_category_new left f8_bg pb20">
+        <dl>
+            <dt class="title dark font18 pt10 pb10">交易管理</dt>
+            <dd>
+                <a target="_self" href="/user/center/orderList.html" class="on">
+                    <span class="font14">我的订单</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/myrese.html">
+                    <span class="font14">我的预约信息</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/quickPay.html">
+                    <span class="font14">我的快捷支付</span>
+                </a>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt class="title dark font18 pt20 pb10">客户服务</dt>
+            <dd>
+                <a target="_self" href="/user/center/refundOrderList.html">
+                    <span class="font14">退货/换货</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/cancelOrderList.html">
+                    <span class="font14">取消退款查询</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/fixAndMaintain.html">
+                    <span class="font14">安装/维修</span>
+                </a>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt class="title dark font18 pt20 pb10">账户信息</dt>
+            <dd>
+                <a target="_self" href="/user/center/updatepass.html">
+                    <span class="font14">个人信息</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/address.html">
+                    <span class="font14">收货地址</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/discount.html">
+                    <span class="font14">我的优惠劵</span>
+                </a>
+            </dd>
+            <dd>
+                <a target="_self" href="/user/center/vipcard.html">
+                    <span class="font14">我的礼品卡</span>
+                </a>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt class="title dark font18 pt20 pb10"> 个人应用管理</dt>
+            <dd>
+                <a target="_self" href="/user/center/pingjia.html">
+                    <span class="font14">商品评价/晒单</span>
+                </a>
+            </dd>
+            <dd class="title dark font18 pt20 pb10 "><a href="/user/center/scyjtg.html" class="onward">分享邀请赢大奖</a></dd>
+
+        </dl>
+    </div>
+    <div>
+        <div class="user_main right">
+            <div class="title pb5">
+                <div class="right"></div>
+                <div class="left"><span class="font18 dark">我的订单</span></div>
+                <div class="left pl0 font12">
+                    <a webtrekkparam="{ct:'center_order_lxkf'}" href="/onlineservice.html"
+                       class="block left bt_oline_service" target="_blank">
+                        <span class="font12">联系客服</span>
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="note mb10" id="noteShow">
+                <a href="javascript:void(0);" id="closeNote" class="close block t_c right"><span
+                        class="font16 simsun">×</span></a>
+                <span class="pl50 left">如果您已完成订单支付，状态仍未改变，请耐心等待，我们正在处理，请您放心！</span>
+
+                <div class="clear"></div>
+            </div>
+            <div id="afterNoteShow" class="hidden line_t"></div>
+
+            <div class="right order_search pt10 pb10 hidden">
+                <!-- 1:产品ID 2：订单ID 3：产品名称 -->
+                <select id="searchOrderDate" class="search_select font14" onchange="searchOrderByDate();">
+                    <option value="0">下单时间</option>
+                    <option value="1">近3个月</option>
+                    <option value="2">今年内</option>
+                    <option value="3">2013年</option>
+                </select>
+                <select id="searchOrderStatus" class="search_select font14" onchange="searchOrderByStatus();">
+                    <option value="0">订单状态</option>
+                    <option value="1">提交订单</option>
+                    <option value="3">生产中</option>
+                    <option value="4">生产完成</option>
+                    <option value="6">配货中</option>
+                    <option value="9">已完成</option>
+                    <option value="10">已取消</option>
+                </select>
+                <input type="text" name="searchTitle" id="searchOrderOrProduct" class="orderin font14" value="商品名称或订单号"
+                       onblur="showBlurValue();" onfocus="showFocusValue();"><input type="button" class="search_bt"
+                                                                                    value="" border="no"
+                                                                                    onclick="fn_ajax_search_order_list();"
+                                                                                    onfocus="parentElement.focus()">
+            </div>
+            <div class="clear"></div>
+
+            <!-- 加载数据时图片 -->
+            <div id="div_loading" style="overflow:hidden; width:300px; margin:0 auto;">
+                <br>
+                <img style="float:left; display:inline;" src="Picture/loading.gif"/><span
+                    style="float:left; display:block; margin-top:25px;">   努力加载中，请稍等...</span>
+            </div>
+
+            <div class="user_order_list">
+                <div id="div_order_list">
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="FY">
+            <!-- 分页DIV -->
+            <div id="Pagination" class="pagination right"></div>
+            <div class="clear "></div>
+        </div>
+    </div>
+    <div class="clear "></div>
+</div>
+<!-- 订单列表展示模板 -->
+<script id="div_order_list_template" type="text/text">
+<%if(MYORDERS && MYORDERS.length>0){
+	for(var i=0;i<MYORDERS.length;i++){
+		var orderItem = MYORDERS[i];
+		var order_type_name = "";
+		var is_box_order = orderItem.IS_BOX_ORDER;
+		var detailurl = "";
+		var shortReceiver = orderItem.RECEIVER;
+		if(shortReceiver.length>6){
+			shortReceiver = shortReceiver.substring(0,4)+"...";
+		}
+%>
+	<%
+	if(i==0 && MYORDERS.length>=1){
+		if(MYORDERS[i].SPLIT_FLAG ==3){
+	%>	
+	<div class="order_list_title f8_bg pl20 pr20 border_nb">
+	<div class="left font14 dark">由于您的商品在不同库房或者支付比例不同，所以订单被拆分为多个子订单分开配送，给您带来的不便还请谅解</div>
+	</div>
+	<%
+		}
+	}else if(i==MYORDERS.length && MYORDERS.length>=1){
+		if((MYORDERS[i-1].PARENT_ORDER_ID != MYORDERS[i].PARENT_ORDER_ID) && (MYORDERS[i].SPLIT_FLAG ==3) ){
+	%>	
+	<div class="order_list_title f8_bg pl20 pr20 border_nb">
+	<div class="left font14 dark">由于您的商品在不同库房或者支付比例不同，所以订单被拆分为多个子订单分开配送，给您带来的不便还请谅解</div>
+	</div>
+	<%
+		}
+	}else if((MYORDERS[i-1].PARENT_ORDER_ID !=MYORDERS[i].PARENT_ORDER_ID) && (MYORDERS[i].SPLIT_FLAG ==3)){
+	%>	
+	<div class="order_list_title f8_bg pl20 pr20 border_nb">
+	<div class="left font14 dark">由于您的商品在不同库房或者支付比例不同，所以订单被拆分为多个子订单分开配送，给您带来的不便还请谅解</div>
+	</div>
+	<%
+	}	
+	%>
+		
+           <table width="100%" cellspacing="1" class="
+		   <%
+			if(MYORDERS[i].SPLIT_FLAG ==3){
+				if(i==0 && MYORDERS.length>1){
+					if(MYORDERS[i].PARENT_ORDER_ID != MYORDERS[i+1].PARENT_ORDER_ID){
+					%>
+						mb10
+					<%
+					}
+				}else if(i==(MYORDERS.length-1) && MYORDERS.length>1){
+					%>
+						mb10
+					<%
+				}else if((MYORDERS[i+1].PARENT_ORDER_ID !=MYORDERS[i].PARENT_ORDER_ID)){
+					%>
+						mb10
+					<%
+				}
+			}else{
+			%>
+				mb10
+			<%
+			}
+		   %>" cellpadding="0" border="0" style="background:#dfdfdf;">
+           <tr><th colspan="4" class="<%if(orderItem.SPLIT_FLAG ==3 ){%>order_list_titleZi<%}else{%>order_list_title<%}%> f8_bg pl20 pr20">
+            
+			<%if(orderItem.ORDER_TYPE==6 || orderItem.ORDER_TYPE==8 || (orderItem.ORDER_TYPE==9 && is_box_order==0)){
+				detailurl = "ydDetail";
+				order_type_name = "预购订单";
+				if(orderItem.ORDER_TYPE==8){
+					order_type_name="团购订单";
+				}else if(orderItem.ORDER_TYPE==9){
+					order_type_name="大客户订单";
+				}
+			}else{
+				detailurl="detail";
+				order_type_name="普通订单";
+				if(orderItem.ORDER_TYPE==9){
+					order_type_name="大客户订单";
+				}else if(orderItem.ORDER_TYPE==1){
+					order_type_name="礼品卡订单";
+				}
+			}%>
+			
+            <div class="left font14 dark"><%=order_type_name%>：<a href="/user/center/order/<%=detailurl%>.html?order_id=<%=orderItem.ORDER_ID%>"><span class="dark"><%=orderItem.ORDER_ID%>
+			<%if(orderItem.SPLIT_FLAG == 3){%>（子订单）<%}%></span></a></div>
+            <div class="left font14 gray"><span class="pl20 pr20">|</span><span><%=orderItem.CREATE_AT%></span></div>
+            <div class="clear"></div>
+           </th></tr>
+          <tr><td class="order_list_pic white_bg pt10 pb10" valign="top" align="left">
+            <ul class="pl20">
+			<%
+				if(orderItem.ORDER_ITEMS && orderItem.ORDER_ITEMS.length>0){
+					for(var k=0;k<orderItem.ORDER_ITEMS.length;k++){
+						var productItem = orderItem.ORDER_ITEMS[k];
+						var prourl="/product/product-pid-"+productItem.pid+".html";
+						var shortProductName = productItem.productName;
+						if(shortProductName.length>22){
+							shortProductName = shortProductName.substring(0,19)+"...";
+						}
+			%>
+			<li class="relativeList">
+				<div class="order_list_picImg"><a <%if((orderItem.ORDER_DESC == "1") && ((productItem.type == "1") || (productItem.type == "2") || (productItem.type == "3"))){%>href="<%=prourl%>" target="_blank"<%}%>><img  alt="<%=productItem.productName%>" title="<%=productItem.productName%>"  src="http://img2.hdletv.com/<%=productItem.imageSrc%>_S" style=""/></a></div>
+				<div class="order_list_picDetail border white_bg pt15 pb15 hand" <%if((orderItem.ORDER_DESC == "1") && ((productItem.type == "1") || (productItem.type == "2") || (productItem.type == "3"))){%>onclick="window.location.href='<%=prourl%>'"target="_blank"<%}%>>
+				<div class="title" title="<%=productItem.productName%>"><div class="tit"><%=shortProductName%></div>
+				<%if(productItem.REAL_PROMOTION_ID != 0 && productItem.REAL_PROMOTION_ID != null){%>
+				   <span class="red">（加价购）</span>
+				<%}%>
+				</div>
+				<div class="price"><span class="red font14">¥<%if(productItem.REAL_PROMOTION_ID != 0 && productItem.REAL_PROMOTION_ID != null && productItem.REAL_PROMOTION_ID != "null"){%><%=productItem.FINAL_PRICE%><%}else{%><%=productItem.salePrice%><%}%> </span>				
+				<span class="font16"> ×</span>
+				<span class="font14 Arial">
+				<%=productItem.QUANTITYS%>
+				</span>
+				
+				</div>
+				</div>
+				
+			</li>
+			
+			<%
+					}
+				}
+			%>
+			            
+             <div class="clear"></div>
+            </ul>
+           </td>
+           <td class="order_list_item1 white_bg" valign="top" align="left">
+             <div class="font14 dark">¥<%=orderItem.ORDER_AMOUNT%></div>
+             <div class="font14 dark" title="<%=orderItem.RECEIVER%>"><%=shortReceiver%></div>			 
+             <div class="address font14 dark hand" id="order_address_<%=orderItem.ORDER_ID%>" order-data="<%=orderItem.ORDER_ID%>">
+			 <%
+				var addressName = orderItem.DISTRICT_NAME;
+				if(addressName.length<10){
+			%>
+				<%=addressName%><span class="more"></span>
+			<%
+				}else{
+				addressName = addressName.substring(0,8)+"...";
+			%>
+				<%=addressName%><span class="more"></span>
+			<%			
+				}
+			 %>				
+				<div class=" white_bg addressInfoDiv hidden" id="addressInfo_div_<%=orderItem.ORDER_ID%>" style="top:25px; right:30px;">
+					<div id="div_loading_address<%=orderItem.ORDER_ID%>" class="hidden border white_bg address_popup" >
+						<div class="t_c pt5"><img style="display:inline;" src="Picture/loading.gif"/><span style="display:block; margin-top:25px;">   努力加载中，请稍等...</span></div>
+					</div>
+               </div>
+             </div>
+           </td>
+		   
+           <td class="order_list_item2 t_c white_bg" valign="top" align="center">
+             <div class="font14 dark pb10"><%=orderItem.CNSTATUSFORLIST%></div>
+             <div class="mode" id="showDelieverInfo_<%=orderItem.ORDER_ID%>" order-data="<%=orderItem.ORDER_ID%>">
+               <%if(orderItem.ORDER_STATUS_ID !=1 && orderItem.ORDER_STATUS_ID !=2 && orderItem.ORDER_STATUS_ID !=3){
+				%>
+			   <a href="javascript:void(0);" order-data="<%=orderItem.ORDER_ID%>" class="trace_show"><span class="font14 dark">追踪</span><span class="more"></span></a>
+               <div class="white_bg deliverInfoDiv hidden" id="deliverInfo_div_<%=orderItem.ORDER_ID%>" style="top:25px; right:50px;">
+                 <div id="div_loading_deliver<%=orderItem.ORDER_ID%>" class="border hidden mode_popup white_bg ">
+						<div class="t_c pt10 pb10"><img style="display:inline;" src="Picture/loading.gif"/><span style="display:block; margin-top:25px;">努力加载中，请稍等...</span></div>
+					</div>
+               </div>
+			   <%}%>	
+             </div>
+           </td>
+           <td class="order_list_item3 t_c white_bg" valign="top" align="center">
+			<%if(orderItem.ORDER_STATUS_ID==20){
+			%>
+			<div class="font14 pb5">
+				<a href="/user/center/pingjia.html"><span class="blue">评价/晒单</span></a>				
+			</div>			
+			<%
+			}%>
+			<%if(orderItem.ORDER_STATUS_ID!=20){
+			%>	
+			<div class="t_c">           	   
+				<div class="fk_button  pb10">
+					
+					<%if(orderItem.ORDER_TYPE==6 || orderItem.ORDER_TYPE==8 || (orderItem.ORDER_TYPE==9 && is_box_order==0)){
+					
+						if((orderItem.ORDER_STATUS_ID == 0 || orderItem.ORDER_STATUS_ID == 5) && orderItem.ORDER_WAY!=8){
+						
+							if(/^(offline)/i.test(orderItem.PAYMENT_METHOD_ID)){
+						%>
+							  <a href='/help/xxzz.html' target='_blank'><span><font color='blue'>转账说明</font></span></a>
+						<%
+							}else{
+								if(!orderItem.IS_PAY){
+									var pids = "";	
+									for(var k=0;k<orderItem.ORDER_ITEMS.length;k++){
+										var productItem =orderItem.ORDER_ITEMS[k];
+										if(k<orderItem.ORDER_ITEMS.length-1){
+											pids += productItem.pid+",";
+										}else{
+											pids += productItem.pid;
+										}
+									}
+								%>
+									<div class="red_bt_m block_center ">
+									<a href="javascript:goPay_dj(<%=orderItem.ORDER_ID%>,<%=orderItem.ON_AMOUNT%>,'<%=orderItem.PAYMENT_METHOD_ID%>','<%=pids%>',<%=orderItem.ORDER_TYPE%>);"><span class="white">付  款</span></a>
+									</div>
+								<%
+								}else{
+								%>
+								<a href='/huodong/zhiqian.html' class='order_list_bt' title='很抱歉，由于超卖，您的订单我们无法在1周内发货，所以已经关闭了超卖订单的支付通道。如果您可以耐心等待我们在4周内发货完毕，请联系我们的客服专线电话01057415019进行相关支付操作。'>支付已关闭</a>
+								<%
+								}									
+							}
+						}else if(orderItem.ORDER_STATUS_ID == 13 && orderItem.PRESALE_BTN==1 && orderItem.ORDER_WAY!=8){
+							if(/^(offline)/i.test(orderItem.PAYMENT_METHOD_ID)){
+						%>
+							<a href='/help/xxzz.html' target='_blank'><span><font color='blue'>转账说明</font></span></a>
+						<%
+							}else{
+						%>
+						<div class="red_bt_m block_center ">
+						<a href="javascript:goPay_wk(<%=orderItem.ORDER_ID%>,<%=orderItem.ORDER_AMOUNT%>,<%=orderItem.ON_AMOUNT%>,'<%=orderItem.PAYMENT_METHOD_ID%>',<%=orderItem.ORDER_TYPE%>);"><span class="white">付尾款</span></a>
+						</div>
+						<%
+							}							
+						}
+					}else{
+						if((orderItem.ORDER_STATUS_ID == 0 || orderItem.ORDER_STATUS_ID == 5) && orderItem.ORDER_WAY!=8){
+						
+							if(/^(offline)/i.test(orderItem.PAYMENT_METHOD_ID)){
+						%>
+							  <a href='/help/xxzz.html' target='_blank'><span><font color='blue'>转账说明</font></span></a>
+						<%
+							}else{
+								if(orderItem.ORDER_TYPE!=1){
+									if(!orderItem.IS_PAY){
+										var pids = "";	
+										for(var k=0;k<orderItem.ORDER_ITEMS.length;k++){
+											var productItem =orderItem.ORDER_ITEMS[k];
+											if(k<orderItem.ORDER_ITEMS.length-1){
+												pids += productItem.pid+",";
+											}else{
+												pids += productItem.pid;
+											}
+										}
+									%>
+									<div class="block_center red_bt_m">
+										<a href="javascript:goPay(<%=orderItem.ORDER_ID%>,<%=orderItem.ON_AMOUNT%>,'<%=orderItem.PAYMENT_METHOD_ID%>',0,'<%=pids%>',<%=orderItem.ORDER_TYPE%>);"><span class="white">付  款</span></a>
+									</div>
+									<%
+									}else{
+									%>
+									<a href='/huodong/zhiqian.html' class='order_list_bt' title='很抱歉，由于超卖，您的订单我们无法在1周内发货，所以已经关闭了超卖订单的支付通道。如果您可以耐心等待我们在4周内发货完毕，请联系我们的客服专线电话01057415019进行相关支付操作。'>支付已关闭</a>
+									<%
+									}
+								}									
+							}
+						
+						}
+					%>
+					
+					<%
+					}%>
+					
+					
+					<%
+					if(orderItem.ORDER_STATUS_ID ==1 ||orderItem.ORDER_STATUS_ID ==2 ||orderItem.ORDER_STATUS_ID ==3){
+						var prourl = "";
+						if(orderItem.ORDER_ITEMS && orderItem.ORDER_ITEMS.length>0){						
+							var productItem = orderItem.ORDER_ITEMS[0];
+							prourl="/product/product-pid-"+productItem.pid+".html";
+						
+					%>
+							<div>
+								<a href="<%=prourl%>" target="_blank" class="block_center gray_bt_m"><span class="dark">再次购买</span>
+								</a>
+							</div>
+					<%
+						}
+					}%>
+					
+				</div>
+				</div>
+			<%
+			}%>
+              <div class="font14 pb5"><a href="/user/center/order/<%=detailurl%>.html?order_id=<%=orderItem.ORDER_ID%>" target="_blank"><span class="blue">订单详情</span></a></div>
+			  <%if((orderItem.ORDER_STATUS_ID ==0 || orderItem.ORDER_STATUS_ID ==5) &&orderItem.ORDER_WAY!=8){
+			  %>
+			  <div class="font14 cancelOrder hand gray" order-data="<%=orderItem.ORDER_ID%>">取消订单</div>
+			  <%
+			  }
+			  %>
+              
+           </td></tr>
+          </table>
+<%
+	}
+}%>		 
+
+</script>
+<script id="order_address_template" type="text/text">
+ <i class="address_arrow absolute"></i>
+  <div class="address_popup_content" order-data="<%=orderId%>" id="orderAddress_<%=orderId%>">
+<%
+if(result && result[0]){
+	if(result[0].ORDER){
+		var addressDetail = result[0].ORDER.PROVINCE_NAME+result[0].ORDER.CITY_NAME+result[0].ORDER.DISTRICT_NAME+result[0].ORDER.ADDRESS;
+		addressDetail = addressDetail.length > 36 ? addressDetail.substr(0, 36) + "..." : addressDetail;
+		var phone = result[0].ORDER.MOBILE;
+		if(result[0].ORDER.TELPHONE){
+			phone += "/"+result[0].ORDER.TELPHONE;
+		}
+		var post = result[0].ORDER.ZIP_CODE;
+%>
+	<p class="dark font12">收货地址：<%=addressDetail%></p>
+	<p class="dark font12 pt5 pb5">联系电话：<%=phone%></p>
+	<p class="dark font12">邮政编码：<%=post%></p>
+<%
+	}
+}
+%>
+ </div>
+
+</script>
+
+<script id="deliver_template" type="text/text">
+<i class="mode_arrow absolute"></i>
+<div class="mode_popup_content t_l" order-data="<%=orderId%>" id="orderProcess_<%=orderId%>">
+
+<%if(result && result[0]){
+	if(result[0].ORDER && result[0].ORDER.LISTORDERSTATUS){
+%>
+<p class="bold pb10">订单进度</p>
+
+<%if(result[0].ORDER.ORDER_TYPE==6 || result[0].ORDER.ORDER_TYPE==8 || (result[0].ORDER.ORDER_TYPE==9 && result[0].ORDER.IS_BOX_ORDER==0 )){
+%>
+<ul class="pb10 yuyue">
+<%
+}else{
+%>
+<ul class="pb10">
+<%}%>
+
+<%
+		var currentIndex = 0;
+		for(var i=0;i<result[0].ORDER.LISTORDERSTATUS.length;i++){
+			var processItem = result[0].ORDER.LISTORDERSTATUS[i];
+			if(processItem.OPERATE_DATE){
+				currentIndex++;
+			}
+		}
+		
+		for(var k=0;k<result[0].ORDER.LISTORDERSTATUS.length;k++){
+			var processItem = result[0].ORDER.LISTORDERSTATUS[k];
+%>
+	<li class="t_c">
+		<div class="track white <%if(processItem.OPERATE_DATE!="" && (k==currentIndex-1)){%>on<%}else if(processItem.OPERATE_DATE!=""){%>over<%}%>"><%=k+1%></div>
+		<p><%=processItem.STATUS_CNAME%></p>
+	</li>
+<%			
+		}
+%>
+<div class="clear"></div>
+</ul>
+<%
+	}
+}
+%>					 
+<div class="track_time">
+<%if(result && result[0]){
+	if(result[0].ORDERLOGS && result[0].ORDERLOGS.length>0){
+%>
+   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	 <tr>
+	   <th align="left">处理时间</th>
+	   <th align="left">订单跟踪信息</th>
+	 </tr>
+	<%		
+	for(var i=0;i<result[0].ORDERLOGS.length;i++){
+		var logItem = result[0].ORDERLOGS[i];
+	%>
+		<tr>
+			<td><%=logItem.OPERATE_DATE%></td>
+			<td><%=logItem.DESCRIPTION%></td>
+		</tr>
+	<%
+	}		
+%>
+   </table>
+<%
+	}
+}
+%>
+
+</div>
+</div>
+
+</script>
+
+<!-- 流水信息补录弹出框 -->
+
+<!-- 流水信息补录弹出框 -->
+
+
+<script type='text/javascript'>
+    //全局统计变量
+    var globalTongJi = {
+        wk_contentId: "user.myorder",
+        zp_need: "0"
+    }
+</script>
+<a href="http://www.sojump.com/jq/3674687.aspx" target="_blank" class="diaocha block"></a>
+
+
+<!--右侧飘窗-->
+<div class="sidebar_float">
+    <!-- 百度分享 -->
+    <div class="is_share ie6-hover border hand handle  hidden " object="#bd_share">
+        <div class="share_show" id="bd_share">
+            <div class="share_bg absolute bdsharebuttonbox">
+                <a title="分享到QQ空间" href="javascript:void(0);" class="bds_qzone" data-cmd="qzone"></a>
+                <a title="分享到新浪微博" href="javascript:void(0);" class="bds_tsina" data-cmd="tsina"></a>
+                <a title="分享到微信" href="javascript:void(0);" class="bds_weixin" data-cmd="weixin"></a>
+                <a title="分享到腾讯微博" href="javascript:void(0);" class="bds_tqq" data-cmd="tqq"></a>
+                <a title="分享到搜狐微博" href="javascript:void(0);" class="bds_tsohu" data-cmd="tsohu"></a>
+                <a title="分享到人人网" href="javascript:void(0);" class="bds_renren" data-cmd="renren"></a>
+                <a title="分享到豆瓣网" href="javascript:void(0);" class="bds_douban" data-cmd="douban"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 有奖调查 -->
+    <a href="http://www.sojump.com/jq/3881495.aspx" target="_blank">
+        <div class="is_survey ie6-hover border hand handle  show1 " id="diaocha_div" object="#dc_div">
+            <!--<div class="top_show" id="dc_div">
+                <div class="arrow absolute"></div>
+                <div class="red_bg absolute">有奖调查</div>
+            </div>-->
+        </div>
+    </a>
+    <!-- 销量天王 -->
+    <a href="http://bbs.letv.com/thread-458916-1.html" target="_blank">
+        <div class="is_king ie6-hover border hand handle  show2 " id="king_div" object="#tw_div">
+            <!--<div class="top_show" id="tw_div">
+                <div class="arrow absolute"></div>
+                <div class="red_bg absolute">销量天王</div>
+            </div>-->
+        </div>
+    </a>
+    <!-- 下载APP -->
+    <div class="is_app ie6-hover border hand handle  show3 " id="app_div" object="#xz_div">
+        <div class="app_show" id="xz_div">
+            <div class="app_bg border absolute">
+                <p class="pt5 pb5">手机下单更快捷</p>
+
+                <p><img alt="" src="Picture/e3b9b73482f940a2b27e7dbb8e9ca2da.gif" style=""/></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--返回顶部-->
+<div class="top_float ">
+    <div class="is_top ie6-hover border hand handle" id="backTop" object="#bt_div">
+        <!--<div class="top_show" id="bt_div">
+            <div class="arrow absolute"></div>
+            <div class="red_bg absolute">返回顶部</div>
+        </div>-->
+    </div>
+</div>
+
+<div class="footer">
+    <div class="white_bg pt40 pb30">
+        <div class="center clearfix">
+            <ul class="icon_list line_b clear">
+                <li class="zheng"><span class="font18 dark">正品保障</span><br/>所有产品都是原装正品</li>
+                <li class="threeday"><a webtrekkparam="{ct:'xbsy_fwpt_3RNSD'}" href="/xinwen/zixunDetail-aid-78.html"
+                                        target="_blank"><span class="font18 dark">3日内送达</span><br/><span class="gray">24大核心城市</span></a>
+                </li>
+                <li class="returns"><a webtrekkparam="{ct:'xbsy_fwpt_7RWLY'}" href="/help/bxzc/cjds.html"
+                                       target="_blank"><span class="font18 dark">7天无理由退换货</span><br/><span class="gray">支持7天退货，30天换货</span></a>
+                </li>
+                <li class="delivery"><a webtrekkparam="{ct:'xbsy_fwpt_616CSSD'}" href="/help/wlps/cjdsps.html"
+                                        target="_blank"><span class="font18 dark">616城市送达</span><br/><span class="gray">覆盖全国29个省</span></a>
+                </li>
+                <li class="policy"><a webtrekkparam="{ct:'xbsy_fwpt_3BZC'}" href="/help/fwzc/gjsb.html" target="_blank"><span
+                        class="font18 dark">3包政策</span><br/><span class="gray">享受国家质量保障政策</span></a></li>
+            </ul>
+            <div class="help_list  left pt50">
+                <dl>
+                    <dt>新手入门</dt>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zcydl'}" href="/help/xsrm/zczh.html"><span
+                            class="simsun">> </span>注册与登录</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zhaq'}" href="/help/zczh/dlzh.html"><span
+                            class="simsun">> </span>账户安全</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_zhmm'}" href="/help/xsrm/zhmm.html"><span
+                            class="simsun">> </span>如何找回密码</a></dd>
+                    <!--<dd><a target="_blank" webtrekkparam="{ct:'YW_xsrm_tab4'}" href="/help/gwlc.html" ><span class="simsun">> </span>购物指南</a></dd>-->
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_xsrm_lmFAQ'}" href="/help/lema_faq.html"><span
+                            class="simsun">> </span>乐码FAQ</a></dd>
+                </dl>
+                <dl>
+                    <dt>订单服务</dt>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_wszf'}" href="/help/zxzf.html"><span
+                            class="simsun">> </span>网上支付</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_tksm'}" href="/help/ddfw/tksm.html"><span
+                            class="simsun">> </span>退款说明</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_ddfw_fpzd'}" href="/help/fpzd.html"><span
+                            class="simsun">> </span>发票制度</a></dd>
+
+                </dl>
+                <dl>
+                    <dt>物流服务</dt>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_psaz'}"
+                           href="/help/wlps/cjdsps.html"><span class="simsun">> </span>配送范围查询</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_pscx'}" href="/help/wlps/ddps.html"><span
+                            class="simsun">> </span>配送费收取标准</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_yhqs'}" href="/help/yhqs.html"><span
+                            class="simsun">> </span>自提与签收注意事项</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_cjwt'}" href="/help/pswt/cjds.html"><span
+                            class="simsun">> </span>配送常见问题</a></dd>
+                    <!--<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_psyaz_yyaz'}" href="/user/center/fixAndMaintain.html"><span class="simsun">> </span>预约安装</a></dd>-->
+
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <!--<dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_fwyzc_gwts'}" href="/help/gwts.html" ><span class="simsun">> </span>购物提示</a></dd>-->
+                    <dd><a href="/help/fwzc/gyaz.html" webtrekkparam="{ct:'Help_fwzc_tab1'}" target="_blank"><span
+                            class="simsun">> </span>关于安装</a></dd>
+                    <!--<dd><a href="/help/fwzc/gjsb.html" webtrekkparam="{ct:'Help_fwzc_tab2'}" target="_blank"><span class="simsun">> </span>国家三包政策</a></dd>-->
+                    <dd><a href="/help/bxzc/cjds.html" webtrekkparam="{ct:'Help_fwzc_tab3'}" target="_blank"><span
+                            class="simsun">> </span>售后服务政策</a></dd>
+                    <!--<dd><a href="/help/bxzc/lshz.html" webtrekkparam="{ct:'Help_fwzc_tab4'}" target="_blank"><span class="simsun">> </span>配件、盒子三包政策</a></dd>-->
+                    <!--<dd><a href="/help/thhzc/cjds.html" webtrekkparam="{ct:'Help_fwzc_tab5'}" target="_blank"><span class="simsun">> </span>超级电视售后说明</a></dd>-->
+                    <!--<dd><a href="/help/thhzc/lshz.html" webtrekkparam="{ct:'Help_fwzc_tab6'}" target="_blank"><span class="simsun">> </span>配件、盒子售后说明</a></dd>-->
+                    <dd><a href="/help/fwwd.html" webtrekkparam="{ct:'Help_fwzc_tab7'}" target="_blank"><span
+                            class="simsun">> </span>线下服务中心</a></dd>
+                    <dd><a href="/help/fwzc/fwgs.html" webtrekkparam="{ct:'Help_fwzc_tab8'}" target="_blank"><span
+                            class="simsun">> </span>售后服务公示</a></dd>
+                    <dd><a href="/help/xxtyt.html" webtrekkparam="{ct:'Help_fwzc_tab9'}" target="_blank"><span
+                            class="simsun">> </span>线下体验厅</a></dd>
+                    <dd><a href="/help/xufei.html" webtrekkparam="{ct:'Help_fwzc_tab10'}" target="_blank"><span
+                            class="simsun">> </span>TV版服务续费教程</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_fwyzc_hyj'}" href="/ott/yys.html"><span
+                            class="simsun">> </span>电视合约机</a></dd>
+                </dl>
+                <dl>
+                    <dt>走进乐视TV</dt>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_gsjs'}"
+                           href="/gywm-zjid-zj01.html"><span class="simsun">> </span>公司介绍</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_ppsp'}" href="/zt/ppTv.html"><span
+                            class="simsun">> </span>品牌视频</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_share'}" href="/cps/index.html"><span
+                            class="simsun">> </span>分享邀请</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_shhyx'}"
+                           href="/gywm-zjid-zj05.html"><span class="simsun">> </span>社会化营销</a></dd>
+                    <dd><a target="_blank" webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_lxwm'}"
+                           href="/gywm-zjid-zj06.html"><span class="simsun">> </span>联系我们</a></dd>
+                    <dd><a webtrekkparam="{ct:'xbsy_fwpt_zjlsTV_gzwm'}" href="javascript:void(0)"
+                           onclick="javascript:pop('#guanzhuPOP')"><span class="simsun">> </span>关注我们</a></dd>
+                </dl>
+            </div>
+            <div class="service_online pt50 right">
+                <dl>
+                    <dt>在线服务</dt>
+                    <dd class="phone400"><span class="font16 dark">1010-9000</span><br/>7*24小时客服电话<br/>（仅收市话费）</dd>
+                    <dd class="kf_online"><a webtrekkparam="{ct:'xbsy_fwpt_ZXFW'}" href="/onlineservice.html"
+                                             target="_blank"><span class="font16 dark">在线客服</span><br/><span
+                            class="gray">服务时段 8:00-20:00</span></a></dd>
+                    <dd class="UE_center"><a webtrekkparam="{ct:'xbsy_fwpt_YHTYZX'}" href="/help/tiyan/index.html"
+                                             target="_blank"><span class="font16 dark">用户体验中心</span><br/><span
+                            class="gray">从用户的角度完善购物体验</span></a></dd>
+                    <dd class="returns_oline"><a webtrekkparam="{ct:'xbsy_fwpt_ZXTHH'}"
+                                                 href="/user/center/refundOrderList.html" target="_blank"><span
+                            class="font16 dark">在线退换货</span></a></dd>
+                </dl>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="center">Copyright © 2004-2014 乐视网 All rights reserved. 备案/许可证编号为：京ICP备09045969 不良信息举报中心
+            网络文化经营许可证文网文[2009]221号
+        </div>
+    </div>
+
+</div>
+<!--关注我们 弹框-->
+<div id="guanzhuPOP" class="hidden" style="width:640px">
+    <div class="f8_bg title pl10 line_b relative">
+        <span class="font14 dark">关注我们</span>
+        <a href="javascript:void(0)" class="absolute" id="wjPop-close">×</a>
+    </div>
+    <div class="pl30 pr30 pt20 white_bg careus border">
+        <div class="pl90 pb30 pt15 line_b sina">
+            <span class="font16 dark mr15">乐视TV 官方微博</span>
+            <a href="#" class="inline_block"><img src="Picture/445bcc7b3246422bac2f8a8880f2c4b5.gif" alt=""/></a>
+        </div>
+        <div class="pl90 pb30 pt15 weixin">
+            <div class="clearfix">
+                <div class="left pr40 line_r">
+                    <span class="font16 dark">乐视TV 官方微信</span><br/>
+                    <img src="Picture/908cb848af5c413f8906337f3dc09dd7.gif" alt=""/>
+                </div>
+                <div class="left pl40">
+                    <span class="font16 dark">乐视商城 官方微信</span><br/>
+                    <img src="Picture/ad1f0df379cb456485a2b407225246f5.gif" alt=""/>
+                </div>
+            </div>
+            <div class="mt15 gray font12">打开微信，点击右上角的“魔法棒”，选择“扫一扫”功能，对准下方二维码即可。</div>
+        </div>
+    </div>
+</div>
+<!-- 统计代码start-->
+<div style="display:none">
+    <script type="text/javascript">
+        var myTongJi = {
+            wk_contentId: "",//webtrek用到的contentId
+            zp_pageId: "",//晶赞用到的_setPageID
+            zp_pageType: "",//晶赞用到的_setPageType
+            zp_params: [],//晶赞用到的_setParams
+            zp_need: "1"
+        }
+        if (typeof(globalTongJi) != 'undefined') {
+            if (globalTongJi.wk_contentId) {
+                myTongJi.wk_contentId = globalTongJi.wk_contentId;
+            }
+            var zpqUrlPath = window.location.pathname;
+            var zpqTitle = document.title;
+            if (zpqUrlPath.indexOf("/help/") != -1 && !globalTongJi.wk_contentId) {
+                myTongJi.zp_pageId = "helpPage";
+            } else {
+                myTongJi.zp_pageId = globalTongJi.wk_contentId;
+            }
+            if (globalTongJi.zp_pageId) {
+                myTongJi.zp_pageId = globalTongJi.zp_pageId;
+            }
+            if (globalTongJi.zp_pageType) {
+                myTongJi.zp_pageType = globalTongJi.zp_pageType;
+            }
+            if (globalTongJi.zp_params) {
+                myTongJi.zp_params = globalTongJi.zp_params;
+            }
+            if (globalTongJi.zp_need) {
+                myTongJi.zp_need = globalTongJi.zp_need;
+            }
+        } else {
+            var zpqUrlPath = window.location.pathname;
+            var zpqTitle = document.title;
+            if (zpqUrlPath.indexOf("/help/") != -1) {
+                myTongJi.zp_pageType = "helpPage";
+                myTongJi.zp_params = [$(document).attr("title")];
+            }
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        //右侧飘窗显示隐藏方法
+        $.fn.extend({
+            showOrHide: function () {
+                var _this = this;
+                this.each(function (index, elem) {
+                    var $handle = $(elem);
+                    var name = $handle.attr("object");
+                    var $content = $(name);
+                    var timer = null;
+                    $handle.mouseover(function () {
+                        show();
+                    }).mouseout(function () {
+                        hide();
+                    });
+                    $content.mouseover(function () {
+                        show();
+                    }).mouseout(function () {
+                        hide2();
+                    });
+                    function show() {
+                        clearTimeout(timer);
+                        $content.show();
+                    }
+
+                    function hide() {
+                        var interval = 300;
+                        timer = setTimeout(function () {
+                            $content.hide();
+                        }, interval);
+                    }
+
+                    function hide2() {
+                        $content.hide();
+                    }
+                });
+            }
+        });
+
+        var is_hidden = "1";//返回顶部
+        var is_share_show = "0";//是否分享
+
+        $(function () {
+            //右侧飘窗显示隐藏
+            $(".handle").showOrHide();
+            //返回顶部
+            if (is_hidden == "1") {
+                initBackTop();
+            }
+
+            $(".ie6-hover").mouseover(function () {
+                $(this).addClass("hover");
+            });
+
+            $(".ie6-hover").mouseout(function () {
+                $(this).removeClass("hover");
+            });
+        });
+
+        //初始化返回顶部按钮事件
+        function initBackTop() {
+            window.onscroll = function () {
+                if (document.body.scrollTop == 0 ? document.documentElement.scrollTop : document.body.scrollTop > 50) {
+                    $("#backTop").show();
+                } else {
+                    $("#backTop").hide();
+                }
+            }
+
+            $("#backTop").unbind("click").bind("click", function () {
+                pageScroll();
+            });
+        }
+        //鼠标滚动事件
+        function pageScroll() {
+            window.scrollBy(0, -50);
+            scrolldelay = setTimeout('pageScroll()', 1);
+            var sTop = document.documentElement.scrollTop + document.body.scrollTop;
+            if (sTop == 0) {
+                clearTimeout(scrolldelay);
+            }
+        }
+    </script>
+</body>
+<!-- 底部系统引用 勿动 -->
+<script type='text/javascript' src='__PUBLIC__/cart/Scripts/jquery.lazyload.js'></script>
+
+<script type='text/javascript' src='__PUBLIC__/cart/Scripts/zxvideo.js'></script>
+
+</html>
+<!-- 系统引用 勿动 -->
+ 

@@ -1,0 +1,62 @@
+<!-- 模板替换 -->
+<extend name="User:add"/>
+<!-- 替换模板标题 -->
+<block name="title">
+    <title>性能修改</title>
+</block>
+<!-- 替换模板内容表单 -->
+<block name="con">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>LetvStore</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Goods/updateLetvStore')}" class="mws-form" method="post" enctype="multipart/form-data">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">商品ID</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <input type="text" class="small" name='id' value="{$goodsInfo['id']}" readonly/>
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">商品名称</label>
+
+                        <div class="mws-form-item">
+                            <!-- <span>※</span> -->
+                            <input type="text" class="small" name='name' value="{$goodsInfo['name']}" readonly>
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">LetvStore</label>
+
+                        <div class="mws-form-item">
+                            <script id="editor" type="text/plain" style="width:1024px;height:500px;" name="letvStore">
+                                {$goodsInfo['letvStore']}
+                            </script>
+                            <script type="text/javascript">
+                                var ue = UE.getEditor('editor', {
+                                    initialFrameWidth: 680,
+                                    initialFrameHeight: 320
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="submit" class="btn btn-danger" value="点击修改,下一步">
+                    <input type="reset" class="btn " value="重置">
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+</block>

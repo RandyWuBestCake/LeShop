@@ -1,0 +1,34 @@
+<extend name="User:add"/>
+<block name="con">
+    <div class="mws-panel grid_8 mws-collapsible">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i>产品属性</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <table class="mws-table mws-datatable">
+                <thead>
+                <tr>
+                    <th>所属一级分类</th>
+                    <th>所属二级分类</th>
+                    <th>属性值&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                            href="{:U('Spec/edit',array('id'=>I('get.id')))}" class="btn btn-small"><font color="red"
+                                                                                                          size="2">点击修改属性值</font><i
+                            class="icon-pencil"></i></a></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <foreach name="spepr" item="vo" key="k">
+                    <tr>
+                        <td rowspan="{:count($vo)}" style="border:1px solid red">{$name[$k]}</td>
+                        <foreach name="vo" item="l">
+                            <td>{$l['name']}</td>
+                            <td>{$l['con']}</td>
+                    </tr>
+                </foreach>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,274 @@
+<extend name="Helpself/index"/>
+<block name="css">
+    <link type='text/css' href='__PUBLIC__/css/Content/global.css?v=20150115' rel='stylesheet'/>
+    <link type='text/css' href='__PUBLIC__/css/fonts/icomoon/style.css' rel='stylesheet'/>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/generateSession.js?v=20140616'></script>-->
+    <script type='text/javascript' src='__PUBLIC__/js/jquery-1.8.3.min.js?v=20140616'></script>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/zxlib.js?v=20141106'></script>-->
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/template.js?v=20140221'></script>-->
+    <link type='text/css' href='__PUBLIC__/css/Content/user.css?v=20141121' rel='stylesheet'/>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/usercenterAddr.js?v=20141215'></script>-->
+    <script>
+        var addres_url = ' {:U("Account/addressAjax")}';
+        var ssq = ' {:U("Account/ssqAjax")}';
+        var dodel_url = ' {:U("Account/dodel")}';
+    </script>
+</block>
+<block name="main">
+    <div class="main_body center">
+        <div class="crumb">
+            <div class="left">
+                <a target="_blank" href="/"><span class="dark font14"><strong>首页</strong> </span></a>
+                <span class="font14"> &gt; </span>
+                <span class="font14">收货地址</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="user_category_new left f8_bg pb20">
+            <dl>
+                <dt class="title dark font18 pt10 pb10">交易管理</dt>
+                <dd>
+                    <a href="{:U("Account/order")}" target="_self">
+                        <span class="font14">我的订单</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">我的预约信息</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">我的快捷支付</span>
+                    </a>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt class="title dark font18 pt20 pb10">客户服务</dt>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">退货/换货</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">取消退款查询</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">安装/维修</span>
+                    </a>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt class="title dark font18 pt20 pb10">账户信息</dt>
+                <dd>
+                    <a href="{:U('Account:personalInfo')}" target="_self">
+                        <span class="font14">个人信息</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a class="on" href="{:U('Account:address')}" target="_self">
+                        <span class="font14">收货地址</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="{:U('Account:coupons')}" target="_self">
+                        <span class="font14">我的优惠劵</span>
+                    </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt class="title dark font18 pt20 pb10"> 个人应用管理</dt>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">商品评价/晒单</span>
+                    </a>
+                </dd>
+                <dd class="title dark font18 pt20 pb10 "><a class="onward" href="#">分享邀请赢大奖</a>
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <div class="user_main right">
+                <div class="title pb5">
+                    <div class="right"></div>
+                    <div class="left"><span class="font18 dark">我的订单</span></div>
+                    <div class="left pl0 font12">
+                        <a target="_blank" class="block left bt_oline_service"
+                           href="http://sighttp.qq.com/authd?IDKEY=a142370095eb0d0cbd1af92f011f8a41016d37efb68a3e7f"
+                           webtrekkparam="{ct:'center_order_lxkf'}">
+                            <span class="font12">联系客服</span>
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="noteShow" class="note mb10">
+                    <a class="close block t_c right" id="closeNote" href="javascript:void(0);"><span
+                            class="font16 simsun">×</span></a>
+                    <span class="pl50 left">如果您已完成订单支付，状态仍未改变，请耐心等待，我们正在处理，请您放心！</span>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="hidden line_t" id="afterNoteShow"></div>
+
+                <div class="right order_search pt10 pb10 hidden">
+                    <!-- 1:产品ID 2：订单ID 3：产品名称 -->
+                    <select onchange="searchOrderByDate();" class="search_select font14" id="searchOrderDate">
+                        <option value="0">下单时间</option>
+                        <option value="1">近3个月</option>
+                        <option value="2">今年内</option>
+                        <option value="3">2013年</option>
+                    </select>
+                    <select onchange="searchOrderByStatus();" class="search_select font14" id="searchOrderStatus">
+                        <option value="0">订单状态</option>
+                        <option value="1">提交订单</option>
+                        <option value="3">生产中</option>
+                        <option value="4">生产完成</option>
+                        <option value="6">配货中</option>
+                        <option value="9">已完成</option>
+                        <option value="10">已取消</option>
+                    </select>
+                    <input type="text" onfocus="showFocusValue();" onblur="showBlurValue();" value="商品名称或订单号"
+                           class="orderin font14" id="searchOrderOrProduct" name="searchTitle"><input type="button"
+                                                                                                      border="no"
+                                                                                                      onfocus="parentElement.focus()"
+                                                                                                      onclick="fn_ajax_search_order_list();"
+                                                                                                      value=""
+                                                                                                      class="search_bt">
+                </div>
+                <div class="clear"></div>
+
+                <!-- 加载数据时图片 -->
+                <div style="overflow: hidden; width: 300px; margin: 0px auto; display: none;" id="div_loading">
+                    <br>
+                    <img src="__PUBLIC__/css/Images/loading.gif" style="float:left; display:inline;"><span
+                        style="float:left; display:block; margin-top:25px;">   努力加载中，请稍等...</span>
+                </div>
+
+                <div class="user_order_list">
+                    <div id="div_order_list" style="display: block;">
+                        <foreach name = "rows" item="vo" key="k">
+                            <table width="100%" cellspacing="1" cellpadding="0" border="0" style="background:#dfdfdf;"  class="mb10">
+                            <tbody>
+                            <tr>
+                                <th class="order_list_title f8_bg pl20 pr20" colspan="4">
+
+
+                                    <div class="left font14 dark">普通订单：<a
+                                            href="#"><span
+                                            class="dark">{$vo['order_num']}
+			</span></a></div>
+                                    <div class="left font14 gray"><span class="pl20 pr20">|</span><span>{:date("Y-m-d H:i:s",$vo['order_time'])}</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="order_list_pic white_bg pt10 pb10">
+                                    <ul class="pl20">
+
+                                        <li class="relativeList">
+                                            <div class="order_list_picImg"><a target="_blank"
+                                                                              href="{:U('Home/Fit/detail',array('id'=>$vo['goods_id']))}"><img  style="width:80px;"
+                                                    src="/object/{$grows[$k]['img']}"
+                                                    title="{$grows[$k]['name']}" alt="{$grows[$k]['name']}"></a></div>
+                                            <div target="_blank"
+                                                 onclick="window.location.href='{:U('Home/Fit/detail',array('id'=>$vo['goods_id']))}'"
+                                                 class="order_list_picDetail border white_bg pt15 pb15 hand">
+                                                <div title="{$grows[$k]['name']}" class="title">
+                                                    <div class="tit">{$grows[$k]['name']}</div>
+                                                </div>
+                                                <div class="price"><span class="red font14">¥{$vo['unit_price']} </span>
+                                                    <span class="font16"> ×</span>
+				<span class="font14 Arial">
+				1
+				</span>
+
+                                                </div>
+                                            </div>
+
+                                        </li>
+
+
+                                        <div class="clear"></div>
+                                    </ul>
+                                </td>
+                                <td valign="top" align="left" class="order_list_item1 white_bg">
+                                    <div class="font14 dark">¥{$vo['unit_price']}</div>
+                                    <div title="{$Think.session.users.username}" class="font14 dark">{$Think.session.users.username}</div>
+                                    <div order-data="{$vo['order_num']}" id="order_address_{$vo['order_num']}"
+                                         class="address font14 dark hand">
+                                        <?php $arr = explode(',',$urows[$k]['addressid']); ?>{$arr[0]|getAddress}{$arr[1]|getAddress}{$arr[2]|getAddress}，{$urows[$k].address}
+                                        <span class="more"></span>
+
+                                        <div style="top:25px; right:30px;" id="addressInfo_div_{$vo['order_num']}"
+                                             class=" white_bg addressInfoDiv hidden">
+                                            <div class="hidden border white_bg address_popup"
+                                                 id="div_loading_address{$vo['order_num']}">
+                                                <div class="t_c pt5"><img src="__PUBLIC__/css/Images/loading.gif"
+                                                                          style="display:inline;"><span
+                                                        style="display:block; margin-top:25px;">   努力加载中，请稍等...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td valign="top" align="center" class="order_list_item2 t_c white_bg">
+                                    <div class="font14 dark pb10">{$status[$vo['order_status']]}</div>
+                                    <div order-data="{$vo['order_num']}" id="showDelieverInfo_{$vo['order_num']}" class="mode">
+
+                                    </div>
+                                </td>
+                                <td valign="top" align="center" class="order_list_item3 t_c white_bg">
+
+
+                                    <div class="t_c">
+                                        <div class="fk_button  pb10">
+
+
+                                            <div>
+                                                <a class="block_center gray_bt_m" target="_blank"
+                                                   href="{:U('Home/Fit/detail',array('id'=>$vo['goods_id']))}"><span
+                                                        class="dark">再次购买</span>
+                                                </a>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="font14 pb5">
+                                        <a target="_blank"   href="{:U('Home/Fit/detail',array('id'=>$vo['goods_id']))}">
+                                        <span  class="blue">订单详情</span>
+                                        </a>
+                                    </div>
+                                    <div class="font14 pb5">
+                                        <a target="_blank"   href="{:U('Home/Fit/addcomment',array('id'=>$vo['goods_id'],'order_num'=>$vo['order_num']))}">
+                                        <span  class="blue">点击评价</span></a></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </foreach>
+                    </div>
+                    <div class="page">{$page}</div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="mjsblock">
+    <script type='text/javascript' src='__PUBLIC__/js/Scripts/userAddress.js'></script>
+    <script>
+        $("#closeNote").find("span").click(function(){
+            $("#noteShow").slideUp();
+        });
+    </script>
+</block>

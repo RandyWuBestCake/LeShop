@@ -1,0 +1,58 @@
+<extend name="User:add"/>
+<block name="title">
+    <script type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <title>优惠活动信息修改</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>优惠活动修改 Coupon</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Coupon:doedit')}" class="mws-form" method="post">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">活动标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="title" value="{$row['title']}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">活动简介</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="con" value="{$row['con']}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">使用门槛(最低消费大于)</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="" name="min_price" value="{$row['min_price']}"> 元 (留空则无门槛)
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">到期时间</label>
+
+                        <div class="mws-form-item">
+                            <input type="time" class="Wdate" name="expire_time" onClick="WdatePicker()" value="{:date('Y-m-d',$row['expire_time'])}">
+                            (格式为"2014-12-24")
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="hidden" name="id" value="{$row['id']}">
+                    <input type="submit" class="btn btn-primary" value="修改">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

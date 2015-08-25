@@ -1,0 +1,56 @@
+<!-- 模板替换 -->
+<extend name="User:add" />
+<!-- 替换模板标题 -->
+<block name="title">
+<title>评价标签设置</title>
+</block>
+<!-- 替换模板内容表单 -->
+<block name="con">
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"> </script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span>评价标签设置</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form action="{:U('Goodsassess/updatetag')}" class="mws-form" method="post" enctype="multipart/form-data">
+        <div class="mws-form-inline">
+                <div class="mws-form-row">
+                    <label class="mws-form-label">标签ID</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='id' value="{$info.id}" readonly>
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">标签类型</label>
+                    <div class="mws-form-item">
+                        <input type="radio"  name="default_mark" value="1" <eq name="info['default_mark']" value="1">checked = "checked"</eq>>默认标签
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  name="default_mark" value="0" <eq name="info['default_mark']" value="0">checked = "checked"</eq>>用户自定义
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">标签状态</label>
+                    <div class="mws-form-item">
+                        <input type="radio"  name="status" value="0" <eq name="info['status']" value="0">checked = "checked"</eq>>开启
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  name="status" value="1" <eq name="info['status']" value="1">checked = "checked"</eq>>屏蔽
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">支持数量</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='tag_amount' value="{$info['tag_amount']}" readonly>
+                    </div>
+                </div>
+              <div class="mws-button-row">
+                <!-- <input type="hidden" name="id" value="{$info['id']}"> -->
+                <input type="submit" class="btn btn-danger" value="点击修改">
+                <input type="reset" class="btn " value="重置">
+            </div>
+            </form>        
+</block>

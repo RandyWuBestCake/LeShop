@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{:C('webTitle')} Store</title>
+    <meta name="Keywords" content="{:C('keywords')}">
+    <meta name="description" content="{:C('description')}">
+    <script type="text/javascript">
+        var login_url = '{:U("Home/Login/index")}';
+        var is_Login = '{:U("Home/Appstore/isLogin")}';
+        var login_out = '{:U("Home/Login/logout")}';
+    </script>
+    <block name="head">
+        <link href="__PUBLIC__/Content/main-yu.css" rel="stylesheet">
+        <script type="text/javascript">
+            var cates = {$cates};
+        </script>
+    </block>
+    <link rel="icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico" type="image/x-icon"/>
+</head>
+<block name="nav">
+    <body>
+    <div class="navBox">
+        <h1><a href="{:U('Appstore:index')}"><img src="__PUBLIC__/Picture/logo.png" alt="乐视"></a></h1>
+        <ul>
+                <li><a href="{:U('Home/Appstore/Index')}">首页</a></li>
+                <foreach name="navs" item="vo">
+                    <li {$vo['url']==$cid?"class='navCurrent'":''}><a href="{:U('Appstore/cate')}?categoryId={$vo['url']}">{$vo["title"]}</a></li>
+                </foreach>
+        </ul>
+        <div class="topSearch">
+            <input id="searchText" type="text" spellcheck="false" value="搜索应用/游戏">
+            <a href="javascript:searchFn()" class="search_bt">搜索</a>
+            <a href="javascript:login()" class="login_bt"></a>
+        </div>
+    </div>
+</block>
+<block name="con">
+    <div class="banner_yu">
+        <h2 class="lm_title"><span class="font_yh">小编推荐</span></h2>
+
+        <div id="focusImg" class="margt10">
+            <ul></ul>
+            <a href="javascript:;" class="pre"></a>
+            <a href="javascript:;" class="next"></a>
+        </div>
+    </div>
+    <div class="tab_box">
+        <h2 class="font_yh">发现</h2>
+
+        <div class="tab_content">
+            <ul></ul>
+            <div class="loadMore clear"><a id="moreTab" href="javascript:;" class="width_s">全部</a></div>
+        </div>
+    </div>
+    <div id="mainBox">
+        <h2 class="lm_title margt10" id="playerM">
+            <span class="font_yh">热门推荐</span>
+            <ul class="right_tab font_yh">
+                <li id="xb_tj" class="tab_on">小编推荐</li>
+                <li id="new_tj">最近更新</li>
+            </ul>
+        </h2>
+        <div class="app_box"></div>
+        <div class="loadMore clear"><a id="loadHot" href="javascript:;" class="width_b">加载更多</a></div>
+        <h2 class="lm_title">
+            <span class="font_yh">热门专题</span>
+            <a href="{:U('Appstore:actList')}" class="moreText"></a>
+        </h2>
+
+        <div class="zt_box">
+
+        </div>
+        <?php $i=0; ?>
+        <foreach name="catesArr" item='vo' key='ko'>
+            <h2 class="lm_title clear">
+                <span class="font_yh">{$vo['title']}</span>
+            </h2>
+            <foreach name="vo['cid']" item='v' key='k'>
+                <div class="app_list_box {$k%4==0 ?'':'app_marginL'}">
+                    <h2 class="font_yh"><a href="{:U('appstore:cate')}?categoryId={$v}">更多</a>{$vo['cateTitle'][$k]}
+                    </h2>
+                    <ul id="class_{$i}"></ul>
+                </div>
+                <?php $i++; ?>
+            </foreach>
+        </foreach>
+    </div>
+</block>
+<block name="footer">
+    <div class="foot">
+        <ul class="footlink">
+            <foreach name="navs" item="vo">
+                <li><a href="{$vo['url']}">{$vo["title"]}</a></li>
+            </foreach>
+        </ul>
+        <p class="cert">
+            <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备00100100</a>
+            <a target="_blank" href="http://www.miibeian.gov.cn/">京ICP证00100100号</a>
+            <a target="_blank" href="#">网络视听许可证00100100号</a>
+            <br>京公网安备：110105000744
+            <a target="_blank" href="http://net.china.com.cn/index.htm">不良信息举报中心</a>
+            <a target="_blank" href="#">网络文化经营许可证 文网文[2200]220号</a>
+        </p>
+
+        <p class="copyright">
+            Copyright &copy; 2014-2015 LAMP 95（lamp95.com） All rights reserved.
+        </p>
+    </div>
+</block>
+<div id="appPlayer"><a href="{:U('Index/index')}" target="_blank"></a></div>
+<block name="script">
+    <a href="javascript:;" id="goTop"></a>
+    <script src="__PUBLIC__/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="__PUBLIC__/Scripts/appajaxpage.js"></script>
+    <script src="__PUBLIC__/Scripts/jquery-focusimg-yu-1.0.js"></script>
+    <script src="__PUBLIC__/Scripts/mustache.js"></script>
+    <script src="__PUBLIC__/Scripts/search.js"></script>
+    <script src="__PUBLIC__/Scripts/gotop.js"></script>
+    <script src="__PUBLIC__/Scripts/home.js"></script>
+    <script src="__PUBLIC__/Scripts/trunk8.js" type="text/javascript"></script>
+    </body>
+</html>
+<script id="foucsImg_template" type="text/template">
+    {{#listTVClientVO}}
+    <li>
+        <a href="{{url}}" title="{{imageTitle}}"><img src="__PUBLIC__/uploads/{{imageUrl}}"/></a>
+    </li>
+    {{/listTVClientVO}}
+</script>
+<script id="homeTag_template" type="text/template">
+    {{#operatingAppTagList}}
+    <li><a href="{:U('appstore:cate')}?tagId={{tagId}}&{{tagName}}" title="{{desc}}">{{tagName}}</a></li>
+    {{/operatingAppTagList}}
+</script>
+<script id="hotApp_template" type="text/template">
+    {{#recommendList}}
+    <dl>
+        <dt>
+            <img src="{{pic}}"/>
+            //<!-- 右上角-->
+        <div class='img_tab'><img src=''/></div>
+        <div class='app_mark_w'></div>
+        <div class='app_mark'>
+            <h3>{{_description}}</h3>
+
+            <p class='score' title="{{avgRating}}分"><em style="width:{{avgRating}}%;"></em></p>
+            <span><a href='javascript:;' id="{{appId}}" pn="{{packageName}}" class='ts_bt'>推送到TV</a><a href='{:U('Appstore:detail')}?id={{appId}}' class='down_bt'>查看详情</a></span>
+        </div>
+        </dt>
+        <dd>
+            <p><a href="{:U('Appstore:detail')}?id={{appId}}"><img src="__PUBLIC__/uploads/{{icon}}"/></a></p>
+            <span><h3 class='font_yh'><a href="{:U('Appstore:detail')}?id={{appId}}">{{name}}</a></h3><ins>
+                {{downloadCount}}人下载
+            </ins></span>
+            <!--<a href="{{appId}}" class='tab_pos'>生活</a>-->
+        </dd>
+    </dl>
+    {{/recommendList}}
+</script>
+<script id="appClassList_template" type="text/template">
+    {{#categoryAppList}}
+    <li>
+        <a href="{:U('Appstore:detail')}?id={{appId}}" class="appImg"><img src="__PUBLIC__/uploads/{{icon}}"/> </a>
+        <span>
+            <h3 class="font_yh"><a href="{:U('Appstore:detail')}?id={{appId}}" class="appName">{{name}}</a></h3>
+            <div class="show">
+                <p class='score' title="{{avgRating}}分"><em style="width:{{avgRating}}%;"></em></p>
+                <ins>{{downloadCount}}次下载</ins>
+            </div>
+            <a href="javascript:;" id="{{appId}}" pn="{{packageName}}" class="pos_ts_bt hide">推送到TV</a>
+        </span>
+    </li>
+    {{/categoryAppList}}
+</script>
+<script id="homeZt_template" type="text/template">
+    {{#subjectList}}
+    <dl class="zt_marginL">
+        <dt><a href="{:U('Appstore:actDetail')}?id={{id}}"><img src="__PUBLIC__/uploads/{{picUrl}}"/></a></dt>
+        <dd>
+            <h3><!--<ins>73857人浏览</ins>--><span class="font_yh">共{{appCount}}款应用</span></h3>
+        </dd>
+    </dl>
+    {{/subjectList}}
+</script>
+</block>

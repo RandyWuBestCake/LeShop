@@ -1,0 +1,181 @@
+﻿<extend name="Helpself/index" />
+<block name="css">
+
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/Content/style.css" />
+	<script language="javascript" src="__PUBLIC__/js/Scripts/jquery-1.4.4.min.js"></script>
+	<script language="javascript" src="__PUBLIC__/js/Scripts/frontcommon.js"></script>
+
+
+	</head>
+</block>
+<block name="main">
+	<body>
+	<div class="listing">
+		<div class="lamu" style="margin-top: 7px;"></div>		
+		<div class="index_top" >
+	    	<div class="left"><a href="index.html" >比一比</a> > 产品列表</div>
+	        <div class="right"><a href="#" id="bdshare_show">这个工具不错，我要分享给朋友 <img src="__PUBLIC__/images/Picture/fx.jpg" /></a>
+	        </div>
+	        <div class="ShareWindow hidden" id="ShareWindow" style="top:15px;right:-50px;position:absolute;width:40px;height:225px;display: none;">
+				<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"
+					 data="">
+					<a class="bds_qzone"></a> <a class="bds_tsina"></a> <a
+						class="bds_tqq"></a> <a class="bds_tsohu"></a> <a class="bds_renren"></a>
+					<a class="bds_douban"></a>
+				</div>
+				<script type="text/javascript" id="bdshare_js" data="type=tools&uid=0"></script>
+								<script type="text/javascript" id="bdshell_js"></script>
+								<script type="text/javascript">
+									document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+			
+								    var is_hidden="";
+									var bdguanzu_diplay = "1";
+									var bdshare_display = "1";
+									var timeOut;
+								
+									$(function(){
+								
+										var isIE6= navigator.appVersion.indexOf("MSIE 6")>-1; 
+											
+										if(!bdguanzu_diplay && bdshare_display == "1"){
+										
+											$("#ShareWindow").css("top","185px");			
+											if(isIE6){	
+												$("#ShareWindow").css("top",185);	
+												$("#ShareWindow").css("right",190);			
+											}	
+										}
+										
+									  $("#bdshare_show").mouseover(function(){
+									    var showdiv = $("#ShareWindow").slideDown("slow");
+									    clearTimeout(timeOut);
+									  }).mouseleave(function(){
+									    timeOut = setTimeout(hideDiv,300);
+									    return false;
+									  });
+									  
+									  $("#ShareWindow").mouseover(function(){
+									    clearTimeout(timeOut);
+									  }).mouseleave(function(){
+									    timeOut = setTimeout(hideDiv,300);
+									  });
+									  				  
+									});
+									      
+									function hideDiv(){
+									  $("#ShareWindow").slideUp("slow");
+									}			
+								</script>
+			</div>
+		</div>
+	    <div class="fenlei" id="fenlei">
+	    	<dl >
+	        	<dt><h2>品牌：</h2></dt>
+	        	<dd class="dd1">
+	            	<p class="p1" id="n_b">全部</p>
+	            	<div class="buxian kuan1" id="brand">
+		              	<foreach name="pros" item="vo" >
+		              	<p onmousemove="xsjiage('div{$vo['id']}')" onmouseout="gbjiage('div{$vo['id']}')"  onclick="Probrand({$vo['id']})" >
+		              	<a id="4_{$vo['id']-1}" href="{$vo['id']}">{$vo['bname']}</a> 
+		              	<span class="jieshaopinpai" id="div{$vo['id']}">
+		                      	<span class="kuang">
+		                      	  {$vo['context']}
+		                          </span>
+		                  </span>
+		              	</p>
+		              	 <input type="hidden" value="4_{$vo['id']-1}" id="temp{$vo['id']}">
+		              	</foreach>
+	              	</div>	
+	            </dd>
+	        </dl>
+	        <div class="clear"></div>
+	        <dl >
+	        	<dt><h2>价格：</h2></dt>
+	        	<dd class="dd1">
+	            	<p class="p1" id="n_p">全部</p>
+	            	<div class="buxian kuan2" id="price">
+		            	<p><a href="A">4000以下</a> </p>
+		              	<p><a href="B">4000-6000</a> </p>
+		              	<p><a href="C">6000-8000</a> </p>
+		              	<p><a href="D">8000-10000</a> </p>
+		              	<p><a href="E">10000-12000</a> </p>
+		              	<p><a href="F">12000以上</a> </p>
+	            	</div>	
+	            </dd>
+	        </dl>
+	        <div class="clear"></div>
+	        <dl >
+	        	<dt><h2>分辨率：</h2></dt>
+	        	 <dd class="dd1">
+	            	<p class="p1" id="n_r">全部</p>
+	            	<div class="buxian kuan3" id="fbl">
+	                <p><a id="14_0" href="G">1366*768</a> </p>
+	                <p><a id="14_0" href="H">1920*1080</a> </p>
+	              	<p><a id="14_0" href="I">3840*2160(4K)</a> </p>
+	              </div>	
+	            </dd>
+	        </dl>
+	        <div class="clear"></div>
+		</div>  
+   		<div id="lists"></div>
+			<script>
+				   //发送ajax在无选择条件时将所有商品查出
+				    function ajaxPro(url){ 
+				      $.get(url,function(msg){ //get方式请求
+				        $('#lists').html(msg);//将返回的数据插入 #lists标签
+				        //绑定分页的点击方法
+				        $("#page").find('a').click(function(){ 
+				            ajaxPro($(this).attr('href')); //递归调用发送ajax 调用分页指向的页面(
+				            return false; 
+				          });
+				      });
+				    }
+				    //初始化请求
+				    ajaxPro('{:U("Product/listblock")}'); 
+
+				    //讲点击的值获取
+				    
+				 	 $('#brand').find('a').click(function(){
+				     		var bid = $(this).attr('href');
+				     		$.get('{:U("Product/listblock")}',{bid:bid},function(msg){
+				             	
+				             	$('#lists').html(msg);
+				             });
+				     		return false;
+				     });
+				    $('#price').find('a').click(function(){
+				     		var price = $(this).attr('href');
+				     		$.get('{:U("Product/listblock")}',{price:price},function(msg){
+				             	$('#lists').html(msg);
+				             });
+				     		return false;
+				     });
+				    $('#fbl').find('a').click(function(){
+				    		var fbl = $(this).attr('href');
+				     		$.get('{:U("Product/listblock")}',{fbl:fbl},function(msg){
+				             	$('#lists').html(msg);
+				             });
+				     		return false;
+				     		
+				    });
+				    $('#n_p').click(function(){
+				    		$.get('{:U("Product/listblock")}',{np:"np"},function(msg){
+				             	$('#lists').html(msg);
+				             });
+				     		
+				    });
+				    $('#n_r').click(function(){
+				    		$.get('{:U("Product/listblock")}',{nr:"nr"},function(msg){
+				             	$('#lists').html(msg);
+				             });
+				     		
+				    });
+				    $('#n_b').click(function(){
+				    		$.get('{:U("Product/listblock")}',{nb:"nb"},function(msg){
+				             	$('#lists').html(msg);
+				             });
+				     		
+				    });
+			</script>
+	</div>
+</block>

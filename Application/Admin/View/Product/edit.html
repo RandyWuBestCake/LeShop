@@ -1,0 +1,135 @@
+<extend name="add"/>
+<block name="con">
+    <div id="mws-wrapper">
+
+        <!-- Necessary markup, do not remove -->
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+
+            <!-- Inner Container Start -->
+            <div class="container">
+                <block name="con">
+                    <div class="mws-panel grid_8">
+                        <div class="mws-panel-header">
+                            <span>产品修改</span>
+                        </div>
+                        <div class="mws-panel-body no-padding">
+                            <form action="{:U('Product/updete')}" class="mws-form" method="post">
+                                <div class="mws-form-inline">
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label"> 品牌</label>
+
+                                        <div class="mws-form-item">
+                                            <select class="large" name="brand" style="width:150px">
+                                                <foreach name="brands" item="vo">
+                                                    <option value="{$vo['id']}"
+                                                    <eq name="pros['brand']" value="$vo['id']">selected="selected"</eq>
+                                                    >{$vo['bname']}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品名</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="proname" value="{$pros['proname']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">价格</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="price" value="{$pros['price']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">音效系统</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="sound_system"
+                                                   value="{$pros['sound_system']}">
+                                        </div>
+                                    </div>
+
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">尺寸</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="size" value="{$pros['size']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">接口参数</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="interface"
+                                                   value="{$pros['interface']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">分辨率</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="resolution"
+                                                   value="{$pros['resolution']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">整机重量</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="weight" value="{$pros['weight']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">最佳观看距离</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="view_distance"
+                                                   value="{$pros['view_distance']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品定位</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="product_position"
+                                                   value="{$pros['product_position']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品标签|{$tagsId}</label>
+
+                                        <div class="mws-form-item clearfix">
+                                            <select class="large" name="tag" style="width:150px">
+                                                <foreach name="tags" item="vo">
+                                                    <option value="{$vo['id']}"
+                                                    <eq name="tagsId" value="$vo['id']">selected="selected"</eq>
+                                                    >{$vo['tag']}|{$vo['id']}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mws-button-row">
+                                    <input type="hidden" name="id" value="{$pros['id']}">
+                                    <input type="submit" class="btn btn-danger" value="点击修改">
+                                    <input type="reset" class="btn " value="重置">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Panels End -->
+                </block>
+
+            </div>
+            <!-- Inner Container End -->
+
+
+        </div>
+        <!-- Main Container End -->
+
+    </div>
+</block>

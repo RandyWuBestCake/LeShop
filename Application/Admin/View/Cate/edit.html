@@ -1,0 +1,49 @@
+<extend name="User:add"/>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>分类修改</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Cate/update')}" class="mws-form" method="post" enctype="multipart/form-data">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">分类名称</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name='name' value="{$cateInfo['name']}">
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">分类主图</label>
+
+                        <div class="mws-form-item">
+                            <img src="__ROOT__{$cateInfo['img']}" alt="" style="width:150px;height:100px;">
+                            <input type="file" class="small" name='img'>
+                        </div>
+                    </div>
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">父级分类</label>
+
+                        <div class="mws-form-item">
+                            <select class="large" name="pid">
+                                <option value="0">请选择</option>
+                                <foreach name="cates" item="vo">
+                                    <option value="{$vo.id}"
+                                    <eq name="vo['id']" value="$cateInfo['pid']">selected="selected"</eq>
+                                    >{$vo.name}</option>
+                                </foreach>
+                            </select>
+                            <span style="font-size:12px;">☆温馨提示：如果要添加的分类是最顶级分类,此处无须修改(状态保持在"请选择");☆</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="hidden" name="id" value="{$cateInfo['id']}">
+                    <input type="submit" class="btn btn-danger" value="点击修改">
+                    <input type="reset" class="btn " value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

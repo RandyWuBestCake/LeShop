@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport Metatag -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Plugin Stylesheets first to ease overrides -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/plugins/colorpicker/colorpicker.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/custom-plugins/wizard/wizard.css" media="screen">
+
+    <!-- Required Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fonts/ptsans/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/fonts/icomoon/style.css" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/mws-style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons/icol16.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/icons/icol32.css" media="screen">
+
+    <!-- Demo Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/demo.css" media="screen">
+
+    <!-- jQuery-UI Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/jui/css/jquery.ui.all.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/jui/jquery-ui.custom.css" media="screen">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/mws-theme.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/themer.css" media="screen">
+    <block name="title">
+        <title>用户添加</title>
+    </block>
+    <style type="text/css">
+
+        #mws-container {
+            margin: 0px;
+        }
+
+        .mws-form-row {
+            margin-top: -10px;
+        }
+
+        .mws-form-label {
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Themer (Remove if not needed) -->
+
+<!-- Themer End -->
+
+<block name="con">
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+
+        <!-- Necessary markup, do not remove -->
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+
+            <!-- Inner Container Start -->
+            <div class="container">
+                <block name="con">
+                    <div class="mws-panel grid_8">
+                        <div class="mws-panel-header">
+                            <span>产品添加</span>
+                        </div>
+                        <div class="mws-panel-body no-padding">
+                            <form action="{:U('Product/insert')}" class="mws-form" method="post"
+                                  enctype="multipart/form-data">
+                                <div class="mws-form-inline">
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">品牌</label>
+
+                                        <div class="mws-form-item" style="width:150px">
+                                            <select class="large" name="brand">
+                                                <foreach name="brands" item="vo">
+                                                    <option value="{$vo['id']}">{$vo['bname']}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品名</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="proname">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">价格</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="price">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row img">
+                                        <label class="mws-form-label">主图</label>
+
+                                        <div class="mws-form-item" style="width:300px">
+                                            <input type="file" class="small" name="imgmain">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row img">
+                                        <label class="mws-form-label">側面图</label>
+
+                                        <div class="mws-form-item" style="width:300px">
+                                            <input type="file" class="small" name="imgside">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row img">
+                                        <label class="mws-form-label">背面图</label>
+
+                                        <div class="mws-form-item" style="width:300px">
+                                            <input type="file" class="small" name="imgback">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">音效系统</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="sound_system">
+                                        </div>
+                                    </div>
+
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">尺寸</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="size">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">接口参数</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="interface">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">分辨率</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="resolution">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">整机重量</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="weight">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">最佳观看距离</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="view_distance">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品定位</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="product_position">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品标签</label>
+
+                                        <div class="mws-form-item clearfix" style="width:100px">
+                                            <select class="large" name="tag">
+                                                <foreach name="tags" item="vo">
+                                                    <eq name="vo['type']" value="0">
+                                                        <option value="{$vo['id']}">{$vo['tag']}</option>
+                                                    </eq>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">产品描述</label>
+
+                                        <div class="mws-form-item clearfix">
+                                            <ul class="mws-form-list inline">
+                                                <foreach name="tags" item="vo">
+                                                    <eq name="vo['type']" value="1">
+                                                        <li><input type="checkbox" name="tags[]" value="{$vo['id']}">
+                                                            <label>{$vo['tag']}</label></li>
+                                                    </eq>
+                                                </foreach>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mws-button-row">
+                                    <input type="submit" class="btn btn-danger" value="点击添加">
+                                    <input type="reset" class="btn " value="重置">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Panels End -->
+                </block>
+
+            </div>
+            <!-- Inner Container End -->
+
+
+        </div>
+        <!-- Main Container End -->
+
+    </div>
+</block>
+<!-- JavaScript Plugins -->
+<script src="__PUBLIC__/js/libs/jquery-1.8.3.min.js"></script>
+<script src="__PUBLIC__/js/libs/jquery.mousewheel.min.js"></script>
+<script src="__PUBLIC__/js/libs/jquery.placeholder.min.js"></script>
+<script src="__PUBLIC__/custom-plugins/fileinput.js"></script>
+
+<!-- jQuery-UI Dependent Scripts -->
+<script src="__PUBLIC__/jui/js/jquery-ui-1.9.2.min.js"></script>
+<script src="__PUBLIC__/jui/jquery-ui.custom.min.js"></script>
+<script src="__PUBLIC__/jui/js/jquery.ui.touch-punch.js"></script>
+
+<!-- Plugin Scripts -->
+<script src="__PUBLIC__/plugins/datatables/jquery.dataTables.min.js"></script>
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/js/libs/excanvas.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/plugins/flot/jquery.flot.min.js"></script>
+<script src="__PUBLIC__/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="__PUBLIC__/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="__PUBLIC__/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="__PUBLIC__/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<script src="__PUBLIC__/plugins/colorpicker/colorpicker-min.js"></script>
+<script src="__PUBLIC__/plugins/validate/jquery.validate-min.js"></script>
+<script src="__PUBLIC__/custom-plugins/wizard/wizard.min.js"></script>
+
+<!-- Core Script -->
+<script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/core/mws.js"></script>
+
+<!-- Themer Script (Remove if not needed) -->
+<script src="__PUBLIC__/js/core/themer.js"></script>
+
+<!-- Demo Scripts (remove if not needed) -->
+<script src="__PUBLIC__/js/demo/demo.dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<extend name="Helpself/index" />
+<block name="css">
+  <link href="__PUBLIC__/css/Content/common.css" rel="stylesheet" type="text/css" />
+  <link href="__PUBLIC__/css/Content/jnotify.jquery.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    #kinMaxShow{visibility:hidden;width:100%; height:359px; overflow:hidden;display:none;}
+    #KMSPrefix_kinMaxShow_button{ display:block;height:8px;overflow:hidden; position:absolute;bottom:10px;left:50%;}
+    #KMSPrefix_kinMaxShow_button li{border:0;width:8px;height:8px;float:left;margin:0 5px;overflow:hidden; background:url(__PUBLIC__/images/Images/banner_dian.png) no-repeat left bottom;}
+    #KMSPrefix_kinMaxShow_button li.KMSPrefix_kinMaxShow_focus{background:url(__PUBLIC__/images/Images/banner_dian.png) no-repeat left top;}
+    }
+  </style>
+  <script type="text/javascript" language="javascript" src="__PUBLIC__/js/Scripts/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" language="javascript" src="__PUBLIC__/js/Scripts/jquery.kinmaxshow-1.1.src.js"  charset="utf-8"></script>
+  <script type="text/javascript" language="javascript" src="__PUBLIC__/js/Scripts/jnotify.jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="__PUBLIC__/js/Scripts/shijie.js"></script>
+  <script type="text/javascript" language="javascript" src="__PUBLIC__/js/Scripts/waterfallhome.js"></script>
+
+
+</block>
+<block name="main">
+    
+<body style="background:#F5F5F5;">
+    <div class="main1">
+
+      <div class="snav_box">
+        <div class="bj_btn" onClick="window.open('http://zhifu.letv.com/tobuy/pro')"></div>
+          <ul class="nav_li">
+            <li class="cur"><a href="{:U('Look/index')}" class="current">首页</a></li>
+            <li><a href="{:U('Look/timeline')}">时光轴</a></li>
+            <li><a href="{:U('Look/hot')}">热播精选</a></li>
+          </ul>
+      </div>
+    </div>
+
+    <div class="banner">
+
+    <!-- 代码 开始 -->
+    <!-- 选出的主打样例 -->
+    <div class="comm_header_adv">
+        <div class="comm_header_advimg">
+          <ul>
+            <foreach name="ban" item="vo" >
+              <if condition="($vo['tags'] neq 1) and ($vo['tags'] neq 2) and ($vo['tags'] neq 3) and ($vo['tags'] neq 4) ">
+              <li><a href="{:U('Look/xiangqing',array('id'=>$vo['id']))}" target="_blank"><img src="__ROOT__{$vo['img']}"><span>{$t[$vo['tags']]}</span></a></li>
+              </if>
+            </foreach>
+          </ul>
+        </div>
+    </div>
+
+    <!-- 代码 结束 -->
+
+
+    </div>
+
+    <div class="vi_centerspan">
+      <div>中国唯一4K内容频道+独家精彩自制剧+热播影视最速上线+独播NBA/F1赛事+海量正版3D片源</div>
+    </div>
+    <div class="vi_center">
+      <div class="vi_fanpai">
+        <div class="vi_fpmark">现在，乐视网TV版片库的视频数</div>
+        <div class="vi_fpmarks">海量版权视频不断更新中...</div>
+      </div>
+      <div class="vi_pai">
+        <div class="p0"></div>
+        <div class="p0"></div>
+        <div class="p1"></div>
+        <div class="p0"></div>
+        <div class="p4"></div>
+        <div class="p2"></div>
+        <div class="p5"></div>
+        <div class="p0"></div>
+      </div>
+    </div>
+
+    <div class="main2 vi">
+      <div class="vision_right vi">
+        <div class="boxxx" id="hotTop">
+          <div class="title_box"><a href="/kankan/hot#rebo" class="more" style="display:none"></a>综合热播TOP10</div>
+          <div class="top10">
+          <ul>
+            <li><em class="num num1">1</em><a href="http://shop.letv.com/LetvTV.html">银河护卫队</a><div class="type"><span>会员</span></div></li>
+            <li><em class="num num2">2</em><a href="http://shop.letv.com/kankan/2014121538_1.html">武媚娘传奇</a><div class="type"><span>首播</span></div></li>
+            <li><em class="num num3">3</em><a href="http://shop.letv.com/LetvTV.html">单身男女2</a><div class="type"><span>会员</span></div></li>
+            <li><em class="num ">4</em><a href="http://shop.letv.com/kankan/2014111412_1.html">奔跑吧兄弟</a><div class="type"><span>综艺</span></div></li>
+            <li><em class="num ">5</em><a href="http://shop.letv.com/LetvTV.html">傻儿传奇</a><div class="type"><span>热播</span></div></li>
+            <li><em class="num ">6</em><a href="http://shop.letv.com/LetvTV.html">触不可及</a><div class="type"><span>热播</span></div></li>
+            <li><em class="num ">7</em><a href="http://shop.letv.com/kankan/2014121565_1.html">屌丝留学记</a><div class="type"><span>自制</span></div></li>
+            <li><em class="num ">8</em><a href="http://shop.letv.com/LetvTV.html">满仓进城</a><div class="type"><span>热播</span></div></li>
+            <li><em class="num ">9</em><a href="http://shop.letv.com/LetvTV.html">Fate/stay night</a><div class="type"><span>动漫</span></div></li>
+            <li><em class="num ">10</em><a href="http://shop.letv.com/LetvTV.html">非常静距离</a><div class="type"><span>访谈</span></div></li>
+          </ul>
+        </div>
+      </div>
+    <script>
+      $('#hotTop').hover(
+        function(){
+          $(this).find('a.more').show();
+        },
+        function(){
+          $(this).find('a.more').hide();
+        }
+      )
+    </script>
+
+
+
+
+    <!-- 右侧广告 Start-->
+    <div class="ad">
+      <ul>
+        <li><a href="javascript:void(0)" onclick="getAdvertisUrl(1322,'http://shop.letv.com/zt/qszg.html')"><img src="__PUBLIC__/images/Picture/201411181617071401246.jpg" width="230" /></a></li>
+        <li><a href="javascript:void(0)" onclick="getAdvertisUrl(1323,'http://shop.letv.com/huodong/lemelyej.html')"><img src="__PUBLIC__/images/Picture/201411181608423298491.jpg" width="230" /></a></li>
+      </ul>
+    </div> 
+    <!--右侧广告 End-->
+    <div class="boxxx" style="position: relative;">
+      <div class="title_box">本周更新</div>
+      <div class="vi_right_mark">
+        <span></span>6
+      </div>
+      <div class="update">
+        <ul>
+            <li>
+              <div class="infos">
+                  <a href="http://shop.letv.com/kankan/2015011661_1.html">一步之遥</a><div class="type"><span>会员</span></div>
+                    <div class="date">上线日期：2015年01月26日</div>
+                </div>
+                <div class="btn">
+                  <a href="http://shop.letv.com/kankan/2015011661_1.html">阅读导视</a>
+                  <!--<a href="http://shop.letv.com/kankan/2015011661_1.html">提醒我看</a>-->
+                </div>
+            </li>
+            <li>
+              <div class="infos">
+                  <a href="http://shop.letv.com/kankan/2015011664_1.html">撒娇女人最好命</a><div class="type"><span>会员</span></div>
+                    <div class="date">上线日期：2015年01月26日</div>
+                </div>
+                <div class="btn">
+                  <a href="http://shop.letv.com/kankan/2015011664_1.html">阅读导视</a>
+                  <!--<a href="http://shop.letv.com/kankan/2015011664_1.html">提醒我看</a>-->
+                </div>
+            </li>
+            <li>
+              <div class="infos">
+                  <a href="http://shop.letv.com/kankan/2014121538_1.html">武媚娘传奇</a><div class="type"><span>剧集</span></div>
+                    <div class="date">上线日期：2015年01月26日</div>
+                </div>
+                <div class="btn">
+                  <a href="http://shop.letv.com/kankan/2014121538_1.html">阅读导视</a>
+                  <!--<a href="http://shop.letv.com/kankan/2014121538_1.html">提醒我看</a>-->
+                </div>
+            </li>
+            <li>
+              <div class="infos">
+                  <a href="http://shop.letv.com/kankan/2015011670_1.html">七号房的礼物</a><div class="type"><span>会员</span></div>
+                    <div class="date">上线日期：2015年01月26日</div>
+                </div>
+                <div class="btn">
+                  <a href="http://shop.letv.com/kankan/2015011670_1.html">阅读导视</a>
+                  <!--<a href="http://shop.letv.com/kankan/2015011670_1.html">提醒我看</a>-->
+                </div>
+            </li>
+            <li>
+              <div class="infos">
+                  <a href="http://shop.letv.com/kankan/2015011667_1.html">阿宪走着瞧</a><div class="type"><span>自制</span></div>
+                    <div class="date">上线日期：2015年01月27日</div>
+                </div>
+                <div class="btn">
+                  <a href="http://shop.letv.com/kankan/2015011667_1.html">阅读导视</a>
+                  <!--<a href="http://shop.letv.com/kankan/2015011667_1.html">提醒我看</a>-->
+                </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+      <a name="tohottags" id="tohottags"></a>
+      <div class="pubu_box">
+          
+        <!-- 瀑布流加载区 Start -->
+        <input name="pageCount" type="hidden" id="pageCount" value="11" />
+        <div id="waterfall">
+        
+         <div class="cell" id="one" style="display:none;">
+            <li>
+              <div class="box_4k"></div>
+              <div class="box">
+                <div class="pic_infos">
+                  <div class="img"><a href="" target="_blank"><img src="" width="100%"></a></div>
+                  <div class="infos"><a class="title" href="" target="_blank">\</a><p>\</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </div>
+         
+         <ul class="item" style="margin-left:10px;width:230px;float:left;">
+         <ul id="pubu">
+              <div class=""  >
+                    <div class="tags_box">
+                        <div class="boxxx">
+                            <div class="title_box">热门标签<input name="tag" type="hidden" id="tag" value="" /></div>
+                            <ul class="list">
+                              <span><a href="{:U('Look/index/')}#tohottags" class="focus">全部</a></span>
+                            <foreach name="t" item="vo" key="k">
+                              <span><a href="javascript:url()" class="tag">{$vo}</a></span>
+                            </foreach>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <li></li>
+                </div>
+
+            </ul></ul>
+         <ul class="item" style="margin-left:10px;width:230px;float:left;"></ul>
+         <ul class="item" style="margin-left:10px;width:230px;float:left;"></ul>
+         <ul class="item" style="margin-left:10px;width:230px;float:left;"></ul>
+         <div id="loading" style="border:solid 1px #333;border-radius:50%;width:100px;height:100px;position:absolute;bottom:0px;left:300px;overflow:hidden;display:none"><img src="__PUBLIC__images/Picture/" alt="" width="100%"></div>
+          
+
+    </div>
+    <script>
+      
+        var p =1;
+        var num =12;
+        //初始化的时候  自动请求一次服务器
+        $.get("{:U('Look/datas')}",{p:p,num:num},function(msg){
+          for(var i = 0;i<msg.length;i++){
+            var div = $('#one').clone();
+            //设置标签
+            div.find('.box_4k').html(msg[i].tags);
+            //s设置图片
+            div.find('img ').attr('src','__ROOT__'+msg[i].img);
+            //设置标题
+            div.find('.infos a').html(msg[i].title);
+            div.find('.infos p').html(msg[i].con);
+            div.find('.img a').attr('href',"{:U('/Home/Look/xiangqing/id/"+msg[i].id+"')}");
+            div.find('.infos a').attr('href',"{:U('/Home/Look/xiangqing/id/"+msg[i].id+"')}");
+           //$('#waterfall').append(div);
+            
+            
+            $('.item').eq(i%4).append(div);
+            div.show();
+          }//页码自增
+          p++;
+        });
+       
+       $(window).scroll(function(){
+
+          //检测当前是否正在请求服务器
+          //总的文档高度
+          var tHeight = $(document).height();
+          var wHeight = $(window).height();
+          var sHeight = $(window).scrollTop();
+          
+          //当地步跟东高度只有250像素时候开始请求服务器
+          if(tHeight-wHeight-sHeight <=0){
+            //开始请求服务器时候关闭通道
+            $.get("{:U('Look/datas')}",{p:p,num:num},function(msg){
+              for(var i=0;i<msg.length;i++){
+                //克隆
+                var div = $('#one').clone();
+                //设置标签
+                div.find('.box_4k').html(msg[i].tags);
+                //s设置图片
+                div.find('img ').attr('src','__ROOT__'+msg[i].img);
+                //设置标题
+                div.find('.infos a').html(msg[i].title);
+                div.find('.infos p').html(msg[i].con);
+                div.find('.img a').attr('href',"{:U('/Home/Look/xiangqing/id/"+msg[i].id+"')}");
+                div.find('.infos a').attr('href',"{:U('/Home/Look/xiangqing/id/"+msg[i].id+"')}");
+                $('.item').eq(i%4).append(div);
+                div.show();
+              }p++;
+              
+            });
+            
+          }
+        })
+      </script>
+          <!-- 瀑布流加载区 End -->
+            <div class="clearfix"></div>
+
+            <!-- 加载等待提示 -->
+            <div id ="wfloading"></div>
+
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+
+    <div style="position:relative; top:71px;">
+</block>

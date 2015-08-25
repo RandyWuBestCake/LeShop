@@ -1,0 +1,25 @@
+<?php 
+  //获取上方右侧导航菜单
+  $rNav = getNav(1);
+  //获取上方左侧导航菜单
+  $lNav = getNav(0);
+  ?>
+    <div class="nav">
+      <div class="center relative zindex299" >
+        <ul class="main_nav left">
+          <foreach name="lNav" item="v">
+              <li class="hadlist">
+                <a href="{$v['url']}"> {$v['title']}</a>
+              </li>
+          </foreach>
+        </ul>
+        <ul class="yinxiao right">
+          <li>|</li>
+          <foreach name="rNav" item='v'>
+             <li>
+              <a href="{$v['url']}" target="_blank" >{$v['title']}</a>
+            </li>
+          </foreach>          
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,414 @@
+<extend name="Helpself:base"/>
+<block name="css">
+    <script>var _hrefPath = '',_imagePath = 'http://img0.hdletv.com',_basePath = 'http://web_dev_service_group:80/';</script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="../Scripts/unitpngfix.js"></script>
+    <![endif]-->
+    <link  type='text/css' href='__PUBLIC__/CSS/global.css' rel='stylesheet' />
+    <script type='text/javascript' src='__PUBLIC__/Scripts/generatesession.js'></script>
+    <script type='text/javascript' src='__PUBLIC__/Scripts/template.js'></script>
+    <link  type='text/css' href='__PUBLIC__/CSS/products.css' rel='stylesheet' />
+    <link  type='text/css' href='__PUBLIC__/CSS/page.css' rel='stylesheet' />
+    <script type='text/javascript' src='__PUBLIC__/Scripts/zxlib.js'></script>
+    <script type="text/javascript" src="__PUBLIC__/Scripts/unitpngfix.js"></script>
+      <script type='text/javascript' src='__PUBLIC__/Scripts/newag.js'></script>
+    <script type='text/javascript' src='__PUBLIC__/Scripts/jquery.pagination.js'></script>
+    <link rel="icon" href="http://www.letv.com/favicon.ico" type="image/x-icon"/> 
+    <link rel="shortcut icon"  href="http://www.letv.com/favicon.ico" type="image/x-icon"/>   
+    <title>超级电视,乐视盒子配件频道-乐视商城-乐视商城</title>
+  <meta name="keywords" content="配件,电视配件,乐视配件,盒子配件">
+  <meta name="description" content="" >
+    <link rel="canonical" href="http://shop.letv.com/product/parts.html"/>
+</block>
+
+<block name="nav">
+<div class="main">
+    <div class="center">
+      <a href="{:U('Fit/detail',array('id'=>13))}"  target="_blank" webtrekkparam="{ct:'lj_sy_pjzq_tl'}">
+        <img  alt="" src="__PUBLIC__/Picture/61fd5137d41e4cbfb7583b09c33768a6.gif"/>
+      </a>
+    </div>
+    <div class="product_tvlist">
+        <div class="bread_nav center line_b ">
+            <div class="font14">
+                <a href="/" webtrekkparam="{ct:'lj_sy_pjzq_sy'}"><span class="dark"><strong>首页</strong></span></a> > <span class="gray_2">配件专区</span>
+            </div>
+
+        </div>
+<!-- ********************************一级菜单栏筛选********************************************* -->
+        <div class="filter center" >
+          <foreach name="cates1" item="vo1" >  
+          <div class="item">
+          <label>{$vo1['name']}：</label>
+            <ul>
+                <li class="pame7 current "><a class="allfit" style="cursor:pointer" path="{$vo1.path}" id="{$vo1.id}">全部</a><em>丨</em></li>
+                <foreach name="cates2" item="vo2" >  
+                <if condition="substr($vo2['path'],-2)==$vo1['id']">
+                <li class="subpame39"><a class="fit" style="cursor:pointer" id="{$vo2.id}">{$vo2.name}</a><em>丨</em></li>
+                <else /> </if>
+                </foreach>
+             </ul>
+           </div>
+          </foreach>
+        </div>
+  <!-- ***********************************二级菜单栏筛选********************************************** -->
+        <div class="sort">
+            <div class="center">
+                <div class="left fenlei">
+                    <a class="default"><span id="sortColor0" class="sortFontColor red" name="0" style="cursor:pointer">默认</span></a>
+                    <a class="new"><span id="sortColor1" class="sortFontColor" name="1">最新</span></a>
+
+                    <a class="s_price"><span id="sortColor2" class=" sortFontColor" price="1">价格</span></a>
+
+                </div>
+                <div class="right pagenation">
+
+                </div>
+                <!-- 分页展示 -->
+                <div class="pagination" id="Pagination">{$page}</div>
+            </div>  
+        </div>
+        <!--配件list begin-->
+        <div class="filterresult center" id="parts_list">
+          <ul id = "rep">
+          <!-- ****************商品遍历************************************ -->
+            <foreach name="infos" item="vo" >  
+            <li>
+              <div class="pro_img t_c"><a webtrekkparam="{ct:'lj_sy_pjzq409900000269'}" title="{$vo.name}" href="{:U('Fit/detail',array('id'=>$vo['id']))}" target="_blank"><img width="180" height="180" alt="{$vo.name}"  src="__ROOT__{$vo.img}" class="lz" style="display: inline;"></a></div>
+              <div class="pro_name"><a webtrekkparam="{ct:'lj_sy_pjzq409900000269'}" title="{$vo.name}" href="{:U('Fit/detail',array('id'=>$vo['id']))}" target="_blank">{$vo.name}</a></div>
+              <div class="pro_price">￥{$vo.price}</div>
+              <div class="pro_evaluate">
+                 <p><em class="star" grade="{$vo.grade}" count="{$count}"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i></i></em> <a target="_blank" href="/product/product-pid-409900000269.html#pingjia">已有<span>{$vo.num}</span>人评价</a></p>
+              </div> 
+              <div class="pro_btns" >
+              <a  num="1" id="{$vo.id}" amount="{$vo.amount}" count="{$count}" type="slideTip" class="addCart gray_bt_s block_center"><span class="">加入购物车</span></a>
+              <a href="{:U('Fit/detail',array('id'=>$vo['id']))}" target="_blank" class="want_more gray_bt_s block_center">了解详情</a>
+              </div>
+              <div class="added_cart"  style="position:absolute;top:303px;right:0px;background-color:#d80c18;width:300px;text-align:center;line-height:56px;font-size:12px;color:white;height:56px;display:none;">已加入购物车</div>
+                    <div class="discount "></div>
+          </li>
+          </foreach>
+        </ul>
+        <script type="text/javascript">
+          
+          //获取商品数量
+          var count = $('.addCart').attr('count');
+          //遍历判定每个商品的订购状态是否可购买
+          for(var c=0;c<count;c++){
+            //获取商品库存数量
+            var amount = $('.addCart').eq(c).attr('amount');
+            // alert(amount);
+            if(amount == 0){
+               $('.addCart').eq(c).css('display','none');
+            }else{
+               $('.want_more').eq(c).css('display','none');
+            }
+          }
+          $('.addCart').click(function(){
+            var goods_id = $(this).attr('id');
+            $(this).parent().next().slideDown(200).delay(800).slideUp(200);
+            var num = $('#productNumInCart').html();
+            $('#productNumInCart').show(100);
+            $.get("{:U('Cart/addCart')}",{goods_id:goods_id,cart_amount:1},function(msg){
+              if(msg =='1'){
+                var new_productNum = 1;
+              }else{
+                var new_productNum = num*1+1;
+              }
+            $('#productNumInCart').html(new_productNum);
+        })
+
+          })
+          //评价星级
+          var v = $('.star').eq(g).attr('grade');
+          var k = $('.star').attr('count');
+
+          for(var g=0;g<k;g++){
+            var v = $('.star').eq(g).attr('grade');
+            for(var i=0;i<v;i++){
+              $('.star').eq(g).find('i').eq(i).attr('class','on');
+            }
+          }
+            
+          //获取附带参数值
+          var path = $('.allfit').attr('path');
+          var id = $('.allfit').attr('id');
+          $('.allfit').click(function(){
+            //获取附带参数值
+            var path = $(this).attr('path');
+            var id = $(this).attr('id');
+            //改变样式
+            $('.current').removeClass();
+            $(this).parent().addClass('current');
+            // ajax传值
+            $.get("{:U('Fit/FitListblock')}",{id:id,path:path},function(msg){
+                $('#rep').html(msg);   
+            })
+            //添加价格排序条件
+            $('#sortColor2').toggle(
+              function(){
+                $('#sortColor0').removeClass();
+              $('#sortColor2').parent().addClass('s_price_hover s_price_t_hover');
+              $('#sortColor1').removeClass();
+              $.get("{:U('Fit/FitListblock')}",{price:0},function(msg){
+                  $('#rep').html(msg);
+              })
+           },
+            function(){
+              $('#sortColor2').parent().removeClass('s_price_t_hover');
+              $.get("{:U('Fit/FitListblock')}",{price:1},function(msg){
+                $('#rep').html(msg);
+            })
+            }
+        );
+          })
+          $('.fit').click(function(){
+            var id = $(this).attr('id');
+            //改变样式
+            // $('.subpame39').removeClass();
+            $('.current').removeClass();
+            $(this).parent().addClass('current');
+            $.get("{:U('Fit/block')}",{id:id},function(msg){
+                $('#rep').html(msg);
+            })
+          })
+
+          $('#sortColor1').click(function(){
+            // var id = $('.allfit').attr('id');
+            // var path = $('.allfit').attr('path');
+            $('#sortColor2').parent().removeClass('s_price_hover s_price_t_hover');
+            $('#sortColor0').removeClass();
+            $(this).addClass('red');
+            var v = $(this).attr('name');
+            $.get("{:U('Fit/newblock')}",{id:v},function(msg){
+                $('#rep').html(msg);
+            })
+          })
+          $('#sortColor0').click(function(){
+            $('#sortColor1').removeClass();
+            $('#sortColor2').parent().removeClass('s_price_hover s_price_t_hover');
+            $(this).addClass('red');
+            $.get("{:U('Fit/newdefault')}",{id:id,path:path},function(msg){
+                $('#rep').html(msg);
+          })
+        })
+        $('#sortColor2').toggle(
+            function(){
+              $('#sortColor0').removeClass();
+            $(this).parent().addClass('s_price_hover s_price_t_hover');
+            $('#sortColor1').removeClass();
+            $.get("{:U('Fit/by')}",{price:0},function(msg){
+                $('#rep').html(msg);
+            })
+
+           },
+            function(){
+              $(this).parent().removeClass('s_price_t_hover');
+              $.get("{:U('Fit/by')}",{price:1},function(msg){
+                $('#rep').html(msg);
+            })
+            }
+        );
+        </script>
+<div style="display:none">
+  <script type="text/javascript">
+  var myTongJi={
+    wk_contentId:"",//webtrek用到的contentId
+    zp_pageId:"",//晶赞用到的_setPageID
+    zp_pageType:"",//晶赞用到的_setPageType
+    zp_params:[],//晶赞用到的_setParams
+    zp_need:"1"
+  }
+  if(typeof(globalTongJi)!='undefined'){
+    if(globalTongJi.wk_contentId){
+            myTongJi.wk_contentId=globalTongJi.wk_contentId;
+    }
+        var zpqUrlPath = window.location.pathname;
+        var zpqTitle = document.title;
+        if(zpqUrlPath.indexOf("/help/")!=-1 && !globalTongJi.wk_contentId){
+        myTongJi.zp_pageId="helpPage";
+        }else{
+          myTongJi.zp_pageId=globalTongJi.wk_contentId;
+        }
+    if(globalTongJi.zp_pageId){
+      myTongJi.zp_pageId=globalTongJi.zp_pageId;
+    }
+    if(globalTongJi.zp_pageType){
+      myTongJi.zp_pageType=globalTongJi.zp_pageType;
+    }
+    if(globalTongJi.zp_params){
+      myTongJi.zp_params=globalTongJi.zp_params;
+    }
+    if(globalTongJi.zp_need){
+      myTongJi.zp_need = globalTongJi.zp_need;
+    }
+    }else{        
+        var zpqUrlPath = window.location.pathname;
+        var zpqTitle = document.title;
+      if(zpqUrlPath.indexOf("/help/")!=-1){
+        myTongJi.zp_pageType="helpPage";
+            myTongJi.zp_params = [$(document).attr("title")];
+        }
+    }
+  </script>
+    <!-- 百度统计 start-->
+  <script type="text/javascript" src="__PUBLIC__/Scripts/bdtj.js"></script>
+  <!-- 百度统计 end-->
+  
+  <!-- webtrek统计 start-->
+  <script type="text/javascript">
+  var webtrekk_params = {
+    contentId:myTongJi.wk_contentId
+  };
+  </script>
+  <script type="text/javascript" src="__PUBLIC__/Scripts/webtrekk_v3.js"></script>
+  <!-- webtrek统计 end-->
+  
+  <!-- 艾瑞统计 start-->
+  // <script type="text/javascript">
+  //  _iwt_no_flash = 1; //默认为0开启flash cookie；可以修改为1关闭flash cookie
+  //  var _iwt_UA = "UA-letv-000002"; //客户项目编号,根据实际生成
+  //  (function (D) {
+  //  var h = D.getElementsByTagName('head')[0],
+  //  s = D.createElement('script');
+  //  s.type = 'text/javascript';
+  //  s.charset = 'utf-8';
+  //  s.src =_hrefPath+'/htmlResource/js/iwt.js';
+  //  h.firstChild ? h.insertBefore(s, h.firstChild) : h.appendChild(s);
+  //  })(document);
+  // </script>
+  <!-- 艾瑞统计 end-->
+  
+    <!-- pv统计 start-->
+  <script type="text/javascript">
+    var __INFO__ = {};
+
+    var _siteid = '1';var _chlid = '16';var _clickTracker = false;
+    (function (D){
+           window.Stat = {P1: 4, P2: 41};
+           var h = D.getElementsByTagName('head')[0],
+           s = D.createElement('script');
+           s.type = 'text/javascript';
+           s.charset = 'utf-8';
+           s.src = 'http://js.letvcdn.com/js/201409/16/leStats.js';
+           h.firstChild ? h.insertBefore(s, h.firstChild) : h.appendChild(s);
+        })(document);
+      
+      $(function(){
+        var pvstatsTime = null;
+      
+        if(pvstatsTime){
+            pvstatsTime = null;
+        }else{
+            pvstatsTime = setTimeout(hidePVStatsDiv,1000);
+        }
+        
+        function hidePVStatsDiv(){
+            if($("#rookieswf") && $("#rookieswf").length>0){
+                $("#rookieswf").parent().hide();
+            }else{
+                pvstatsTime = setTimeout(hidePVStatsDiv,1000);
+            }
+        }
+      }); 
+  </script>
+  <!-- pv统计 end-->
+  
+  <!-- 晶赞统计代码  begin  -->
+  <script type='text/javascript'>
+        var _sparam=['_setParams'].concat(myTongJi.zp_params);
+    var _zpq = _zpq || [];
+    _zpq.push(['_setPageID',myTongJi.zp_pageId]);
+    _zpq.push(['_setPageType', myTongJi.zp_pageType]);
+    _zpq.push(_sparam);
+    _zpq.push(['_setAccount','104']);
+    (function() {
+    if(myTongJi.zp_need && (myTongJi.zp_need == "1")){
+      var zp = document.createElement('script'); zp.type = 'text/javascript'; zp.async = true;
+      zp.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.zampda.net/s.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(zp, s);
+    }
+    })();
+  </script>
+  <!-- 晶赞统计代码  end  -->
+</div>
+<!-- 统计代码end--><script type="text/javascript">
+  window._bd_share_config={
+  "common": {
+    "bdSnsKey": { 
+    },
+    "bdText" : "游戏手柄打起电动有够爽，超级遥控器换台唰唰唰！没事用超级歌王吼一嗓，还有万能体感摄像头，方便的键鼠套装…都是@超级电视 的好盆友~越来越多的高能配件，无限惊喜走起来>>>", 
+    "bdDesc" : "游戏手柄打起电动有够爽，超级遥控器换台唰唰唰！没事用超级歌王吼一嗓，还有万能体感摄像头，方便的键鼠套装…都是@超级电视 的好盆友~越来越多的高能配件，无限惊喜走起来>>>", 
+    "bdUrl" : "http://shop.letv.com/product/parts.html?cps_id=u_p_pj",  
+    "bdPic" : "http://img0.hdletv.com/file/20141103/default/51410299199395805",
+    "bdMini": "2",
+    "bdMiniList": false,
+    "bdStyle": "0",
+    "bdSize": "32"  
+  },
+  "share": {  
+  }
+};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<script type="text/javascript">
+//右侧飘窗显示隐藏方法
+$.fn.extend({showOrHide:function(){var _this=this;this.each(function(index,elem){var $handle=$(elem);var name=$handle.attr("object");var $content=$(name);var timer=null;$handle.mouseover(function(){show();}).mouseout(function(){hide();});$content.mouseover(function(){show();}).mouseout(function(){hide2();});function show(){clearTimeout(timer);$content.show();}
+function hide(){var interval=300;timer=setTimeout(function(){ $content.hide();},interval);}
+function hide2(){ $content.hide();}});}});
+
+var is_hidden="1";//返回顶部
+var is_share_show="1";//是否分享
+
+$(function(){
+    //右侧飘窗显示隐藏
+  $(".handle").showOrHide();
+    //返回顶部
+  if(is_hidden=="1"){
+    initBackTop();
+  }
+    
+  $(".ie6-hover").mouseover(function () {
+    $(this).addClass("hover");
+  });
+  
+  $(".ie6-hover").mouseout(function () {
+    $(this).removeClass("hover");
+  });
+});
+
+//初始化返回顶部按钮事件
+function initBackTop(){
+  window.onscroll=function(){
+    if(document.body.scrollTop==0?document.documentElement.scrollTop:document.body.scrollTop > 50){
+      $("#backTop").show();
+    }else{
+      $("#backTop").hide();
+    }
+  }
+
+  $("#backTop").unbind("click").bind("click",function(){
+      pageScroll();
+  });
+}
+//鼠标滚动事件  
+function pageScroll(){
+    window.scrollBy(0,-50);
+    scrolldelay = setTimeout('pageScroll()',1);
+    var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+    if(sTop==0){
+    clearTimeout(scrolldelay);
+  }
+}
+</script>
+</body>
+<!-- 底部系统引用 勿动 -->
+            <script type='text/javascript' src='__PUBLIC__/Scripts/jquery.lazyload.js'></script>
+
+            <script type='text/javascript' src='__PUBLIC__/Scripts/zxvideo.js'></script>
+
+            <script type='text/javascript' src='__PUBLIC__/Scripts/sxf_scroll_pic.js'></script>
+
+</html>
+<!-- 系统引用 勿动 -->
+ </block> 

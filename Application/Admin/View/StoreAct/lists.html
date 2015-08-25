@@ -1,0 +1,57 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>活动列表</title>
+    <style type="text/css">
+        tr td div a {
+            padding: 0 10px;
+            color: #999;
+        }
+    </style>
+</block>
+<block name="con">
+
+    <div class="mws-panel grid_8">
+
+        <div class="mws-panel grid_8">
+            <div class="mws">
+                <div class="mws-panel-header">
+                        <span style="white-space: normal">
+                            <i class="icon-table"></i> 活动列表 Activity                          
+                        </span>
+                </div>
+                <div>
+                    <table class="mws-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th width="120px">标题</th>
+                            <th width="300px">简介</th>
+                            <th width="120px;">图片</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <foreach name="rows" item="v">
+                            <tr>
+                                <td>{$v['id']}</td>
+                                <td>{$v['title']}</td>
+                                <td>{$v['desc']}</td>
+                                <td><img width="120px" src="__PUBLIC__/uploads/{$v['img']}"></td>
+                                <td><a style="color:#444"
+                                       href="{:U('StoreAct:edit',array('id'=>$v['id'],'cid'=>$v['cid']))}">修改</a> || <a
+                                        style="color:#444" href="{:U('StoreAct:doDel',array('id'=>$v['id']))}">删除</a> ||
+                                    <a style="color:#444"
+                                       href="{:U('StoreAct:goodsAdd',array('id'=>$v['id']))}">添加商品</a></td>
+                            </tr>
+                        </foreach>
+                        <tr>
+                            <td colspan="8" style="text-align:right;">{$page}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</block>

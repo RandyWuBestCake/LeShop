@@ -1,0 +1,80 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>帮助中心</title>
+</block>
+<block name="con">
+
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>帮助中心 Help</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('Help:add')}" class="mws-form" method="post" enctype=multipart/form-data>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="title">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">连接地址</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="url">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">选择图标</label>
+
+                        <div class="mws-form-item medium">
+                            <input type="file" class="medium" name="img">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="submit" class="btn btn-primary" value="保存">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i>选项</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <table class="mws-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>链接</th>
+                    <th>图标</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <if condition="$name neq '0'">
+                    <foreach name="rows" item="vo">
+                        <tr>
+                            <td>{$vo['id']}</td>
+                            <td>{$vo['title']}</td>
+                            <td>{$vo['url']}</td>
+                            <td><img width="100px" src="__PUBLIC__/Uploads/{$vo['img']}"></td>
+                            <td><a style="color:#444" href="{:U('Help:edit',array('id'=>$vo['id']))}">修改</a> || <a
+                                    style="color:#444" href="{:U('Help:del',array('id'=>$vo['id']))}">删除</a></td>
+                        </tr>
+                    </foreach>
+                </if>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</block>

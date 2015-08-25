@@ -1,0 +1,174 @@
+<extend name="Helpself/index"/>
+<block name="css">
+    <link type='text/css' href='__PUBLIC__/css/Content/global.css?v=20150115' rel='stylesheet'/>
+    <!-- <link type='text/css' href='__PUBLIC__/css/fonts/icomoon/style.css' rel='stylesheet'/> -->
+    <!-- <link type='text/css' href='__PUBLIC__/css/mws-theme.css' rel='stylesheet'/> -->
+    <link type='text/css' href='__PUBLIC__/bootstrap/css/bootstrap.min.css' rel='stylesheet'/>
+    <link type='text/css' href='__PUBLIC__/css/mws-style.css' rel='stylesheet'/>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/generateSession.js?v=20140616'></script>-->
+    <script type='text/javascript' src='__PUBLIC__/js/jquery-1.8.3.min.js?v=20140616'></script>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/template.js?v=20140221'></script>-->
+    <link type='text/css' href='__PUBLIC__/css/Content/user.css?v=20141121' rel='stylesheet'/>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/usercenterAddr.js?v=20141215'></script>-->
+    <script>
+        var addres_url = ' {:U("Account/addressAjax")}';
+        var ssq = ' {:U("Account/ssqAjax")}';
+        var dodel_url = ' {:U("Account/dodel")}';
+    </script>
+</block>
+<block name="main">
+    <div class="main_body center">
+        <div class="crumb">
+            <div class="left">
+                <a target="_blank" href="/"><span class="dark font14"><strong>首页</strong> </span></a>
+                <span class="font14"> &gt; </span>
+                <span class="font14">收货地址</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="user_category_new left f8_bg pb20">
+            <dl>
+                <dt class="title dark font18 pt10 pb10">交易管理</dt>
+                <dd>
+                    <a href="{:U("Account/order")}" target="_self">
+                    <span class="font14">我的订单</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">我的预约信息</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">我的快捷支付</span>
+                    </a>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt class="title dark font18 pt20 pb10">客户服务</dt>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">退货/换货</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">取消退款查询</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">安装/维修</span>
+                    </a>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt class="title dark font18 pt20 pb10">账户信息</dt>
+                <dd>
+                    <a href="{:U('Account:personalInfo')}" target="_self">
+                        <span class="font14">个人信息</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a class="on" href="{:U('Account:address')}" target="_self">
+                        <span class="font14">收货地址</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="{:U('Account:coupons')}" target="_self">
+                        <span class="font14">我的优惠劵</span>
+                    </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt class="title dark font18 pt20 pb10"> 个人应用管理</dt>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">商品评价/晒单</span>
+                    </a>
+                </dd>
+                <dd class="title dark font18 pt20 pb10 "><a class="onward" href="#">分享邀请赢大奖</a>
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <div id="content" class="user_main right">
+                        <div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-ok"></i> 个人信息</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <form id="mws-validate" class="mws-form" action="{:U('Account/editPersonalInfo')}" method="post"  enctype="multipart/form-data">
+                            <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
+                            <div class="mws-form-inline">
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">用户名</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" class="required large" disabled value="{$row['username']}">
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">用户昵称</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" name="nickname" class="required large" value="{$row['nickname']}">
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">性别</label>
+                                    <div class="mws-form-item">
+                                           <input type="radio" name="sex" class="required" value='1' {$row['sex']?'checked="checked"':''}> <label for="gender_male">男</label>
+                                            <input id="gender_female" type="radio" name="sex" value='0' {$row['sex']?'':'checked="checked"'}> <label for="gender_female">女</label>
+                                    </div>
+                                </div>
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">Email</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" name="email" class="required email large" value="{$row['email']}">
+                                    </div>
+                                </div>
+                            <!--     <div class="mws-form-row">
+                                    <label class="mws-form-label">URL Validation</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" name="urlField" class="required url large">
+                                    </div>
+                                </div> -->
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">手机号码</label>
+                                    <div class="mws-form-item">
+                                        <input type="text" name="tel" value = "{$row['tel']}" class="required tel large">
+                                    </div>
+                                </div>
+                               
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">头像</label>
+                                    <div class="mws-form-item">
+                                        <input type="file" name="img">
+                                        <label for="picture" class="error" generated="true" style="display:none"></label>
+                                        <br />
+                                        <img src="/object/{$row['img']}" width="80px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+   
+                            <div class="mws-button-row">
+                                <input type="hidden" name="id" value="{$Think.session.users.id}">
+                                <input type="submit" class="btn btn-danger">
+                            </div>
+                        </form>
+                    </div>      
+                </div>
+                
+            <div class="clear"></div>
+        </div>
+    </div>
+    </div>
+</block>
+<block name="mjsblock">
+    <script type='text/javascript' src='__PUBLIC__/js/Scripts/userAddress.js'></script>
+    <script type='text/javascript' src='__PUBLIC__/bootstrap/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='__PUBLIC__/plugins/validate/jquery.validate.js'></script>
+    <script type='text/javascript' src='__PUBLIC__/js/demo/demo.formelements.js'></script>
+</block>

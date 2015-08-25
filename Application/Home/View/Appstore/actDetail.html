@@ -1,0 +1,54 @@
+<extend name="index"/>
+<block name="con">
+    <div id="mainBox">
+        <h2 class="lm_title" id="playerM">
+            <span class="font_yh"></span>
+        </h2>
+        <dl class="topicT">
+
+        </dl>
+        <div class="app_list_er margt10">
+            <ul>
+
+            </ul>
+            <div id="pageBox" class="clear"></div>
+        </div>
+</block>
+<block name="script">
+    <a href="javascript:;" id="goTop"></a>
+    <script src="__PUBLIC__/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="__PUBLIC__/Scripts/appajaxpage.js"></script>
+    <script src="__PUBLIC__/Scripts/mustache.js"></script>
+    <script src="__PUBLIC__/Scripts/search.js"></script>
+    <script src="__PUBLIC__/Scripts/gotop.js"></script>
+    <script src="__PUBLIC__/Scripts/topicdetail.js"></script>
+    </body>
+    </html>
+    <script id="topicAppList_template" type="text/template">
+        {{#subjectAppList}}
+        <li>
+            <a href="{:U('Appstore:detail')}?id={{appId}}" class="appImg"><img src="__PUBLIC__/uploads/{{icon}}"/> </a>
+            <span>
+                <h3 class="font_yh"><a href="{:U('Appstore:detail')}?id={{appId}}" title="{{description}}">{{name}}</a>
+                </h3>
+                <div class="show">
+                    <p class='score' title="{{avgRating}}分"><em style="width:{{avgRating}}%;"></em></p>
+                    <ins>{{downloadCount}}次下载</ins>
+                </div>
+                <a href="javascript:;" id="{{appId}}" pn="{{packageName}}" class="pos_ts_bt hide">推送到TV</a>
+            </span>
+        </li>
+        {{/subjectAppList}}
+    </script>
+    <script id="ztXq_template" type="text/template">
+        <dt>
+            <img src="__PUBLIC__/uploads/{{picture}}"/>
+        </dt>
+        <dd>
+            <h2 class="font_yh">{{name}}</h2>
+
+            <p class="font_yh">{{description}}</p>
+            <span>更新日期： {{updateTime}}</span>
+        </dd>
+    </script>
+</block>

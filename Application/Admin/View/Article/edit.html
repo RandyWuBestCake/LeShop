@@ -1,0 +1,125 @@
+<extend name="Product/add"/>
+<block name="con">
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <div id="mws-wrapper">
+
+        <!-- Necessary markup, do not remove -->
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+
+            <!-- Inner Container Start -->
+            <div class="container">
+                <block name="con">
+                    <div class="mws-panel grid_8">
+                        <div class="mws-panel-header">
+                            <span>文章修改</span>
+                        </div>
+                        <div class="mws-panel-body no-padding">
+                            <form action="{:U('Article/updete')}" class="mws-form" method="post"
+                                  enctype="multipart/form-data">
+                                <div class="mws-form-inline">
+                                    <div class="mws-form-row" style="width:300px">
+                                        <label class="mws-form-label">所属分类</label>
+
+                                        <div class="mws-form-item clearfix">
+                                            <select class="large" name="cid">
+                                                <foreach name="cates" item="vo">
+                                                    <option value="{$vo['id']}"
+                                                    <equal name="arts['cid']" value="$vo['id']">selected="selected"
+                                                    </equal>
+                                                    >{$vo['name']}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="tags" style="display:none">
+                                        <div class="mws-form-row" style="width:300px">
+                                            <label class="mws-form-label">选择标签</label>
+
+                                            <div class="mws-form-item clearfix">
+                                                <select class="large" name="tags">
+                                                    <foreach name="tags" item="value">
+                                                        <option value="{$value['id']}"
+                                                        <equal name="arts['tags']" value="$value['id']">
+                                                            selected="selected"
+                                                        </equal>
+                                                        >{$value['tag']}</option>
+                                                    </foreach>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row img" style="display:none">
+                                        <label class="mws-form-label">主图</label>
+
+                                        <div class="mws-form-item">
+                                            <eq name="arts['img']" value="">无
+                                                <else/>
+                                                <img src="__ROOT__/{$arts['img']}" width="100" height="30"></eq>
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row img" style="display:none">
+                                        <label class="mws-form-label">修改主图</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="file" class="small" name="img">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">标题</label>
+
+                                        <div class="mws-form-item">
+                                            <input type="text" class="small" name="title" value="{$arts['title']}">
+                                        </div>
+                                    </div>
+                                    <div class="mws-form-row">
+                                        <label class="mws-form-label">内容</label>
+
+                                        <div class="mws-form-item">
+                                            <script id="editor" type="text/plain" style="width:1024px;height:500px;"
+                                                    name="con">{$arts['con']}
+                                            </script>
+
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        var ue = UE.getEditor('editor', {
+                                            initialFrameWidth: 500,
+                                            initialFrameHeight: 350,
+                                        });
+                                    </script>
+
+
+                                </div>
+                                <div class="mws-button-row">
+                                    <input type="hidden" name="id" value="{$arts['id']}">
+                                    <input type="submit" class="btn btn-danger" value="点击添加">
+                                    <input type="reset" class="btn " value="重置">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+                    <script>
+                        //判断分类下拉列表中如果值为看一看（6）就显示标签下拉列表
+
+                        if ($('select:first').val() == 6) {
+                            $('.tags').show();
+                            $('.img').show();
+                        }
+
+                    </script>
+                    <!-- Panels End -->
+                </block>
+
+            </div>
+            <!-- Inner Container End -->
+
+
+        </div>
+        <!-- Main Container End -->
+
+    </div>
+</block>

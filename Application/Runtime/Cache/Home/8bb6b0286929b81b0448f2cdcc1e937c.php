@@ -1,0 +1,182 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>乐视商城用户注册界面</title>
+    <link rel="stylesheet" type="text/css" href="/object/Public/homelogin/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/object/Public/homelogin/css/body.css"/>
+</head>
+<body>
+<div class="container">
+    <section id="content">
+        <img src="/object/Public/homelogin/images/logo.jpg" alt="	"/>
+
+        <form action="<?php echo U('Register/adduser');?>" method="post">
+
+
+            <h1>欢迎注册</h1>
+
+            <div>
+                <input type="text" placeholder="用户名" required="" id="username" name="username"/>
+                <span id='a'></span>
+            </div>
+            <span id='b'></span>
+
+            <div>
+                <input type="password" placeholder="密码" required="" id="password" name="pwd"/>
+                <span id='c'></span>
+            </div>
+            <span id='d'></span>
+
+            <div>
+                <input type="password" placeholder="确认密码" required="" id="password" name="repwd"/>
+                <span id='e'></span>
+            </div>
+            <span id='f'></span>
+
+            <div>
+                <input type="text" placeholder="验证码" required="" id="code" name="code"/>
+                <span id='g'></span>
+            </div>
+            <span id='h'></span>
+
+
+            <div class="">
+                <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span></div>
+            <div>
+
+                <input type="submit" value="立即注册" class="btn btn-primary" id="js-btn-login"/>
+                <img src="<?php echo U('Register/verify');?>" alt="" onclick="this.src=this.src+'?a=1'" style="cursor:pointer"
+                     title='看不清?点我换一张'>
+                <a href="<?php echo U('Login/index');?>" style="text-decoration:none">已有账号?立即登录</a>
+
+            </div>
+        </form>
+        <div class="button">
+            <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
+            <a href="#">亲，注册有惊喜哟。</a>
+        </div>
+    </section>
+</div>
+<!-- container -->
+
+
+<br><br><br><br>
+
+<div style="text-align:center;">
+
+</div>
+</body>
+
+<script type="text/javascript" src="/object/Public/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    var usernamelock = false;
+    var pwdlock = false;
+    var repwdlock = false;
+    var codelock = false;
+    //用户名验证
+    //用户名获取焦点提示用户名输入规则
+    $('input[name="username"]').click(function () {
+        $('#b').css({color: 'purple', fontSize: '13px'}).html('请输入6~16位数字,字母,下划线');
+    });
+    //用户名丧失焦点进行用户正则验证
+    $('input[name="username"]').blur(function () {
+        var username = $('input[name="username"]').val();
+        var reg = /^[\w]{6,16}$/;
+        var result = reg.test(username);
+        if (!result) {
+            $('#a').html('');
+            $('#b').css('color', 'red').html('请输入正确格式的用户名!');
+            usernamelock = false;
+        } else {
+            //正则验证成功后进行ajax用户名验证
+            $.get('<?php echo U('Register/ajaxuser');?>', {'username': username}, function (msg) {
+                if (msg) {
+                    $('#a').html('');
+                    $('#b').html('该用户已被注册!');
+                    $('#b').css('color', 'red');
+                    usernamelock = false;
+                } else {
+                    $('#b').html('');
+                    $('#a').html('√');
+                    $('#a').css({color: 'green', fontSize: '25px'});
+                    usernamelock = true;
+                }
+            }
+        )
+
+        }
+    });
+
+    //密码验证
+    $('input[name="pwd"]').click(function () {
+        $('#d').css({color: 'purple', fontSize: '13px'}).html('请输入6~18位数字,字母,下划线');
+    });
+    $('input[name="pwd"]').blur(function () {
+        var pwd = $('input[name="pwd"]').val();
+        var reg = /^[\w]{6,18}$/;
+        var result = reg.test(pwd);
+        if (!result) {
+            $('#c').html('');
+            $('#d').css('color', 'red').html('请输入正确格式的密码!');
+            pwdlock = false;
+        } else {
+            $('#d').html('');
+            $('#c').html('√');
+            $('#c').css({color: 'green', fontSize: '25px'});
+            pwdlock = true;
+        }
+    });
+
+    //确认密码验证
+    $('input[name="repwd"]').click(function () {
+        $('#f').css({color: 'purple', fontSize: '13px'}).html('请再次输入密码');
+    });
+    $('input[name="repwd"]').blur(function () {
+        if (($('input[name="repwd"]').val() == $('input[name="pwd"]').val()) && $('input[name="pwd"]').val()) {
+            $('#f').html('');
+            $('#e').html('√');
+            $('#e').css({color: 'green', fontSize: '25px'});
+            repwdlock = true;
+        } else {
+            $('#e').html('');
+            $('#f').css('color', 'red').html('您两次密码不一致!');
+            repwdlock = false;
+        }
+    });
+
+    //验证码验证
+    //获取焦点显示提示信息
+    $('input[name="code"]').click(function () {
+        $('#h').css({color: 'purple', fontSize: '13px'}).html('请输入验证码,可点击验证码更换哟');
+    });
+    //失去焦点进行ajax验证
+    $('input[name="code"]').blur(function () {
+        var code = $('input[name="code"]').val();
+        $.get('<?php echo U("Register/check_verify");?>', {code: code}, function (msg) {
+            if (msg) {
+                $('#h').html('');
+                $('#g').html('√');
+                $('#g').css({color: 'green', fontSize: '25px'});
+                codelock = true;
+            } else {
+                $('#g').html('');
+                $('#h').html('验证码有误');
+                $('#h').css({color: 'red', fontSize: '13px'});
+                codelock = false;
+            }
+        })
+    })
+
+    //表单提交验证
+    $("form").submit(function () {
+        if (usernamelock && pwdlock && repwdlock && codelock) {
+            return true;
+        } else {
+            return false;
+        }
+
+    });
+</script>
+</html>

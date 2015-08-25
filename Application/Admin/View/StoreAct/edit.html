@@ -1,0 +1,59 @@
+<extend name="User:add"/>
+<block name="title">
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/date/My97DatePicker/WdatePicker.js"></script>
+    <title>资源活动修改</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>资源活动修改</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('StoreAct:doEdit')}" class="mws-form" method="post" enctype="multipart/form-data">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">活动标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="title" value="{$act['title']}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">活动图片</label>
+
+                        <div class="mws-form-item small">
+                            <input type="file" class="medium" name="img"> 推荐尺寸 375X160px
+                            <img src="__PUBLIC__/uploads/{$act['img']}" width="375px">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">活动简介</label>
+
+                        <div class="mws-form-item">
+                            <textarea name="desc" class="medium">{$act['desc']}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">创建时间</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium Wdate" name="time"
+                                   value="{:date('Y-m-d',$act['create_time'])}" onClick="WdatePicker()">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="hidden" name="id" value="{$act['id']}">
+                    <input type="submit" class="btn btn-primary" value="修改">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

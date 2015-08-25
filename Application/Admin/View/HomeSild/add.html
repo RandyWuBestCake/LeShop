@@ -1,0 +1,80 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>首页轮播</title>
+</block>
+<block name="con">
+
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>首页轮播 sild</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('StoreHome:sildDoAdd')}" class="mws-form" method="post" enctype=multipart/form-data>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="title">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">连接地址</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="url">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">选择图片</label>
+
+                        <div class="mws-form-item small">
+                            <input type="file" class="medium" name="img"> 商城首页 推荐尺寸 1920X526<br>appStore 页面推荐尺寸
+                            1286X483px
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">排列顺序(从大到小)</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="level">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">是否显示</label>
+
+                        <div class="mws-form-item">
+                            <input type="radio" name="display" value="1" checked="checked"> 显示
+                            <input type="radio" name="display" value='0'> 隐藏
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">所属位置</label>
+
+                        <div class="mws-form-item">
+                            <select name="position">
+                                <foreach name="sild" item="vo" key="k">
+                                    <option value="{$k}">{$vo}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="submit" class="btn btn-primary" value="保存">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

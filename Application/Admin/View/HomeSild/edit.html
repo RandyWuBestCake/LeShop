@@ -1,0 +1,80 @@
+<extend name="User:add"/>
+<block name="title">
+    <title>修改</title>
+</block>
+<block name="con">
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>修改选项</span>
+        </div>
+        <div class="mws-panel-body no-padding">
+            <form action="{:U('HomeSild:doedit')}" class="mws-form" method="post" enctype=multipart/form-data>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">标题</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="title" value="{$row['title']}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">连接地址</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="url" value="{$row['url']}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">选择图标</label>
+
+                        <div class="mws-form-item small">
+                            <img width="100px" src="__PUBLIC__/Uploads/{$row['img']}">
+                            <input type="file" class="medium" name="img"> 推荐尺寸 1286X483px
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">排列顺序(从大到小)</label>
+
+                        <div class="mws-form-item">
+                            <input type="text" class="medium" name="level" value="{$row['level']}">
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">是否显示</label>
+
+                        <div class="mws-form-item">
+                            <input type="radio" name="display" value="1" {$row['display']?'checked="checked"':''}> 显示
+                            <input type="radio" name="display" value='0' {$row['display']?'':'checked="checked"'}> 隐藏
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">所属位置</label>
+
+                        <div class="mws-form-item">
+                            <select name="position">
+                                <foreach name="sild" item="vo" key="k">
+                                    <option value="{$k}" {$k==$row['position']?"selected":""}>{$vo}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mws-button-row">
+                    <input type="hidden" name='id' value="{$row['id']}">
+                    <input type="submit" class="btn btn-primary" value="保存">
+                    <input type="reset" class="btn btn-danger" value="重置">
+                </div>
+            </form>
+        </div>
+    </div>
+</block>

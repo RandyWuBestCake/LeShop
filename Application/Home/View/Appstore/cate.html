@@ -1,0 +1,90 @@
+﻿<extend name="index"/>
+<block name="head">
+    <link href="__PUBLIC__/Content/main-yu.css" rel="stylesheet">
+    <script type="text/javascript">
+        var cateApp = '{:U("appstore:cateApp",array("order"=>"dcount","categoryId"=>$cid))}';
+        var zrApp = '{:U("appstore:cateApp",array("order"=>"dcount","categoryId"=>$cid))}';
+        var zxApp = '{:U("appstore:cateApp",array("order"=>"create_time","categoryId"=>$cid))}';
+        var hpApp = '{:U("appstore:cateApp",array("order"=>"ccount","categoryId"=>$cid))}';
+        var zrtApp = '{:U("appstore:cateApp",array("order"=>"dcount","tagId"=>$tid))}';
+        var zxtApp = '{:U("appstore:cateApp",array("order"=>"create_time","tagId"=>$tid))}';
+        var hptApp = '{:U("appstore:cateApp",array("order"=>"ccount","tagId"=>$tid))}';
+        var cateName = '{$cateName?$cateName:"无此分类"}';
+    </script>
+</block>
+
+<block name="con">
+    <body class="classBg">
+    <div id="mainBox">
+        <h2 class="lm_title margt10" id="playerM">
+            <span class="font_yh"></span>
+            <ul class="right_tab font_yh">
+                <li class="tab_on" id="zrApp">最热</li>
+                <li id="zxApp">最新</li>
+                <li id="hpApp">好评</li>
+            </ul>
+        </h2>
+        <div class="app_list_er">
+            <ul>
+
+            </ul>
+            <div id="pageBox" class="clear"></div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <a href="javascript:;" id="goTop"></a>
+    <script src="__PUBLIC__/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="__PUBLIC__/Scripts/appajaxpage.js"></script>
+    <script src="__PUBLIC__/Scripts/mustache.js"></script>
+    <script src="__PUBLIC__/Scripts/search.js"></script>
+    <script src="__PUBLIC__/Scripts/gotop.js"></script>
+    <script src="__PUBLIC__/Scripts/appclass.js"></script>
+    </body>
+    </html>
+    <script id="appClassList_template" type="text/template">
+        {{#categoryAppList}}
+        <li>
+            <a href="{:U('Appstore:detail')}?id={{appId}}" class="appImg"><img src="__PUBLIC__/uploads/{{icon}}"/> </a>
+        <span>
+            <h3 class="font_yh"><a href="{:U('Appstore:detail')}?id={{appId}}">{{name}}</a></h3>
+            <div class="show">
+                <p class='score' title="{{avgRating}}分"><em style="width:{{avgRating}}%;"></em></p>
+                <ins>{{downloadCount}}次下载</ins>
+            </div>
+            <a href="javascript:;" id="{{appId}}" pn="{{packageName}}" class="pos_ts_bt hide">推送到TV</a>
+        </span>
+        </li>
+        {{/categoryAppList}}
+    </script>
+    <script id="tagAppClassList_template" type="text/template">
+        {{#operatingAppList}}
+        <li>
+            <a href="{:U('Appstore:detail')}?id={{appId}}" class="appImg"><img src="__PUBLIC__/uploads/{{icon}}"/> </a>
+        <span>
+            <h3 class="font_yh"><a href="{:U('Appstore:detail')}?id={{appId}}">{{name}}</a></h3>
+            <div class="show">
+                <p class='score' title="{{avgRating}}分"><em style="width:{{avgRating}}%;"></em></p>
+                <ins>{{downloadCount}}次下载</ins>
+            </div>
+            <a href="javascript:;" id="{{appId}}" pn="{{packageName}}" class="pos_ts_bt hide">推送到TV</a>
+        </span>
+        </li>
+        {{/operatingAppList}}
+    </script>
+    <script id="searchAppClassList_template" type="text/template">
+        {{#searchResults}}
+        <li>
+            <a href="{:U('Appstore:detail')}?id={{appId}}" class="appImg"><img src="__PUBLIC__/uploads/{{icon}}"/> </a>
+        <span>
+            <h3 class="font_yh"><a href="{:U('Appstore:detail')}?id={{appId}}">{{name}}</a></h3>
+            <div class="show">
+                <p class='score' title="{{avgRating}}分"><em style="width:{{avgRating}}%;"></em></p>
+                <ins>{{downloadCount}}次下载</ins>
+            </div>
+            <a href="javascript:;" id="{{appId}}" pn="{{packageName}}" class="pos_ts_bt hide">推送到TV</a>
+        </span>
+        </li>
+        {{/searchResults}}
+    </script>
+</block>

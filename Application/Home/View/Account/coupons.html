@@ -1,0 +1,287 @@
+<extend name="Helpself/index"/>
+<block name="css">
+    <link type='text/css' href='__PUBLIC__/css/Content/global.css?v=20150115' rel='stylesheet'/>
+    <!-- <link type='text/css' href='__PUBLIC__/css/fonts/icomoon/style.css' rel='stylesheet'/> -->
+    <!-- <link type='text/css' href='__PUBLIC__/css/mws-theme.css' rel='stylesheet'/> -->
+    <link type='text/css' href='__PUBLIC__/bootstrap/css/bootstrap.min.css' rel='stylesheet'/>
+    <link type='text/css' href='__PUBLIC__/css/mws-style.css' rel='stylesheet'/>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/generateSession.js?v=20140616'></script>-->
+    <script type='text/javascript' src='__PUBLIC__/js/jquery-1.8.3.min.js?v=20140616'></script>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/template.js?v=20140221'></script>-->
+    <link type='text/css' href='__PUBLIC__/css/Content/user.css?v=20141121' rel='stylesheet'/>
+    <!--<script type='text/javascript' src='__PUBLIC__/js/Scripts/usercenterAddr.js?v=20141215'></script>-->
+    <script>
+        var addres_url = ' {:U("Account/addressAjax")}';
+        var ssq = ' {:U("Account/ssqAjax")}';
+        var dodel_url = ' {:U("Account/dodel")}';
+    </script>
+</block>
+<block name="main">
+    <div class="main_body center">
+        <div class="crumb">
+            <div class="left">
+                <a target="_blank" href="/"><span class="dark font14"><strong>首页</strong> </span></a>
+                <span class="font14"> &gt; </span>
+                <span class="font14">收货地址</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="user_category_new left f8_bg pb20">
+            <dl>
+                <dt class="title dark font18 pt10 pb10">交易管理</dt>
+                <dd>
+                    <a href="{:U("Account/order")}" target="_self">
+                    <span class="font14">我的订单</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">我的预约信息</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">我的快捷支付</span>
+                    </a>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt class="title dark font18 pt20 pb10">客户服务</dt>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">退货/换货</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">取消退款查询</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">安装/维修</span>
+                    </a>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt class="title dark font18 pt20 pb10">账户信息</dt>
+                <dd>
+                    <a href="{:U('Account:personalInfo')}" target="_self">
+                        <span class="font14">个人信息</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a class="on" href="{:U('Account:address')}" target="_self">
+                        <span class="font14">收货地址</span>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="{:U('Account:coupons')}" target="_self">
+                        <span class="font14">我的优惠劵</span>
+                    </a>
+                </dd>
+            </dl>
+            <dl>
+                <dt class="title dark font18 pt20 pb10"> 个人应用管理</dt>
+                <dd>
+                    <a href="#" target="_self">
+                        <span class="font14">商品评价/晒单</span>
+                    </a>
+                </dd>
+                <dd class="title dark font18 pt20 pb10 "><a class="onward" href="#">分享邀请赢大奖</a>
+                </dd>
+            </dl>
+        </div>
+        <div>
+        <div class="user_main right">
+        <div class="title line_b pb5">
+         <div class="right"><a onclick="bindCoupon();" class="red_bt_m block t_c"><span class="white font14">绑定优惠券</span></a></div>
+         <div class="left"><span class="font18 dark">我的优惠劵</span></div>
+          <div class="left pl0 font12">
+                <a webtrekkparam="{ct:'YHJ_zxzx'}" href="http://sighttp.qq.com/authd?IDKEY=a142370095eb0d0cbd1af92f011f8a41016d37efb68a3e7f" target="_blank" class="block left bt_oline_service">
+                    <span class="font12">在线咨询</span>
+                </a>
+            </div>
+         <div class="clear"></div>
+       </div>
+       
+        <div class="user_coupon_list p20">
+        <div class="pb20 line_b">
+        <div class="coupon_list_title font14 hand" id="notUsedDiv">未使用<span class=""></span></div><!--在coupon_list_title后面加上pack_up箭头就是收起状态-->
+            <div class="couponDiv" id="notUsedCoupon" style="display: block;">
+                <div class="pt20">
+                    <span class="font14 gray">
+                        <table width="90%">
+                            <if condition="count($nuRows) neq 0" >
+                                <tr>
+                                    <td>活动分类</td>
+                                    <td>活动内容</td>
+                                    <td>到期时间</td>
+                                    <td>使用状况</td>
+                                    <td>优惠码(双击复制)</td>
+                                    <td>订单号码</td>
+                                </tr>
+                                <foreach name="nuRows" item="vo" key="k">
+                                <tr>
+                                    <td>{$vo['title']}</td>
+                                    <td>{$vo['con']}</td>
+                                    <td>{$vo['expire_time']|date="Y-m-d",###}</td>
+                                    <td>{$vo['is_used']?"已使用":"未使用"}</td>
+                                    <td class="secret" data={$vo['secret']}>{$vo['secret']}</td>
+                                    <td>{$vo['order_id']}</td>
+                                </tr>
+                                </foreach>
+                                <tr>
+                                    <!-- <td colspan="6">{$page}</td> -->
+                                </tr>
+                            <else />
+                                没有未使用优惠卷信息
+                            </if>
+                        </table>
+                    </span>
+                </div>
+            </div>       
+        </div>
+          
+        <div class="pb20 line_b">
+        <div class="coupon_list_title font14 pt20 hand pack_up" id="notBindedDiv">未绑定<span class=""></span></div>
+        <div class="couponDiv" id="notBindedCoupon" style="display: none;">
+            
+        </div>       
+        </div>
+          
+        <div class="pb20 line_b">
+        <div class="coupon_list_title font14 pt20 hand pack_up" id="usedDiv">已使用<span class=""></span></div>
+        <div class="couponDiv" id="usedCoupon" style="display: none;">
+        <div class="pt20">
+                    <span class="font14 gray">
+                        <table width="90%">
+                            <if condition="count($uRows) neq 0" >
+                                <tr>
+                                    <td>活动分类</td>
+                                    <td>活动内容</td>
+                                    <td>到期时间</td>
+                                    <td>使用状况</td>
+                                    <td>优惠码(双击复制)</td>
+                                    <td>订单号码</td>
+                                </tr>
+                                <foreach name="uRows" item="vo" key="k">
+                                <tr>
+                                    <td>{$vo['title']}</td>
+                                    <td>{$vo['con']}</td>
+                                    <td>{$vo['expire_time']|date="Y-m-d",###}</td>
+                                    <td>{$vo['is_used']?"已使用":"未使用"}</td>
+                                    <td class="secret" data={$vo['secret']}>{$vo['secret']}</td>
+                                    <td>{$vo['order_id']}</td>
+                                </tr>
+                                </foreach>
+                                <tr>
+                                    <!-- <td colspan="6">{$page}</td> -->
+                                </tr>
+                            <else />
+                                没有已使用优惠卷信息
+                            </if>
+                        </table>
+                    </span>
+                </div>
+        </div>       
+        </div>
+          
+        <div class="pb20 line_b">
+        <div class="coupon_list_title font14 pt20 hand pack_up" id="afterDateDiv">已过期<span class=""></span></div>
+        <div class="couponDiv" id="afterDateCoupon" style="display: none;">
+            <div class="pt20">
+                    <span class="font14 gray">
+                        <table width="90%">
+                            <if condition="count($expRows) neq 0" >
+                                <tr>
+                                    <td>活动分类</td>
+                                    <td>活动内容</td>
+                                    <td>到期时间</td>
+                                    <td>使用状况</td>
+                                    <td>优惠码(双击复制)</td>
+                                    <td>订单号码</td>
+                                </tr>
+                                <foreach name="expRows" item="vo" key="k">
+                                <tr>
+                                    <td>{$vo['title']}</td>
+                                    <td>{$vo['con']}</td>
+                                    <td>{$vo['expire_time']|date="Y-m-d",###}</td>
+                                    <td>{$vo['is_used']?"已使用":"未使用"}</td>
+                                    <td class="secret" data={$vo['secret']}>{$vo['secret']}</td>
+                                    <td>{$vo['order_id']}</td>
+                                </tr>
+                                </foreach>
+                                <tr>
+                                    <!-- <td colspan="6">{$page}</td> -->
+                                </tr>
+                            <else />
+                                没有过期优惠卷信息
+                            </if>
+                        </table>
+                    </span>
+                </div>
+        </div>       
+        </div>
+       </div>
+    </div>
+</div>
+<div style="width:1349px;height:1513px;*background: #000000;display:none" class="wjPop" id="shadeLayer"></div>
+<div class="wjPop" id="wjPop-body" style="left: 329.5px; position: fixed; top: 100px; opacity: 1;display:none"><div id="userNewCoupon" class="pop_box hidden pop_coupon" style="display: block;"><div class="coupon box_big"><div class="tit"><div class="left pl20"><span class="font14 dark">绑定优惠券</span></div><div class="right pr20"><a id="wjPop-close"><span class="font22">×</span></a></div><div class="clear"></div></div><div class="content"><div class="track_tit font14">优惠券必须绑定后才能使用；一旦绑定，该优惠券仅能通过该账号下单时使用</div><div class="pt20 font14"><span class="dark pr10">输入优惠劵号：</span><input type="text" maxlength="20" class="input" id="coupons_id" placeholder="请输入您的优惠劵号" wjvalidconfirm="false" style="border-color: red;"><span id="bindError" class="font14 red hidden pl10">请正确输入优惠劵号</span><span id="coupons_idEmptyError" class="font14 red hidden pl10" style="display: inline;">请输入您的优惠劵号</span></div><div class="pt30 pb10 t_c"><a onclick="return false;" href="javascript:void(0)" class="red_bt_m block_center" id="active"><span class="white">绑  定</span></a></div></div></div></div></div>
+</block>
+<block name="mjsblock">
+   <script type="text/javascript">
+
+        $(".pb20").click(function(){
+            $(".couponDiv").hide();
+            $(this).find('.couponDiv').show();
+        });
+
+        //优惠码区域双击复制
+        $(".secret").dblclick(function() {
+            $(this).html("<input type='text' value='"+$(this).attr('data')+"'>");
+            $(this).find("input").select();
+            $(".secret").find("input").blur(function() {
+                $(this).parents('td').html($(this).parents('td').attr('data'));
+            });
+        });
+
+        // 弹出绑定优惠券模态框
+        function bindCoupon(){
+            $(".wjPop").show();            
+        }  
+
+        // 关闭绑定优惠卷模态框
+        $("#wjPop-close").click(function() {
+                $(".wjPop").hide();
+        });
+
+        //绑定优惠卷
+        $("#active").click(function(){
+            //获取用户输入的验证码
+            var code = $("#coupons_id").val();
+            //简单判断验证码个数
+            if(code.length!=12 && code.length!=16){
+                alert("优惠码输入有误");
+                return false;
+            }
+            //ajax 后台请求
+            $.post("{:U('Account/bindCoupon')}",{code:code},function(msg){
+                if(msg==0){
+                    alert("绑定成功");
+                    window.location.reload();
+                }else if(msg==1){
+                    alert("请先登录");
+                }else if(msg==2){
+                    alert("您输入的优惠码不存在,或已被绑定,请核实后重新绑定");
+                }else if(msg==3){
+                    alert("绑定失败,请稍后再试");
+                }else{
+                    alert("未知错误");
+                }
+            });
+        });
+   </script>
+</block>
